@@ -10,7 +10,7 @@
   --font-bold: 700;
 
   /*----- Colores -----*/
-  --dark-color: #222831;
+  --dark-color: #191d24;
   --dark-color-light: #393e46;
   --dark-color-lighten: #eaeaea;
   --white-color: #eee;
@@ -183,16 +183,217 @@ img {
 /*Change color header*/
 
 /*----- HOME -----*/
+.home {
+  background-color: var(--dark-color-lighten);
+  overflow: hidden;
+}
+
+.home_container {
+  height: calc(100vh - var(--header-height));
+}
+
+.home_sneaker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.home_shape {
+  width: 220px;
+  height: 220px;
+  background-color: var(--dark-color);
+  border-radius: 50%;
+}
+
+.home_img {
+  position: absolute;
+  top: 1.5rem;
+  max-width: initial;
+  width: 275px;
+  transform: var(--rotate-img);
+}
+
+.home_new {
+  display: block;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: var(--mb-2);
+}
+
+.home_title {
+  font-size: var(--bigger-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.home_description {
+  margin-bottom: var(--mb-6);
+}
 
 /*BUTTONS*/
+/* -----Home----- */
+.button {
+  display: inline-block;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 1.125rem 2rem;
+  font-weight: var(--font-medium);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--dark-color-light);
+  transform: translateY(-0.5rem);
+}
+
+.button-light {
+  display: inline-flex;
+  color: var(--white-color);
+  background-color: var(--dark-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: var(--font-bold);
+  align-items: center;
+  transition: 0.3s;
+}
+
+.button-icon {
+  font-size: 1.25rem;
+  margin-left: var(--mb-1);
+  transition: 0.3s;
+}
+
+.button-light:hover {
+  transform: translateY(-0.25rem);
+}
 
 /*----- FEATURED -----*/
+.featured_container {
+  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.sneaker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--dark-color-lighten);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.sneaker_sale {
+  position: absolute;
+  left: 1rem;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: var(--h2-font-size);
+  letter-spacing: 0.1rem;
+}
+
+.sneaker_img {
+  width: 220px;
+  margin-top: var(--mb-3);
+  margin-bottom: var(--mb-6);
+  transform: var(--rotate-img);
+  filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.3));
+}
+
+.sneaker_name,
+.sneaker_price {
+  font-size: var(--h2-font-size);
+  letter-spacing: 0.1rem;
+  font-weight: var(--font-bold);
+}
+
+.sneaker_name {
+  margin-bottom: var(--mb-1);
+}
+
+.sneaker_price {
+  margin-bottom: var(--mb-4);
+}
+
+.sneaker:hover {
+  transform: translateY(-0.5rem);
+}
 
 /*----- COLLECTION -----*/
+.collection_container {
+  row-gap: 2rem;
+  justify-content: center;
+}
+
+.collection_card {
+  position: relative;
+  display: flex;
+  height: 328px;
+  background-color: var(--dark-color-lighten);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.collection_data {
+  align-self: flex-end;
+}
+
+.collection_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 230px;
+}
+
+.collection_name {
+  font-size: var(--bigger-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.collection_description {
+  margin-bottom: var(--mb-2);
+}
+
+.collection_card:hover {
+  transform: translateY(-0.5rem);
+}
 
 /*----- WOMEN SNEAKERS -----*/
+.women_container {
+  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
 
 /*----- OFFER -----*/
+.offer_container {
+  grid-template-columns: 55% 45%;
+  column-gap: 0;
+  background-color: var(--dark-color-lighten);
+  border-radius: 0.5rem;
+  justify-content: center;
+}
+
+.offer_data {
+  padding: 4rem 0 4rem 1.5rem;
+}
+
+.offer_title {
+  font-size: var(--biggest-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.offer_description {
+  margin-bottom: var(--mb-3);
+}
+
+.offer_img {
+  width: 153px;
+}
 
 /*----- NEW COLLECTION  -----*/
 
