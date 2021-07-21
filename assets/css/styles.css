@@ -1,0 +1,203 @@
+/*----- GOOGLE FONTS -----*/
+@import url("https://fonts.googleapis.com/css2?family-Poppins:wght@400;500;600;700&display-swap");
+/*----- VARIABLES CSS -----*/
+:root {
+  --header-height: 3rem;
+
+  /*----- Font weight -----*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*----- Colores -----*/
+  --dark-color: #222831;
+  --dark-color-light: #393e46;
+  --dark-color-lighten: #eaeaea;
+  --white-color: #eee;
+
+  /*----- Font and typography -----*/
+  --body-font: "Poppins", sans-serif;
+  --big-font-size: 1.2rem;
+  --bigger-font-size: 1.5rem;
+  --biggest-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.813rem;
+
+  /*----- Margenes -----*/
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /*----- z index -----*/
+  --z-fixed: 100;
+
+  /*----- Rotate img -----*/
+  --rotate-img: rotate(-30deg);
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --big-font-size: 1.5rem;
+    --bigger-font-size: 2rem;
+    --biggest-font-size: 3rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: 0.875rem;
+  }
+}
+
+/*----- BASE -----*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*----- CLASS CSS ----- */
+.section {
+  padding: 5rem 0 2rem;
+}
+
+.section-title {
+  position: relative;
+  font-size: var(--big-font-size);
+  margin: var(--mb-4);
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 0.18rem;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--dark-color);
+}
+
+/*----- LAYOUT -----*/
+.bd-grid {
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 100%;
+  column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--dark-color-lighten);
+}
+
+/*----- NAV -----*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav_menu {
+    position: fixed;
+    top: var(--header-height);
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    padding: 2rem;
+    background-color: var(--white-color);
+    transition: 0.5s;
+  }
+}
+
+.nav_item {
+  margin-bottom: var(--mb-4);
+}
+
+.nav_logo {
+  font-weight: var(--font-semi-bold);
+}
+
+.nav_toggle,
+.nav_shop {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/*Show menu*/
+.show {
+  left: 0;
+}
+
+/*Active link*/
+
+/*Change color header*/
+
+/*----- HOME -----*/
+
+/*BUTTONS*/
+
+/*----- FEATURED -----*/
+
+/*----- COLLECTION -----*/
+
+/*----- WOMEN SNEAKERS -----*/
+
+/*----- OFFER -----*/
+
+/*----- NEW COLLECTION  -----*/
+
+/*----- NEWSLETTER -----*/
+
+/*----- FOOTER -----*/
+
+/* ----- MEDIA QUERIES-----*/
