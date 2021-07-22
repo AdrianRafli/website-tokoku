@@ -324,6 +324,22 @@ img {
   transform: translateY(-0.5rem);
 }
 
+/*------ Shop -------*/
+.sneaker_pages {
+  margin-top: var(--mb-6);
+}
+
+.sneaker_pag {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--dark-color);
+  transition: 0.3s;
+}
+
+.sneaker_pag:hover {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
+
 /*----- COLLECTION -----*/
 .collection_container {
   row-gap: 2rem;
