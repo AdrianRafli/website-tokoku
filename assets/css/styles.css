@@ -489,6 +489,7 @@ img {
 
 .footer_title {
   font-size: var(--big-font-size);
+  margin-bottom: var(--mb-1);
 }
 
 .footer_link {
@@ -510,3 +511,123 @@ img {
 }
 
 /* ----- MEDIA QUERIES-----*/
+
+/* Tablet */
+
+@media only screen and (min-width: 576px) {
+  /* Collection */
+  .collection_container {
+    grid-template-columns: 415px;
+  }
+
+  .collection_img {
+    width: 260px;
+  }
+
+  /* Offer */
+  .offer_container {
+    grid-template-columns: max-content max-content;
+  }
+
+  .offer_data {
+    text-align: center;
+  }
+
+  /* New Collection */
+  .new_mens {
+    align-items: center;
+  }
+}
+
+/* Laptop & PC */
+
+@media only screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+
+  .section {
+    padding: 7rem 0 3rem;
+  }
+
+  .section-title::after {
+    width: 76px;
+  }
+
+  /* Navigation */
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav_menu {
+    margin-left: auto;
+  }
+
+  .nav_list {
+    display: flex;
+  }
+
+  .nav_item {
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+
+  .nav_toggle {
+    display: none;
+  }
+
+  /* Home */
+
+  .home_container {
+    height: 100vh;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home_sneaker {
+    order: 1;
+  }
+
+  .home_shape {
+    width: 376px;
+    height: 376px;
+  }
+
+  .home_img {
+    width: 470px;
+    top: 3.5rem;
+    right: 0;
+    left: -3rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home_container {
+    column-gap: 8rem;
+  }
+
+  .collection_container {
+    grid-template-columns: repeat(2, 415px);
+  }
+
+  .new_container {
+    grid-template-columns: max-content 1fr;
+  }
+
+  .new_mens {
+    align-items: initial;
+    justify-content: flex-end;
+    padding: 4rem 2rem;
+  }
+
+  .new_mens-img {
+    margin-bottom: var(--mb-6);
+  }
+}
