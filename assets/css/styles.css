@@ -129,6 +129,7 @@ img {
   margin-right: var(--mb-2);
 }
 
+/*------ Header -----*/
 .header {
   width: 100%;
   position: fixed;
@@ -396,9 +397,100 @@ img {
 }
 
 /*----- NEW COLLECTION  -----*/
+.new_container {
+  row-gap: 2rem;
+}
 
-/*----- NEWSLETTER -----*/
+.new_mens {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--dark-color-lighten);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.new_mens-img {
+  width: 276px;
+  margin-bottom: var(--mb-3);
+}
+
+.new_title {
+  font-size: var(--bigger-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.new_preci {
+  display: block;
+  margin-bottom: var(--mb-3);
+}
+
+.new_sneaker {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.new_sneaker-card {
+  position: relative;
+  padding: 3.5rem 1.5rem;
+  background-color: var(--dark-color-lighten);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.new_sneaker-img {
+  width: 220px;
+}
+
+.new_sneaker-overlay {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(138, 138, 138, 0.3);
+  transition: 0.3s;
+}
+
+.new_sneaker-card:hover .new_sneaker-overlay {
+  bottom: 0;
+}
 
 /*----- FOOTER -----*/
+.footer_container {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer_box {
+  margin-bottom: var(--mb-4);
+}
+
+.footer_title {
+  font-size: var(--big-font-size);
+}
+
+.footer_link {
+  display: block;
+  width: max-content;
+  margin-bottom: var(--mb-1);
+}
+
+.footer_social {
+  font-size: 1.5rem;
+  margin-right: 1.25rem;
+}
+
+.footer_copy {
+  padding-top: 3rem;
+  font-size: var(--smaller-font-size);
+  color: var(--dark-color-light);
+  text-align: center;
+}
 
 /* ----- MEDIA QUERIES-----*/
