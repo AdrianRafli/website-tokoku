@@ -12,8 +12,8 @@
   /*----- Colores -----*/
   --dark-color: #191d24;
   --dark-color-light: #393e46;
-  --dark-color-lighten: #eaeaea;
-  --white-color: #eee;
+  --dark-color-lighten: #eee;
+  --white-color: #fff;
 
   /*----- Font and typography -----*/
   --body-font: "Poppins", sans-serif;
@@ -137,6 +137,7 @@ img {
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--dark-color-lighten);
+  transition: 0.3s;
 }
 
 /*----- NAV -----*/
@@ -182,6 +183,11 @@ img {
 /*Active link*/
 
 /*Change color header*/
+.scroll-header {
+  background-color: var(--white-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
 
 /*----- HOME -----*/
 .home {
@@ -436,7 +442,7 @@ img {
   margin-bottom: 0.25rem;
 }
 
-.new_preci {
+.new_price {
   display: block;
   margin-bottom: var(--mb-3);
 }

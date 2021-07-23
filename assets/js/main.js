@@ -24,3 +24,12 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 
 /*===== CHANGE COLOR HEADER =====*/
+
+window.onscroll = () => {
+  const nav = document.getElementById("header");
+  if (this.scrollY >= 450) {
+    nav.classList.add("scroll-header");
+  } else {
+    nav.classList.remove("scroll-header");
+  }
+};
