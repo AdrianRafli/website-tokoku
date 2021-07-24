@@ -93,6 +93,21 @@ img {
   display: block;
 }
 
+/*---------- Img Layout------- */
+@media only screen and (min-width: 1024px) {
+  .laptop-1024 {
+    width: 230px;
+  }
+
+  .phone-1024 {
+    width: 150px;
+  }
+
+  .watch-1024 {
+    width: 230px;
+  }
+}
+
 /*----- CLASS CSS ----- */
 .section {
   padding: 5rem 0 2rem;
@@ -167,6 +182,7 @@ img {
 
 .nav_logo {
   font-weight: var(--font-semi-bold);
+  font-size: var(--big-font-size);
 }
 
 .nav_toggle,
@@ -275,6 +291,45 @@ img {
   transform: translateY(-0.25rem);
 }
 
+/*----- category -----*/
+.category_container {
+  row-gap: 2rem;
+  justify-content: center;
+}
+
+.category_card {
+  position: relative;
+  display: flex;
+  height: 328px;
+  background-color: var(--dark-color-lighten);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.category_data {
+  align-self: flex-end;
+}
+
+.category_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.category_name {
+  font-size: var(--bigger-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.category_description {
+  margin-bottom: var(--mb-2);
+}
+
+.category_card:hover {
+  transform: translateY(-0.5rem);
+}
+
 /*----- FEATURED -----*/
 .featured_container {
   row-gap: 2rem;
@@ -344,46 +399,6 @@ img {
 .sneaker_pag:hover {
   background-color: var(--dark-color);
   color: var(--white-color);
-}
-
-/*----- COLLECTION -----*/
-.collection_container {
-  row-gap: 2rem;
-  justify-content: center;
-}
-
-.collection_card {
-  position: relative;
-  display: flex;
-  height: 328px;
-  background-color: var(--dark-color-lighten);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  transition: 0.3s;
-}
-
-.collection_data {
-  align-self: flex-end;
-}
-
-.collection_img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 230px;
-}
-
-.collection_name {
-  font-size: var(--bigger-font-size);
-  margin-bottom: 0.25rem;
-}
-
-.collection_description {
-  margin-bottom: var(--mb-2);
-}
-
-.collection_card:hover {
-  transform: translateY(-0.5rem);
 }
 
 /*----- WOMEN SNEAKERS -----*/
@@ -521,13 +536,14 @@ img {
 /* Tablet */
 
 @media only screen and (min-width: 576px) {
-  /* Collection */
-  .collection_container {
+  /* category */
+  .category_container {
     grid-template-columns: 415px;
   }
 
-  .collection_img {
-    width: 260px;
+  .category_img {
+    margin-top: var(--mb-1);
+    margin-right: var(--mb-3);
   }
 
   /* Offer */
@@ -603,7 +619,7 @@ img {
 
   .home_img {
     width: 470px;
-    top: 3.5rem;
+    top: 0;
     right: 0;
     left: -3rem;
   }
@@ -619,8 +635,14 @@ img {
     column-gap: 8rem;
   }
 
-  .collection_container {
-    grid-template-columns: repeat(2, 415px);
+  .category_container {
+    row-gap: 2;
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .category_card {
+    width: 100%;
   }
 
   .new_container {
