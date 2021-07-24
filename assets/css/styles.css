@@ -95,15 +95,15 @@ img {
 
 /*---------- Img Layout------- */
 @media only screen and (min-width: 1024px) {
-  .laptop-1024 {
+  .laptop {
     width: 200px;
   }
 
-  .phone-1024 {
+  .phone {
     width: 130px;
   }
 
-  .watch-1024 {
+  .watch {
     width: 200px;
   }
 
@@ -238,7 +238,6 @@ img {
   top: 1.5rem;
   max-width: initial;
   width: 275px;
-  transform: var(--rotate-img);
 }
 
 .home_new {
@@ -432,6 +431,8 @@ img {
 }
 
 .offer_img {
+  margin-top: var(--mb-6);
+  margin-left: var(--mb-2);
   width: 153px;
 }
 
@@ -449,8 +450,13 @@ img {
   padding: 2rem;
 }
 
+.new_img {
+  margin-left: var(--mb-1);
+}
+
 .new_mens-img {
-  width: 276px;
+  width: 80px;
+  height: 100px;
   margin-bottom: var(--mb-3);
 }
 
@@ -493,8 +499,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.4s;
+}
+
+.new_product-card:hover {
   background-color: rgba(138, 138, 138, 0.3);
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .new_product-card:hover .new_product-overlay {
@@ -621,7 +631,7 @@ img {
 
   .home_img {
     width: 470px;
-    top: 0;
+    top: 1.5rem;
     right: 0;
     left: -3rem;
   }
