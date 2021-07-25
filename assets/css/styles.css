@@ -1,5 +1,5 @@
 /*----- GOOGLE FONTS -----*/
-@import url("https://fonts.googleapis.com/css2?family-Poppins:wght@400;500;600;700&display-swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 /*----- VARIABLES CSS -----*/
 :root {
   --header-height: 3rem;
@@ -101,6 +101,24 @@ img {
 
   .phone {
     width: 130px;
+  }
+
+  .watch {
+    width: 200px;
+  }
+
+  .product-layout {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .laptop {
+    width: 180px;
+  }
+
+  .phone {
+    width: 120px;
   }
 
   .watch {
@@ -433,7 +451,6 @@ img {
 .offer_img {
   margin-top: var(--mb-6);
   margin-left: var(--mb-2);
-  width: 153px;
 }
 
 /*----- NEW COLLECTION  -----*/
@@ -634,6 +651,14 @@ img {
     top: 1.5rem;
     right: 0;
     left: -3rem;
+  }
+
+  .product_name {
+    font-size: var(--normal-font-size);
+  }
+
+  .product_price {
+    font-size: var(--normal-font-size);
   }
 }
 
