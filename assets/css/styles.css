@@ -131,6 +131,14 @@ img {
 }
 
 /*----- CLASS CSS ----- */
+body a {
+  text-decoration: none;
+}
+
+body a:hover {
+  color: var(--white-color);
+}
+
 .section {
   padding: 5rem 0 2rem;
 }
@@ -167,44 +175,18 @@ img {
 }
 
 /*------ Header -----*/
-.header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: var(--z-fixed);
+.navbar {
   background-color: var(--dark-color-lighten);
-  transition: 0.3s;
-}
-
-/*----- NAV -----*/
-.nav {
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .nav_menu {
-    position: fixed;
-    top: var(--header-height);
-    left: -100%;
-    width: 70%;
-    height: 100vh;
-    padding: 2rem;
-    background-color: var(--white-color);
-    transition: 0.5s;
-  }
 }
 
 .nav_item {
   margin-bottom: var(--mb-4);
 }
 
-.nav_logo {
+.navbar-brand {
   font-weight: var(--font-semi-bold);
-  font-size: var(--big-font-size);
+  font-size: var(--normal-font-size);
+  padding-right: 30px;
 }
 
 .nav_toggle,
@@ -221,7 +203,7 @@ img {
 /*Active link*/
 
 /*Change color header*/
-.scroll-header {
+.scroll-navbar {
   background-color: var(--white-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
@@ -229,6 +211,7 @@ img {
 
 /*----- HOME -----*/
 .home {
+  padding-top: 25px;
   background-color: var(--dark-color-lighten);
   overflow: hidden;
 }
@@ -334,8 +317,8 @@ img {
 
 .category_img {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 1.5rem;
 }
 
 .category_name {
@@ -542,6 +525,14 @@ img {
   margin-bottom: var(--mb-1);
 }
 
+.footer a {
+  color: var(--dark-color);
+}
+
+.footer a:hover {
+  color: var(--dark-color);
+}
+
 .footer_link {
   display: block;
   width: max-content;
@@ -568,11 +559,6 @@ img {
   /* category */
   .category_container {
     grid-template-columns: 415px;
-  }
-
-  .category_img {
-    margin-top: var(--mb-2);
-    margin-right: var(--mb-3);
   }
 
   /* Offer */
@@ -663,6 +649,10 @@ img {
 }
 
 @media only screen and (min-width: 1024px) {
+  .navbar {
+    padding: 100px;
+  }
+
   .bd-grid {
     margin-left: auto;
     margin-right: auto;
