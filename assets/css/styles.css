@@ -250,10 +250,12 @@ body a:hover {
 
 .home_title {
   font-size: var(--bigger-font-size);
+  font-weight: var(--font-bold);
   margin-bottom: var(--mb-1);
 }
 
 .home_description {
+  font-weight: var(--font-semi-bold);
   margin-bottom: var(--mb-6);
 }
 
