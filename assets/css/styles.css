@@ -93,43 +93,6 @@ img {
   display: block;
 }
 
-/*---------- Img Layout------- */
-@media only screen and (min-width: 1024px) {
-  .laptop {
-    width: 200px;
-  }
-
-  .phone {
-    width: 130px;
-  }
-
-  .watch {
-    width: 200px;
-  }
-
-  .product-layout {
-    height: 200px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .laptop {
-    width: 180px;
-  }
-
-  .phone {
-    width: 120px;
-  }
-
-  .watch {
-    width: 200px;
-  }
-
-  .product-layout {
-    height: 200px;
-  }
-}
-
 /*----- CLASS CSS ----- */
 body a {
   text-decoration: none;
@@ -145,7 +108,8 @@ body a:hover {
 
 .section-title {
   position: relative;
-  font-size: var(--big-font-size);
+  font-size: var(--bigger-font-size);
+  font-weight: var(--font-bold);
   margin: var(--mb-4);
   text-align: center;
   letter-spacing: 0.1rem;
@@ -189,10 +153,9 @@ body a:hover {
   padding-right: 30px;
 }
 
-.nav_toggle,
-.nav_shop {
-  font-size: 1.3rem;
-  cursor: pointer;
+.cart i {
+  font-size: var(--bigger-font-size);
+  color: var(--dark-color);
 }
 
 /*Show menu*/
@@ -293,6 +256,16 @@ body a:hover {
   transition: 0.3s;
 }
 
+.icon-brand {
+  color: var(--dark-color-light);
+  transition: 0.3s;
+}
+
+.icon-brand:hover {
+  color: var(--dark-color);
+  transform: translateY(-0.25rem);
+}
+
 .button-light:hover {
   transform: translateY(-0.25rem);
 }
@@ -347,10 +320,15 @@ body a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 264px;
   padding: 2rem;
   background-color: var(--dark-color-lighten);
   border-radius: 0.5rem;
   transition: 0.3s;
+}
+
+.product-home {
+  width: auto;
 }
 
 .product_sale {
@@ -405,7 +383,7 @@ body a:hover {
   color: var(--white-color);
 }
 
-/*----- best-seller productS -----*/
+/*----- best-seller products -----*/
 .best-seller_container {
   row-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -555,6 +533,51 @@ body a:hover {
 
 /* ----- MEDIA QUERIES-----*/
 
+/*---------- Img Layout------- */
+@media only screen and (min-width: 1024px) {
+  .laptop {
+    width: 200px;
+  }
+
+  .phone-home {
+    width: 80px;
+  }
+
+  .phone {
+    width: 130px;
+  }
+
+  .watch-home {
+    width: 200px;
+  }
+
+  .watch {
+    width: 100px;
+  }
+
+  .product-layout {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .laptop {
+    width: 180px;
+  }
+
+  .phone {
+    width: 120px;
+  }
+
+  .watch {
+    width: 200px;
+  }
+
+  .product-layout {
+    height: 200px;
+  }
+}
+
 /* Tablet */
 
 @media only screen and (min-width: 576px) {
@@ -643,13 +666,16 @@ body a:hover {
 
   .product_name {
     font-size: var(--normal-font-size);
+    font-weight: var(--font-semi-bold);
   }
 
   .product_price {
     font-size: var(--normal-font-size);
+    font-weight: var(--font-bold);
   }
 }
 
+/* ==== Laptop ==== */
 @media only screen and (min-width: 1024px) {
   .navbar {
     padding: 100px;
@@ -686,5 +712,70 @@ body a:hover {
 
   .new_mens-img {
     margin-bottom: var(--mb-6);
+  }
+
+  /* ============================ Product ================================ */
+  .products {
+    padding: 3em 0;
+  }
+
+  .row {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .products-left {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .brands {
+    width: 300px;
+    border: 1px solid var(--dark-color-light);
+  }
+  .brands h2 {
+    font-size: 1.5em;
+    color: var(--dark-color);
+    margin: 0;
+    padding: 0.5em;
+    background: var(--dark-color-lighten);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+
+  .list-brands {
+    padding: 2em;
+  }
+
+  .brands ul {
+    margin-left: 2em;
+  }
+
+  .brands ul li {
+    display: block;
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 1em;
+  }
+
+  .brands ul li a {
+    color: var(--dark-color-light);
+    text-decoration: none;
+  }
+
+  .brands ul li a:hover {
+    color: var(--dark-color);
+  }
+
+  .products-right {
+    padding: 0;
+    flex: 0 0 auto;
+    margin-left: 48px;
+  }
+
+  .product-laptop {
+    float: left;
+    margin: 0 15px 30px 15px;
   }
 }
