@@ -67,6 +67,7 @@ body {
   font-weight: var(--font-medium);
   color: var(--dark-color);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1,
@@ -731,7 +732,7 @@ body a:hover {
 
   .brands {
     width: 300px;
-    border: 1px solid var(--dark-color-light);
+    border: 2px solid var(--dark-color-light);
   }
   .brands h2 {
     font-size: 1.5em;
@@ -777,5 +778,54 @@ body a:hover {
   .product-laptop {
     float: left;
     margin: 0 15px 30px 15px;
+  }
+
+  /* ================================ DISPLAY PRODUCT ================================= */
+  .display-product {
+    margin: 0 50px 0 50px;
+    padding-top: 100px;
+    overflow: hidden;
+    height: calc(100vh - var(--header-height));
+  }
+
+  .border-image {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .image-product {
+    margin-top: 100px;
+    width: 500px;
+    height: auto;
+  }
+
+  .display-spec {
+    margin-top: 80px !important;
+  }
+
+  .display-product-name {
+    font-weight: var(--font-bold);
+    padding-bottom: 10px;
+  }
+
+  .product-description span {
+    font-weight: var(--font-semi-bold);
+  }
+
+  .display-product-price {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-weight: var(--font-semi-bold);
+  }
+
+  .display-product-price span {
+    font-size: 1.3rem;
+    padding-left: 10px;
+    text-decoration: line-through var(--dark-color);
+    color: var(--dark-color-light);
   }
 }
