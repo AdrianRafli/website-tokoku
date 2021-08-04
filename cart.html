@@ -33,12 +33,12 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="product-laptop.html">Laptop</a></li>
                 <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="#">Watch</a></li>
+                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex">
-            <a href="cart.html" class="cart"><i class="bx bxs-cart button-icon me-3"></i></a>
+            <a href="#" class="cart"><i class="bx bxs-cart button-icon me-3"></i></a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <button class="btn btn-outline-dark me-2" type="button">Login</button>
@@ -47,71 +47,62 @@
       </div>
     </nav>
 
-    <main class="main">
-      <section class="featured section" id="shop">
-        <h2 class="section-title">Watch</h2>
+    <main class="cart-page">
+      <div class="container">
+        <h2 class="jumlah-barang">Dalam Keranjangmu ada : () barang</h2>
 
-        <div class="products">
-          <div class="row">
-            <div class="col-3">
-              <div class="brands rounded">
-                <h2>Brands</h2>
-                <ul class="list-brands">
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Xiaomi</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Realme</i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <table class="table table-bordered" width="80">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Produk</th>
+              <th scope="col">Nama Produk</th>
+              <th scope="col">Jumlah</th>
+              <th scope="col">Harga Satuan</th>
+              <th scope="col">Hapus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>
+                <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="100px" height="100px" /></a>
+              </td>
+              <td>Asus ROG Flow X13 GV301</td>
+              <td>
+                <div class="quantity">
+                  <div class="quantity-select">
+                    <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+                  </div>
+                </div>
+              </td>
+              <td>Rp 10.000.000</td>
+              <td>
+                <div class="rem">
+                  <input type="submit" name="update" class="form-control" value="Update" \ />
+                  <input type="hidden" name="idproduknya" value="" \ />
+                  <input type="submit" name="hapus" class="form-control" value="Hapus" \ />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-            <div class="col-sm products-right">
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Watch/Mi Smart Band 5/Mi Smart Band 5.png" alt="Featured 1" class="product_img watch" />
-                </div>
-                <span class="product_name">Mi Smart Band 5</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Watch/Mi Watch/black.png" alt="Featured 1" class="product_img watch" />
-                </div>
-                <span class="product_name">Mi Watch</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Watch/Mi Watch Lite/navy blue.png" alt="Featured 1" class="product_img watch" />
-                </div>
-                <span class="product_name">Mi Watch Lite</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Watch/Realme Watch/Realme Watch.png" alt="Featured 1" class="product_img watch" />
-                </div>
-                <span class="product_name">Realme Watch</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Watch/Realme Watch Pro 2/Black.png" alt="Featured 1" class="product_img watch" style="width: 80px" />
-                </div>
-                <span class="product_name">Realme Watch Pro</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-            </div>
+        <div class="checkout-left">	
+          <div class="checkout-left-basket">
+            <h4>Total Harga</h4>
+            <ul>
+              <li>Asus ROG X13 Flow<i> - </i> <span>Rp 10.000.000</span></li>
+              <li>Total (inc. 10k Ongkir)<i> - </i> <span>Rp 10.010.000</span></li>
+            </ul>
           </div>
-        </div>
-      </section>
+          <div class="checkout-right-basket">
+            <a href="index.html" ><i class='bx bx-left-arrow-alt button-icon'></i>Continue Shopping</a>
+            <a href="#">Checkout<i class='bx bx-right-arrow-alt button-icon' ></i></a>
+          </div>
+
+
+      </div>
     </main>
 
     <!--===== FOOTER =====-->
