@@ -94,6 +94,11 @@ img {
   display: block;
 }
 
+hr {
+  color: var(--dark-color);
+  margin-top: 100px;
+}
+
 /*----- CLASS CSS ----- */
 body a {
   text-decoration: none;
@@ -905,10 +910,15 @@ body a:hover {
     border-radius: 10px;
   }
 
-  /* =========================== Cart Page ============================================ */
+  /* =========================== Cart & Checkout Page ============================================ */
   .cart-page {
     width: 100%;
     height: 100vh;
+    margin-top: 70px;
+  }
+
+  .checkout-page {
+    width: 100%;
     margin-top: 70px;
   }
 
@@ -921,7 +931,7 @@ body a:hover {
   .table th,
   .table td {
     vertical-align: middle;
-    font-size: 14px;
+    font-size: var(--normal-font-size);
     text-align: center;
     padding: 7px;
   }
@@ -934,6 +944,7 @@ body a:hover {
     position: relative;
   }
 
+  .cart-left-basket h4,
   .checkout-left-basket h4 {
     padding: 1em;
     background: var(--dark-color);
@@ -943,32 +954,36 @@ body a:hover {
     text-align: center;
     margin: 0 0 1em;
   }
+  .cart-left,
   .checkout-left {
-    margin: 2em 0 0;
+    margin-top: 4em;
   }
 
+  .cart-left-basket ul,
   .checkout-left-basket ul {
     padding: 0;
   }
 
+  .cart-left-basket ul li,
   .checkout-left-basket ul li {
     list-style-type: none;
     margin-bottom: 1em;
     font-size: 14px;
     color: #999;
   }
+  .cart-left-basket,
   .checkout-left-basket {
     float: left;
-    width: 25%;
+    width: 37%;
   }
-  .checkout-right-basket {
+  .cart-right-basket {
     float: right;
     margin: 8em 0 0 0em;
   }
-  .checkout-left-basket ul li span {
+  .cart-left-basket ul li span {
     float: right;
   }
-  .checkout-left-basket ul li:nth-child(5) {
+  .cart-left-basket ul li:nth-child(5) {
     font-size: 1em;
     color: var(--dark-color);
     font-weight: 600;
@@ -977,15 +992,48 @@ body a:hover {
     border-bottom: 1px solid #ddd;
     margin: 2em 0 0;
   }
-  .checkout-right-basket a {
+  .cart-right-basket a {
     padding: 10px 30px;
     color: #fff;
     font-size: 1em;
     background: var(--dark-color);
     text-decoration: none;
   }
-  .checkout-right-basket a span {
+  .cart-right-basket a span {
     left: -0.5em;
     top: 0.1em;
+  }
+
+  .konfirmasi {
+    font-size: var(--normal-font-size);
+    text-align: center;
+    margin: 350px 0 100px 0;
+  }
+
+  .payment {
+    margin-top: 50px;
+  }
+
+  .payment h4 {
+    text-align: center;
+  }
+
+  .payment-method {
+    padding: 5px;
+    margin: 50px 10px;
+    background-color: var(--dark-color-lighten);
+    border-radius: 10px;
+  }
+
+  .payment-method img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 100px;
+  }
+
+  .submit-checkout {
+    margin: 100px 0;
+    text-align: center;
   }
 }

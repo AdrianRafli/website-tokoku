@@ -46,84 +46,111 @@
       </div>
     </nav>
 
-    <main class="cart-page">
+    <main class="checkout-page">
       <div class="container">
-        <h2 class="jumlah-barang">Dalam Keranjangmu ada : () barang</h2>
+        <h2 class="jumlah-barang">Terima Kasih, Segera Lakukan Pembayaran</h2>
 
-        <table class="table table-bordered" width="80">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Produk</th>
-              <th scope="col">Nama Produk</th>
-              <th scope="col">Jumlah</th>
-              <th scope="col">Harga Satuan</th>
-              <th scope="col">Hapus</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>1</th>
-              <td>
-                <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="100px" height="100px" /></a>
-              </td>
-              <td>Asus ROG Flow X13 GV301</td>
-              <td>
-                <div class="quantity">
-                  <div class="quantity-select">
-                    <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+        <div class="chekcout">
+          <table class="table table-bordered" width="80">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Produk</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Harga Satuan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>
+                  <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="150px" height="150px" /></a>
+                </td>
+                <td>Asus ROG Flow X13 GV301</td>
+                <td>
+                  <div class="quantity">
+                    <div class="quantity-select">
+                      <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>Rp 10.000.000</td>
-              <td>
-                <div class="rem">
-                  <input type="submit" name="update" class="form-control" value="Update" \ />
-                  <input type="hidden" name="idproduknya" value="" \ />
-                  <input type="submit" name="hapus" class="form-control" value="Hapus" \ />
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>
-                <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="100px" height="100px" /></a>
-              </td>
-              <td>Asus ROG Flow X13 GV301</td>
-              <td>
-                <div class="quantity">
-                  <div class="quantity-select">
-                    <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+                </td>
+                <td>Rp 10.000.000</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>
+                  <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="150px" height="150px" /></a>
+                </td>
+                <td>Asus ROG Flow X13 GV301</td>
+                <td>
+                  <div class="quantity">
+                    <div class="quantity-select">
+                      <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>Rp 10.000.000</td>
-              <td>
-                <div class="rem">
-                  <input type="submit" name="update" class="form-control" value="Update" \ />
-                  <input type="hidden" name="idproduknya" value="" \ />
-                  <input type="submit" name="hapus" class="form-control" value="Hapus" \ />
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td>Rp 10.000.000</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <div class="cart-left">	
-          <div class="cart-left-basket">
-            <h4>Total Harga</h4>
-            <ul>
-              <li>Asus ROG X13 Flow<i> - </i> <span>Rp 10.000.000</span></li>
-              <li>Total (inc. 10k Ongkir)<i> - </i> <span>Rp 10.010.000</span></li>
-            </ul>
+          <div class="checkout-left">
+            <div class="checkout-left-basket" \>
+              <h4>Total Harga yang harus dibayar saat ini</h4>
+              <h1><input type="text" value="Rp 10.010.000" disabled \ /></h1>
+            </div>
+            <div class="checkout-left-basket" style="margin-left: 200px">
+              <h4>Kode Order Anda</h4>
+              <h1><input type="text" value="16Xqampf0Km6U" disabled \ /></h1>
+            </div>
           </div>
-          <div class="cart-right-basket">
-            <a href="index.html" ><i class='bx bx-left-arrow-alt button-icon'></i>Continue Shopping</a>
-            <a href="checkout.html">Checkout<i class='bx bx-right-arrow-alt button-icon' ></i></a>
+        </div>
+
+        <div class="konfirmasi">
+          <hr />
+          <br />
+          <h5>Total harga yang tertera di atas sudah termasuk ongkos kirim sebesar Rp10.000</h5>
+          <h5>Bila telah melakukan pembayaran, harap konfirmasikan pembayaran Anda.</h5>
+        </div>
+
+        <div class="payment row">
+          <div class="payment-method col">
+            <img src="assets/img/payment/bca.png" /><br />
+            <h4>
+              Bank BCA - 13131231231<br />
+              a/n. Tokoku
+            </h4>
           </div>
+          <div class="payment-method col">
+            <img src="assets/img/payment/dana.png" /><br />
+            <h4>
+              Dana - 13131231231<br />
+              a/n. Tokoku
+            </h4>
+          </div>
+          <div class="payment-method col">
+            <img src="assets/img/payment/gopay.png" /><br />
+            <h4>
+              Gopay - 13131231231<br />
+              a/n. Tokoku
+            </h4>
+          </div>
+        </div>
+
+        <div class="submit-checkout">
+          <hr />
+          <br />
+          <h5 class="pb-4">
+            Orderan anda Akan Segera kami proses 1x24 Jam Setelah Anda Melakukan Pembayaran ke ATM kami dan menyertakan informasi pribadi yang melakukan pembayaran seperti Nama Pemilik Rekening / Sumber Dana, Tanggal Pembayaran, Metode
+            Pembayaran dan Jumlah Bayar.
+          </h5>
+
+          <form action="" method="post">
+            <input type="submit" class="form-control btn btn-success" value="I Agree and Check Out" />
+          </form>
+        </div>
       </div>
-
-      <div class="clearfix"></div>
     </main>
 
     <!--===== FOOTER =====-->
