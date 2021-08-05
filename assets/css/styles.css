@@ -159,7 +159,7 @@ body a:hover {
   padding-right: 30px;
 }
 
-.cart i {
+.nav-icon i {
   font-size: var(--bigger-font-size);
   color: var(--dark-color);
 }
@@ -168,8 +168,6 @@ body a:hover {
 .show {
   left: 0;
 }
-
-/*Active link*/
 
 /*Change color header*/
 .scroll-navbar {
@@ -913,7 +911,6 @@ body a:hover {
   /* =========================== Cart & Checkout Page ============================================ */
   .cart-page {
     width: 100%;
-    height: 100vh;
     margin-top: 70px;
   }
 
@@ -948,7 +945,7 @@ body a:hover {
   .checkout-left-basket h4 {
     padding: 1em;
     background: var(--dark-color);
-    font-size: 1.1em;
+    font-size: 1em;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
