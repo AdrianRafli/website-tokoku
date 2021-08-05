@@ -1,9 +1,12 @@
 /*===== CHANGE COLOR HEADER =====*/
-window.onscroll = () => {
-  const nav = document.getElementById("navbar");
-  if (this.scrollY >= 450) {
-    nav.classList.add("scroll-navbar");
+function changeBg() {
+  const navbar = document.getElementById("navbar");
+  let scrollValue = window.scrollY;
+  if (scrollValue < 410) {
+    navbar.classList.remove("scroll-navbar");
   } else {
-    nav.classList.remove("scroll-navbar");
+    navbar.classList.add("scroll-navbar");
   }
-};
+}
+
+window.addEventListener("scroll", changeBg);

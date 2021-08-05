@@ -696,7 +696,6 @@ body a:hover {
   }
 
   .category_container {
-    row-gap: 2;
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
