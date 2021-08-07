@@ -800,9 +800,25 @@ body a:hover {
     align-self: center;
   }
 
-  .image-product {
+  .image-product-laptop {
     margin-top: 100px;
     width: 500px;
+    height: auto;
+  }
+
+  .image-product-phone {
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: auto;
+  }
+
+  .image-product-watch {
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
     height: auto;
   }
 

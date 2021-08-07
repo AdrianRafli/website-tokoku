@@ -1,5 +1,8 @@
 <?php 
   include "dbconnect.php";
+
+  $idk = $_GET['idkategori'];
+  $idp = $_GET['idproduk'];
 ?>
 
 
@@ -41,7 +44,7 @@
                   $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
                   while($p=mysqli_fetch_array($kat)) :
                 ?>
-                <li><a class="dropdown-item" href="kategori.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
                 <?php endwhile; ?>
               </ul>
             </li>
@@ -63,19 +66,59 @@
 
     <main class="main">
       <div class="display-product row">
-        <div class="border-product border border-2 rounded col-5">
-          <img src="" alt="" class="image-product" />
-        </div>
+        <?php
+         $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));
+         if ( $idk == 1 ) {
+        ?>
+          <div class="border-product border border-2 rounded col-5">
+            <img src="<?= $produk['gambar']?>" alt="" class="image-product-laptop" />
+          </div>
 
-        <div class="display-spec col-5 ms-5">
-          <h2 class="display-product-name"></h2>
-          <p class="product-description">
-            <span>Description :</span> <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste earum consectetur excepturi eveniet quod dicta obcaecati placeat at aliquam illum.
-          </p>
-          <h3 class="display-product-price">Rp 10.000.000 <span>Rp 15.000.000</span></h3>
-          <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
-        </div>
+          <div class="display-spec col-5 ms-5">
+            <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
+            <p class="product-description">
+              <span>Description :</span> <br />
+              <?= $produk["deskripsi"] ?>
+            </p>
+            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
+            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+          </div>
+        <?php
+         } else if ( $idk == 2 ) {
+        ?>
+          <div class="border-product border border-2 rounded col-5">
+            <img src="<?= $produk['gambar']?>" alt="" class="image-product-phone" />
+          </div>
+
+          <div class="display-spec col-5 ms-5">
+            <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
+            <p class="product-description">
+              <span>Description :</span> <br />
+              <?= $produk["deskripsi"] ?>
+            </p>
+            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
+            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+          </div>
+        <?php 
+          } else if ( $idk == 3 ) {
+        ?>
+          <div class="border-product border border-2 rounded col-5">
+            <img src="<?= $produk['gambar']?>" alt="" class="image-product-watch" />
+          </div>
+    
+          <div class="display-spec col-5 ms-5">
+            <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
+            <p class="product-description">
+              <span>Description :</span> <br />
+              <?= $produk["deskripsi"] ?>
+            </p>
+            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
+            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+          </div>  
+        <?php 
+          }
+        ?>
+
       </div>
     </main>
 

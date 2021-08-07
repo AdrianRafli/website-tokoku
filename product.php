@@ -95,11 +95,11 @@
               ?>
                 <article class="product product-laptop">
                   <div class="product-layout">
-                    <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img laptop" /></a>
+                    <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img laptop" /></a>
                   </div>
                   <span class="product_name"><?= $p["namaproduk"] ?></span>
                   <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
-                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                  <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
                 </article>
               <?php
                 endwhile;
@@ -108,11 +108,11 @@
               ?>
                 <article class="product product-laptop">
                   <div class="product-layout">
-                    <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img phone" /></a>
+                    <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img phone" /></a>
                   </div>
                   <span class="product_name"><?= $p["namaproduk"] ?></span>
                   <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
-                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                  <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
                 </article>
               <?php 
                 endwhile;
@@ -121,11 +121,11 @@
             ?>
               <article class="product product-laptop">
                 <div class="product-layout">
-                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img watch" /></a>
+                  <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img watch" /></a>
                 </div>
                 <span class="product_name"><?= $p["namaproduk"] ?></span>
                 <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
-                <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
               </article>
             <?php endwhile;
             }
