@@ -1,3 +1,9 @@
+<?php 
+  include "dbconnect.php";
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,9 +37,12 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Laptop</a></li>
-                <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
+                <?php 
+                  $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
+                  while($p=mysqli_fetch_array($kat)) :
+                ?>
+                <li><a class="dropdown-item" href="kategori.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
+                <?php endwhile; ?>
               </ul>
             </li>
           </ul>
@@ -55,11 +64,11 @@
     <main class="main">
       <div class="display-product row">
         <div class="border-product border border-2 rounded col-5">
-          <img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" alt="" class="image-product" />
+          <img src="" alt="" class="image-product" />
         </div>
 
         <div class="display-spec col-5 ms-5">
-          <h2 class="display-product-name">ASUS ROG FLOW X13 GV301</h2>
+          <h2 class="display-product-name"></h2>
           <p class="product-description">
             <span>Description :</span> <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste earum consectetur excepturi eveniet quod dicta obcaecati placeat at aliquam illum.

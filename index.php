@@ -1,3 +1,7 @@
+<?php 
+  include "dbconnect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,9 +35,12 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="product-laptop.html">Laptop</a></li>
-                <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
+              <?php 
+                  $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
+                  while($p=mysqli_fetch_array($kat)) :
+                ?>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
+                <?php endwhile; ?>
               </ul>
             </li>
           </ul>
@@ -122,7 +129,7 @@
             </div>
             <span class="product_name">ROG Flow 13</span>
             <span class="product_price">Rp 30.000.000</span>
-            <a href="display-product.html" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
 
           <article class="product product-home">

@@ -1,3 +1,9 @@
+<?php 
+  include 'dbconnect.php';
+
+  $idk = $_GET['idkategori'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,21 +25,24 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.html">Tokoku</a>
+        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.html">Home</a>
+              <a class="nav-link fs-6" href="index.php">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Laptop</a></li>
-                <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
+                <?php 
+                  $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
+                  while($p=mysqli_fetch_array($kat)) :
+                ?>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
+                <?php endwhile; ?>
               </ul>
             </li>
           </ul>
@@ -54,7 +63,7 @@
 
     <main class="main">
       <section class="featured section" id="shop">
-        <h2 class="section-title">Laptop</h2>
+        <h2 class="section-title">Produk</h2>
 
         <div class="products">
           <div class="row">
@@ -62,7 +71,7 @@
               <div class="brands rounded">
                 <h2>Brands</h2>
                 <ul class="list-brands">
-                  <li>
+                <li>
                     <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Acer</i></a>
                   </li>
                   <li>
@@ -76,54 +85,53 @@
             </div>
 
             <div class="col-sm products-right">
+              <?php 
+              	$brgs=mysqli_query($conn,"SELECT * from produk where idkategori='$idk' order by idproduk ASC");
+                $x = mysqli_num_rows($brgs);
+
+                if ( $x > 0 ) {
+                  if ( $idk == 1 ) {
+                  while($p=mysqli_fetch_array($brgs)) :
+              ?>
+                <article class="product product-laptop">
+                  <div class="product-layout">
+                    <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img laptop" /></a>
+                  </div>
+                  <span class="product_name"><?= $p["namaproduk"] ?></span>
+                  <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
+                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                </article>
+              <?php
+                endwhile;
+                } elseif ( $idk == 2 ) {
+                  while($p=mysqli_fetch_array($brgs)) :
+              ?>
+                <article class="product product-laptop">
+                  <div class="product-layout">
+                    <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img phone" /></a>
+                  </div>
+                  <span class="product_name"><?= $p["namaproduk"] ?></span>
+                  <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
+                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                </article>
+              <?php 
+                endwhile;
+              } elseif ( $idk == 3 ) {
+                while($p=mysqli_fetch_array($brgs)) :
+            ?>
               <article class="product product-laptop">
                 <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" alt="Featured 1" class="product_img laptop" />
+                  <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar']?>" alt="Gambar Produk" class="product_img watch" /></a>
                 </div>
-                <span class="product_name">ROG Flow 13</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                <span class="product_name"><?= $p["namaproduk"] ?></span>
+                <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
+                <a href="display-product.php?idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
               </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/ROG/ROG Zephyrus G14/ROG G14 Belakang.png" alt="Featured 1" class="product_img laptop" />
-                </div>
-                <span class="product_name">ROG Zephyrus G14</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/Zenbook/Zenbook 14 UX435/Zenbook 14 Belakang.png" alt="Featured 1" class="product_img laptop" />
-                </div>
-                <span class="product_name">Zenbook 14 UX435</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Belakang.png" alt="Featured 1" class="product_img laptop" />
-                </div>
-                <span class="product_name">Zenbook Pro Duo</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/Vivobook/VivoBook 14 (A413, 11th Gen Intel)/Vivobook 14 A413 Belakang.png" alt="Featured 1" class="product_img laptop" />
-                </div>
-                <span class="product_name">VivoBook 14 A413</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
-              <article class="product product-laptop">
-                <div class="product-layout">
-                  <img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 (M413 AMD Ryzen 5000 Series)/Vivobook 14 M413 Belakang.png" alt="Featured 1" class="product_img laptop" />
-                </div>
-                <span class="product_name">VivoBook 14 M413</span>
-                <span class="product_price">Rp 30.000.000</span>
-                <a href="#" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-              </article>
+            <?php endwhile;
+            }
+           } else {
+             echo "Data tidak Ditemukan";
+           } ?>
             </div>
           </div>
         </div>
