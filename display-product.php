@@ -1,8 +1,81 @@
-<?php 
+<?php
+  session_start();
   include "dbconnect.php";
 
   $idk = $_GET['idkategori'];
   $idp = $_GET['idproduk'];
+
+  if(isset($_POST['addprod'])){
+    
+    $ui = $_SESSION['id'];
+    $cek = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$ui' AND STATUS='Cart'");
+    $liat = mysqli_num_rows($cek);
+    $f = mysqli_fetch_array($cek);
+    $orid = $f['orderid'];
+          
+    //kalo ternyata udeh ada order id nya
+    if($liat>0){
+                
+      //cek barang serupa
+      $cekbrg = mysqli_query($conn,"SELECT * FROM detailorder WHERE idproduk='$idp' AND orderid='$orid'");
+      $liatlg = mysqli_num_rows($cekbrg);
+      $brpbanyak = mysqli_fetch_array($cekbrg);
+      $jmlh = $brpbanyak['qty'];
+                
+        //kalo ternyata barangnya ud ada
+        if($liatlg>0){
+        $i=1;
+        $baru = $jmlh + $i;
+                  
+          $updateaja = mysqli_query($conn,"UPDATE detailorder SET qty='$baru' WHERE orderid='$orid' AND idproduk='$idp'");
+                    
+            if($updateaja){
+              echo " <div class='alert alert-success'>
+                    Barang sudah pernah dimasukkan ke keranjang, jumlah akan ditambahkan
+                    </div>
+                    <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
+            } else {
+              echo "<div class='alert alert-warning'>
+                    Gagal menambahkan ke keranjang
+                    </div>
+                    <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
+                    }
+          } else {
+            $tambahdata = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$orid','$idp','1')");
+            if ($tambahdata){
+              echo " <div class='alert alert-success'>
+                    Berhasil menambahkan ke keranjang
+                    </div>
+                  <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
+            } else { 
+              echo "<div class='alert alert-warning'>
+                    Gagal menambahkan ke keranjang
+                    </div>
+                  <meta http-equiv='refresh' content='1; display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+            }
+        };
+    } else {
+      //kalo belom ada order id nya
+      $oi = crypt(rand(22,999),time());
+              
+      $bikincart = mysqli_query($conn,"INSERT INTO cart (orderid, userid) VALUES('$oi','$ui')");
+      if($bikincart){
+        $tambahuser = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$oi','$idp','1')");
+        if ($tambahuser){
+          echo " <div class='alert alert-success'>
+                  Berhasil menambahkan ke keranjang
+                  </div>
+                <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
+          } else { echo "<div class='alert alert-warning'>
+                  Gagal menambahkan ke keranjang
+                  </div>
+                 <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+          }
+      } else {
+        echo "gagal bikin cart";
+      }
+    }
+  }
 ?>
 
 
@@ -50,10 +123,10 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a href="daftar-order.html" class="nav-icon">
+            <a href="daftar-order.php" class="nav-icon">
               <i class="bx bx-history button-icon me-1"></i>
             </a>
-            <a href="cart.html" class="nav-icon">
+            <a href="cart.php" class="nav-icon">
               <i class="bx bxs-cart button-icon me-3"></i>
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -81,7 +154,12 @@
               <?= $produk["deskripsi"] ?>
             </p>
             <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+            <form action="" method="post">
+              <fieldset>
+                  <input type="hidden" name="idprod" value="<?php echo $idp ?>">
+                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
+                </fieldset>
+            </form>
           </div>
         <?php
          } else if ( $idk == 2 ) {
@@ -97,7 +175,12 @@
               <?= $produk["deskripsi"] ?>
             </p>
             <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+            <form action="" method="post">
+              <fieldset>
+                  <input type="hidden" name="idprod" value="<?= $idp ?>">
+                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
+                </fieldset>
+            </form>
           </div>
         <?php 
           } else if ( $idk == 3 ) {
@@ -113,7 +196,12 @@
               <?= $produk["deskripsi"] ?>
             </p>
             <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <a href="#" class="button-light">Add to Cart <i class="bx bxs-cart button-icon"></i></a>
+            <form action="" method="post">
+              <fieldset>
+                  <input type="hidden" name="idprod" value="<?php echo $idp ?>">
+                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
+                </fieldset>
+            </form>
           </div>  
         <?php 
           }

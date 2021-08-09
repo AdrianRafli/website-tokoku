@@ -23,7 +23,7 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.html">Tokoku</a>
+        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,15 +45,15 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a href="daftar-order.html" class="nav-icon">
+            <a href="daftar-order.php" class="nav-icon">
               <i class="bx bx-history button-icon me-1"></i>
             </a>
-            <a href="cart.html" class="nav-icon">
+            <a href="cart.php" class="nav-icon">
               <i class="bx bxs-cart button-icon me-3"></i>
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <a class="btn btn-outline-dark me-2" type="submit">Search</a>
-            <a href="login.html" class="btn btn-outline-dark me-2" type="button">Login</a>
+            <a href="login.php" class="btn btn-outline-dark me-2" type="button">Login</a>
           </form>
         </div>
       </div>
@@ -270,7 +270,7 @@
           <h3 class="footer_title ms-4">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="./product.html" class="footer_link">Product</a></li>
+            <li><a href="./product.php" class="footer_link">Product</a></li>
           </ul>
         </div>
 

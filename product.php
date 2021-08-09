@@ -1,4 +1,5 @@
-<?php 
+<?php
+  session_start();
   include 'dbconnect.php';
 
   $idk = $_GET['idkategori'];
@@ -47,10 +48,10 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a href="daftar-order.html" class="nav-icon">
+            <a href="daftar-order.php" class="nav-icon">
               <i class="bx bx-history button-icon me-1"></i>
             </a>
-            <a href="cart.html" class="nav-icon">
+            <a href="cart.php" class="nav-icon">
               <i class="bx bxs-cart button-icon me-3"></i>
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -71,7 +72,7 @@
               <div class="brands rounded">
                 <h2>Brands</h2>
                 <ul class="list-brands">
-                <li>
+                  <li>
                     <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Acer</i></a>
                   </li>
                   <li>
@@ -80,13 +81,22 @@
                   <li>
                     <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Lenovo</i></a>
                   </li>
+                  <li>
+                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Samsung</i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Xiaomi</i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Realme</i></a>
+                  </li>
                 </ul>
               </div>
             </div>
 
             <div class="col-sm products-right">
               <?php 
-              	$brgs=mysqli_query($conn,"SELECT * from produk where idkategori='$idk' order by idproduk ASC");
+              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' ORDER BY idkategori ASC");
                 $x = mysqli_num_rows($brgs);
 
                 if ( $x > 0 ) {

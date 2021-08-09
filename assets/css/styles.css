@@ -995,7 +995,7 @@ body a:hover {
   .cart-left-basket ul li span {
     float: right;
   }
-  .cart-left-basket ul li:nth-child(5) {
+  .cart-left-basket ul li:last-child {
     font-size: 1em;
     color: var(--dark-color);
     font-weight: 600;

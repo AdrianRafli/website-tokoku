@@ -1,3 +1,29 @@
+<?php
+  session_start();
+  include 'dbconnect.php';
+
+  $uid = $_SESSION['id'];
+	$caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND STATUS='Cart'");
+	$fetc = mysqli_fetch_array($caricart);
+	$orderidd = $fetc['orderid'];
+	$itungtrans = mysqli_query($conn,"SELECT count(detailid) AS jumlahtrans FROM detailorder WHERE orderid='$orderidd'");
+	$itungtrans2 = mysqli_fetch_assoc($itungtrans);
+	$itungtrans3 = $itungtrans2['jumlahtrans'];
+	
+  if(isset($_POST["checkout"])){
+    $q3 = mysqli_query($conn, "UPDATE cart SET STATUS='Payment' WHERE orderid='$orderidd'");
+    if($q3){
+      echo "Berhasil Check Out
+      <meta http-equiv='refresh' content='1; url= index.php'/>";
+    } else {
+      echo "Gagal Check Out
+      <meta http-equiv='refresh' content='1; url= index.php'/>";
+    }
+  } else {
+	
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,21 +45,24 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.html">Tokoku</a>
+        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.html">Home</a>
+              <a class="nav-link fs-6" href="index.php">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="product-laptop.html">Laptop</a></li>
-                <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
+                <?php 
+                    $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
+                    while($p=mysqli_fetch_array($kat)) :
+                  ?>
+                  <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
+                <?php endwhile; ?>
               </ul>
             </li>
           </ul>
@@ -48,7 +77,7 @@
 
     <main class="checkout-page">
       <div class="container">
-        <h2 class="jumlah-barang">Terima Kasih, Segera Lakukan Pembayaran</h2>
+        <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['name'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
 
         <div class="chekcout">
           <table class="table table-bordered" width="80">
@@ -62,47 +91,66 @@
               </tr>
             </thead>
             <tbody>
+              <?php 
+                $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
+                $no=1;
+                while($b=mysqli_fetch_array($brg)) :
+              ?>
               <tr>
-                <th>1</th>
+                <form action="" method="post">
+                <th><?php $no++ ?></th>
                 <td>
-                  <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" width="150px" height="150px" /></a>
+                  <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar'] ?>" width="150px" height="150px" /></a>
                 </td>
-                <td>Asus ROG Flow X13 GV301</td>
+                <td><?= $b['namaproduk'] ?></td>
                 <td>
                   <div class="quantity">
                     <div class="quantity-select">
-                      <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
+                      <h4><?= $b['qty'] ?></h4>
                     </div>
                   </div>
                 </td>
-                <td>Rp 10.000.000</td>
+                <td>Rp<?= number_format($b['hargaafter']*$b['qty']) ?></td>
+                </form>
               </tr>
-              <tr>
-                <th>2</th>
-                <td>
-                  <a href="display-product.html"><img src="assets/img/Laptop/Asus/ROG/ROG Zephyrus G14/ROG G14 Belakang.png" width="150px" height="150px" /></a>
-                </td>
-                <td>Asus ROG Zephyrus G14</td>
-                <td>
-                  <div class="quantity">
-                    <div class="quantity-select">
-                      <input type="number" name="jumlah" class="form-control" height="100px" value="1" \ />
-                    </div>
-                  </div>
-                </td>
-                <td>Rp 10.000.000</td>
-              </tr>
+              <?php endwhile; ?>
+              <!--quantity-->
+									<script>
+									$('.value-plus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+								<!--quantity-->
             </tbody>
           </table>
 
           <div class="checkout-left">
             <div class="checkout-left-basket" \>
               <h4>Total Harga yang harus dibayar saat ini</h4>
-              <h2><input type="text" value="Rp 10.010.000" disabled \ /></h2>
+              <ul>
+                <?php 
+                  $brg=mysqli_query($conn,"SELECT * from detailorder d, produk p where orderid='$orderidd' and d.idproduk=p.idproduk order by d.idproduk ASC");
+                  $no=1;
+                  $subtotal = 0;
+                  while($b=mysqli_fetch_array($brg)){
+                  $hrg = $b['hargaafter'];
+                  $qtyy = $b['qty'];
+                  $totalharga = $hrg * $qtyy;
+                  $subtotal += $totalharga;
+                  }
+                ?>
+                <h2><input type="text" value="Rp<?= number_format($subtotal) ?>" disabled \ /></h2>
+              </ul>
             </div>
             <div class="checkout-left-basket" style="margin-left: 200px">
               <h4>Kode Order Anda</h4>
-              <h2><input type="text" value="16Xqampf0Km6U" disabled \ /></h2>
+              <h2><input type="text" value="<?= $orderidd ?>" disabled \ /></h2>
             </div>
           </div>
         </div>
@@ -115,27 +163,18 @@
         </div>
 
         <div class="payment row">
+          <?php 
+            $metode = mysqli_query($conn,"SELECT * FROM pembayaran");
+            while($p=mysqli_fetch_array($metode)) :
+          ?>
           <div class="payment-method col">
-            <img src="assets/img/payment/bca.png" /><br />
+            <img src="<?= $p['logo'] ?>" /><br />
             <h4>
-              Bank BCA - 13131231231<br />
-              a/n. Tokoku
+              <?= $p['metode'] ?> - <?= $p['norek'] ?><br />
+              a/n. <?php echo $p['an'] ?>
             </h4>
           </div>
-          <div class="payment-method col">
-            <img src="assets/img/payment/dana.png" /><br />
-            <h4>
-              Dana - 13131231231<br />
-              a/n. Tokoku
-            </h4>
-          </div>
-          <div class="payment-method col">
-            <img src="assets/img/payment/gopay.png" /><br />
-            <h4>
-              Gopay - 13131231231<br />
-              a/n. Tokoku
-            </h4>
-          </div>
+          <?php endwhile; ?>
         </div>
 
         <div class="submit-checkout">
@@ -147,7 +186,7 @@
           </h5>
 
           <form action="" method="post">
-            <input type="submit" class="form-control btn btn-dark" value="I Agree and Check Out" />
+            <input type="submit" class="form-control btn btn-dark" name="checkout" value="I Agree and Check Out" />
           </form>
         </div>
       </div>

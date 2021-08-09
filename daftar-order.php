@@ -1,3 +1,38 @@
+<?php
+  session_start();
+  include 'dbconnect.php';
+
+  $uid = $_SESSION['id'];
+	$caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND STATUS='Cart'");
+	$fetc = mysqli_fetch_array($caricart);
+	$orderidd = $fetc['orderid'];
+	$itungtrans = mysqli_query($conn,"SELECT count(orderid) AS jumlahtrans FROM cart WHERE userid='$uid' AND STATUS!='Cart'");
+	$itungtrans2 = mysqli_fetch_assoc($itungtrans);
+	$itungtrans3 = $itungtrans2['jumlahtrans'];
+
+  if(isset($_POST["update"])){
+    $kode = $_POST['idproduknya'];
+    $jumlah = $_POST['jumlah'];
+    $q1 = mysqli_query($conn, "update detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
+    if($q1){
+      echo "Berhasil Update Cart
+      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+    } else {
+      echo "Gagal update cart
+      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+    }
+  } else if(isset($_POST["hapus"])){
+    $kode = $_POST['idproduknya'];
+    $q2 = mysqli_query($conn, "delete FROM detailorder where idproduk='$kode' and orderid='$orderidd'");
+    if($q2){
+      echo "Berhasil Hapus";
+    } else {
+      echo "Gagal Hapus";
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,26 +54,29 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.html">Tokoku</a>
+        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.html">Home</a>
+              <a class="nav-link fs-6" href="index.php">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="product-laptop.html">Laptop</a></li>
-                <li><a class="dropdown-item" href="product-phone.html">Phone</a></li>
-                <li><a class="dropdown-item" href="product-watch.html">Watch</a></li>
+                <?php 
+                  $kat=mysqli_query($conn,"SELECT * FROM kategori ORDER BY idkategori ASC");
+                  while($p=mysqli_fetch_array($kat)) :
+                ?>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
+                <?php endwhile; ?>
               </ul>
             </li>
           </ul>
           <form class="d-flex">
-            <a href="cart.html" class="nav-icon">
+            <a href="cart.php" class="nav-icon">
               <i class="bx bxs-cart button-icon me-3"></i>
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -51,7 +89,7 @@
 
     <main class="cart-page">
       <div class="container">
-        <h2 class="jumlah-barang">Kamu memiliki : 2 transaksi</h2>
+        <h2 class="jumlah-barang">Kamu memiliki <span><?=$itungtrans3 ?> transaksi</h2>
 
         <table class="table table-bordered" width="80">
           <thead class="table-dark">
@@ -64,29 +102,80 @@
             </tr>
           </thead>
           <tbody>
+            <?php 
+              $brg=mysqli_query($conn,"SELECT DISTINCT(idcart), c.orderid, tglorder, STATUS FROM cart c, detailorder d WHERE c.userid='$uid' AND d.orderid=c.orderid AND STATUS!='Cart' ORDER BY tglorder DESC");
+              $no=1;
+              while($b=mysqli_fetch_array($brg)):
+            ?>
             <tr>
-              <th>1</th>
-              <td>16Xqampf0Km6U</td>
-              <td>2021-07-31 12:29:36</td>
-              <td>Rp 20.010.000</td>
-              <td>
-                <div class="rem">
-                  <a href="#" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
-                </div>
-              </td>
+              <form action="" method="post">
+                <th><?= $no++ ?></th>
+                <td><?= $b['orderid'] ?></td>
+                <td><?= $b['tglorder'] ?></td>
+                <td>
+                  <?php 
+                    $ongkir = 10000;
+                    $ordid = $b['orderid'];
+                    $result1 = mysqli_query($conn,"SELECT SUM(qty*hargaafter)+$ongkir AS count FROM detailorder d, produk p WHERE d.orderid='$ordid' AND p.idproduk=d.idproduk ORDER BY d.idproduk ASC");
+                    $cekrow = mysqli_num_rows($result1);
+                    $row1 = mysqli_fetch_assoc($result1);
+                    $count = $row1['count'];
+                    if($cekrow > 0){
+                  ?>
+                    Rp <?= number_format($count); ?>
+                  <?php 
+                    } else {
+                      echo 'No data';
+                    }
+                  ?>
+                </td>
+                <td>
+                  <div class="rem">
+                    <?php 
+                      if($b['STATUS']=='Payment'){
+                        echo '
+                        <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
+                        ';}
+                        else if($b['status']=='Diproses'){
+                        echo 'Pesanan Diproses (Pembayaran Diterima)';
+                        }
+                        else if($b['status']=='Dikirim'){
+                          echo 'Pesanan Dikirim';
+                        } else if($b['status']=='Selesai'){
+                          echo 'Pesanan Selesai';
+                        } else if($b['status']=='Dibatalkan'){
+                          echo 'Pesanan Dibatalkan';
+                        } else {
+                          echo 'Konfirmasi diterima';
+                        }
+                    ?>
+                  </div>
+                  <script>$(document).ready(function(c) {
+                    $('.close1').on('click', function(c){
+                      $('.rem1').fadeOut('slow', function(c){
+                        $('.rem1').remove();
+                      });
+                      });	  
+                    });
+                  </script>
+                </td>
+              </form>
             </tr>
-            <tr>
-              <th>2</th>
-              <td>16Xqampf0Km6U</td>
-              <td>2021-07-31 12:29:36</td>
-              <td>Rp 20.010.000</td>
-              <td>
-                <div class="rem">
-                  <a href="#" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
-                </div>
-              </td>
-            </tr>
+            <?php endwhile; ?>
           </tbody>
+          <!--quantity-->
+						<script>
+							$('.value-plus').on('click', function(){
+							  var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+								divUpd.text(newVal);
+							});
+
+							$('.value-minus').on('click', function(){
+								var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+								if(newVal>=1) divUpd.text(newVal);
+							});
+						</script>
+					<!--quantity-->
         </table>
       <div class="clearfix"></div>
     </main>
