@@ -848,6 +848,10 @@ body a:hover {
     color: var(--dark-color-light);
   }
 
+  .alert {
+    margin-top: 20px;
+  }
+
   /* ===================================== LOGIN PAGE ============================== */
   .login-page {
     width: 100%;
@@ -886,6 +890,12 @@ body a:hover {
   .form input {
     width: 90%;
     margin-bottom: 10px;
+  }
+
+  .form select {
+    width: 90%;
+    color: var(--dark-color);
+    background-color: var(--white-color);
   }
 
   .remember label {
@@ -1047,5 +1057,16 @@ body a:hover {
   .submit-checkout {
     margin: 100px 0;
     text-align: center;
+  }
+
+  /* ============================== Konfirmasi Page ================================ */
+  .konfirmasi-page {
+    margin-top: 100px;
+    margin-left: 420px;
+    width: 500px;
+    height: 550px;
+    box-shadow: 5px 10px rgb(206, 206, 206);
+    background-color: #fbfbfb;
+    border-radius: 10px;
   }
 }

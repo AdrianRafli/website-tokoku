@@ -13,7 +13,7 @@
   if(isset($_POST["update"])){
     $kode = $_POST['idproduknya'];
     $jumlah = $_POST['jumlah'];
-    $q1 = mysqli_query($conn, "update detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
+    $q1 = mysqli_query($conn, "UPDATE detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
     if($q1){
       echo "Berhasil Update Cart
       <meta http-equiv='refresh' content='1; url= cart.php'/>";
@@ -23,7 +23,7 @@
     }
   } else if(isset($_POST["hapus"])){
     $kode = $_POST['idproduknya'];
-    $q2 = mysqli_query($conn, "delete FROM detailorder where idproduk='$kode' and orderid='$orderidd'");
+    $q2 = mysqli_query($conn, "DELETE FROM detailorder where idproduk='$kode' and orderid='$orderidd'");
     if($q2){
       echo "Berhasil Hapus";
     } else {
@@ -136,14 +136,14 @@
                         echo '
                         <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
                         ';}
-                        else if($b['status']=='Diproses'){
+                        else if($b['STATUS']=='Diproses'){
                         echo 'Pesanan Diproses (Pembayaran Diterima)';
                         }
-                        else if($b['status']=='Dikirim'){
+                        else if($b['STATUS']=='Dikirim'){
                           echo 'Pesanan Dikirim';
-                        } else if($b['status']=='Selesai'){
+                        } else if($b['STATUS']=='Selesai'){
                           echo 'Pesanan Selesai';
-                        } else if($b['status']=='Dibatalkan'){
+                        } else if($b['STATUS']=='Dibatalkan'){
                           echo 'Pesanan Dibatalkan';
                         } else {
                           echo 'Konfirmasi diterima';

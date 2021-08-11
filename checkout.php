@@ -13,10 +13,14 @@
   if(isset($_POST["checkout"])){
     $q3 = mysqli_query($conn, "UPDATE cart SET STATUS='Payment' WHERE orderid='$orderidd'");
     if($q3){
-      echo "Berhasil Check Out
+      echo "<div class='alert alert-success'>
+            Berhasil Check Out
+      </div>
       <meta http-equiv='refresh' content='1; url= index.php'/>";
     } else {
-      echo "Gagal Check Out
+      echo "<div class='alert alert-danger'>
+            Gagal Check Out
+      </div>
       <meta http-equiv='refresh' content='1; url= index.php'/>";
     }
   } else {
