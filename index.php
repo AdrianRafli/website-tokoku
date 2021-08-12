@@ -54,7 +54,13 @@
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <a class="btn btn-outline-dark me-2" type="submit">Search</a>
-            <a href="login.php" class="btn btn-outline-dark me-2" type="button">Login</a>
+            <?php 
+              if(isset($_SESSION['login'])) {
+                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              } else {
+                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+              }
+            ?>
           </form>
         </div>
       </div>

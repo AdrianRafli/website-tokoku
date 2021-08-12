@@ -24,7 +24,7 @@
   </head>
   <body>
     <!--===== HEADER =====-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar ">
       <div class="container-fluid">
         <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,13 @@
             </a>
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
-            <button class="btn btn-outline-dark me-2" type="button">Login</button>
+            <?php 
+              if(isset($_SESSION['login'])) {
+                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              } else {
+                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+              }
+            ?>
           </form>
         </div>
       </div>
@@ -186,7 +192,6 @@
     </footer>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

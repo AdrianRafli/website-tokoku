@@ -2,11 +2,10 @@
   session_start();
   include 'dbconnect.php';
 
-  // if(!isset($_SESSION['log'])){
-    
-  // } else {
-  //   header('location:index.php');
-  // };
+  if(isset($_SESSION['login'])){
+    header('location:index.php');
+    exit;
+  } 
   
   if (isset($_POST["login"])) {
     
@@ -19,7 +18,7 @@
       // cek password
       $row = mysqli_fetch_assoc($akun);
       if (password_verify($password, $row["password"])) {
-        $_SESSION['log'] = "Logged";
+        $_SESSION['login'] = true;
         header('location:index.php');
       } 
     }
