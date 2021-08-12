@@ -23,9 +23,7 @@
       </div>
       <meta http-equiv='refresh' content='1; url= index.php'/>";
     }
-  } else {
-	
-}
+  }
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +41,7 @@
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Tokoku | Laptop</title>
+    <title>Tokoku | Checkout</title>
   </head>
   <body>
     <!--===== HEADER =====-->
@@ -79,119 +77,121 @@
       </div>
     </nav>
 
-    <main class="checkout-page">
-      <div class="container">
-        <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['name'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
+    <main class="main">
+      <div class="checkout-page">
+        <div class="container">
+          <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['name'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
 
-        <div class="chekcout">
-          <table class="table table-bordered" width="80">
-            <thead class="table-dark">
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Produk</th>
-                <th scope="col">Nama Produk</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Harga Satuan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php 
-                $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
-                $no=1;
-                while($b=mysqli_fetch_array($brg)) :
-              ?>
-              <tr>
-                <form action="" method="post">
-                <th><?php $no++ ?></th>
-                <td>
-                  <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar'] ?>" width="150px" height="150px" /></a>
-                </td>
-                <td><?= $b['namaproduk'] ?></td>
-                <td>
-                  <div class="quantity">
-                    <div class="quantity-select">
-                      <h4><?= $b['qty'] ?></h4>
-                    </div>
-                  </div>
-                </td>
-                <td>Rp<?= number_format($b['hargaafter']*$b['qty']) ?></td>
-                </form>
-              </tr>
-              <?php endwhile; ?>
-              <!--quantity-->
-									<script>
-									$('.value-plus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
-
-									$('.value-minus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
-									</script>
-								<!--quantity-->
-            </tbody>
-          </table>
-
-          <div class="checkout-left">
-            <div class="checkout-left-basket" \>
-              <h4>Total Harga yang harus dibayar saat ini</h4>
-              <ul>
+          <div class="chekcout">
+            <table class="table table-bordered" width="80">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Produk</th>
+                  <th scope="col">Nama Produk</th>
+                  <th scope="col">Jumlah</th>
+                  <th scope="col">Harga Satuan</th>
+                </tr>
+              </thead>
+              <tbody>
                 <?php 
-                  $brg=mysqli_query($conn,"SELECT * from detailorder d, produk p where orderid='$orderidd' and d.idproduk=p.idproduk order by d.idproduk ASC");
+                  $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
                   $no=1;
-                  $subtotal = 0;
-                  while($b=mysqli_fetch_array($brg)){
-                  $hrg = $b['hargaafter'];
-                  $qtyy = $b['qty'];
-                  $totalharga = $hrg * $qtyy;
-                  $subtotal += $totalharga;
-                  }
+                  while($b=mysqli_fetch_array($brg)) :
                 ?>
-                <h2><input type="text" value="Rp<?= number_format($subtotal) ?>" disabled \ /></h2>
-              </ul>
-            </div>
-            <div class="checkout-left-basket" style="margin-left: 200px">
-              <h4>Kode Order Anda</h4>
-              <h2><input type="text" value="<?= $orderidd ?>" disabled \ /></h2>
+                <tr>
+                  <form action="" method="post">
+                  <th><?php $no++ ?></th>
+                  <td>
+                    <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar'] ?>" width="150px" height="150px" /></a>
+                  </td>
+                  <td><?= $b['namaproduk'] ?></td>
+                  <td>
+                    <div class="quantity">
+                      <div class="quantity-select">
+                        <h4><?= $b['qty'] ?></h4>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Rp<?= number_format($b['hargaafter']*$b['qty']) ?></td>
+                  </form>
+                </tr>
+                <?php endwhile; ?>
+                <!--quantity-->
+                    <script>
+                    $('.value-plus').on('click', function(){
+                      var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                      divUpd.text(newVal);
+                    });
+
+                    $('.value-minus').on('click', function(){
+                      var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                      if(newVal>=1) divUpd.text(newVal);
+                    });
+                    </script>
+                  <!--quantity-->
+              </tbody>
+            </table>
+
+            <div class="checkout-left">
+              <div class="checkout-left-basket" \>
+                <h4>Total Harga yang harus dibayar saat ini</h4>
+                <ul>
+                  <?php 
+                    $brg=mysqli_query($conn,"SELECT * from detailorder d, produk p where orderid='$orderidd' and d.idproduk=p.idproduk order by d.idproduk ASC");
+                    $no=1;
+                    $subtotal = 0;
+                    while($b=mysqli_fetch_array($brg)){
+                    $hrg = $b['hargaafter'];
+                    $qtyy = $b['qty'];
+                    $totalharga = $hrg * $qtyy;
+                    $subtotal += $totalharga;
+                    }
+                  ?>
+                  <h2><input type="text" value="Rp<?= number_format($subtotal) ?>" disabled \ /></h2>
+                </ul>
+              </div>
+              <div class="checkout-left-basket" style="margin-left: 200px">
+                <h4>Kode Order Anda</h4>
+                <h2><input type="text" value="<?= $orderidd ?>" disabled \ /></h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="konfirmasi">
-          <hr />
-          <br />
-          <h5>Total harga yang tertera di atas sudah termasuk ongkos kirim sebesar Rp10.000</h5>
-          <h5>Bila telah melakukan pembayaran, harap konfirmasikan pembayaran Anda.</h5>
-        </div>
-
-        <div class="payment row">
-          <?php 
-            $metode = mysqli_query($conn,"SELECT * FROM pembayaran");
-            while($p=mysqli_fetch_array($metode)) :
-          ?>
-          <div class="payment-method col">
-            <img src="<?= $p['logo'] ?>" /><br />
-            <h4>
-              <?= $p['metode'] ?> - <?= $p['norek'] ?><br />
-              a/n. <?php echo $p['an'] ?>
-            </h4>
+          <div class="konfirmasi">
+            <hr />
+            <br />
+            <h5>Total harga yang tertera di atas sudah termasuk ongkos kirim sebesar Rp10.000</h5>
+            <h5>Bila telah melakukan pembayaran, harap konfirmasikan pembayaran Anda.</h5>
           </div>
-          <?php endwhile; ?>
-        </div>
 
-        <div class="submit-checkout">
-          <hr />
-          <br />
-          <h5 class="pb-4">
-            Orderan anda Akan Segera kami proses 1x24 Jam Setelah Anda Melakukan Pembayaran ke ATM kami dan menyertakan informasi pribadi yang melakukan pembayaran seperti Nama Pemilik Rekening / Sumber Dana, Tanggal Pembayaran, Metode
-            Pembayaran dan Jumlah Bayar.
-          </h5>
+          <div class="payment row">
+            <?php 
+              $metode = mysqli_query($conn,"SELECT * FROM pembayaran");
+              while($p=mysqli_fetch_array($metode)) :
+            ?>
+            <div class="payment-method col">
+              <img src="<?= $p['logo'] ?>" /><br />
+              <h4>
+                <?= $p['metode'] ?> - <?= $p['norek'] ?><br />
+                a/n. <?php echo $p['an'] ?>
+              </h4>
+            </div>
+            <?php endwhile; ?>
+          </div>
 
-          <form action="" method="post">
-            <input type="submit" class="form-control btn btn-dark" name="checkout" value="I Agree and Check Out" />
-          </form>
+          <div class="submit-checkout">
+            <hr />
+            <br />
+            <h5 class="pb-4">
+              Orderan anda Akan Segera kami proses 1x24 Jam Setelah Anda Melakukan Pembayaran ke ATM kami dan menyertakan informasi pribadi yang melakukan pembayaran seperti Nama Pemilik Rekening / Sumber Dana, Tanggal Pembayaran, Metode
+              Pembayaran dan Jumlah Bayar.
+            </h5>
+
+            <form action="" method="post">
+              <input type="submit" class="form-control btn btn-dark" name="checkout" value="I Agree and Check Out" />
+            </form>
+          </div>
         </div>
       </div>
     </main>

@@ -1,3 +1,33 @@
+<?php 
+  session_start();
+  include 'dbconnect.php';
+
+  // if(!isset($_SESSION['log'])){
+    
+  // } else {
+  //   header('location:index.php');
+  // };
+  
+  if (isset($_POST["login"])) {
+    
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // pengecekkan akun
+    $akun = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    if (mysqli_num_rows($akun) === 1) {
+      // cek password
+      $row = mysqli_fetch_assoc($akun);
+      if (password_verify($password, $row["password"])) {
+        $_SESSION['log'] = "Logged";
+        header('location:index.php');
+      } 
+    }
+    $error = true;
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,28 +48,34 @@
   </head>
   <body>
     <div class="login-page">
+      <?php if (isset($error)) : ?>
+        <div class='alert alert-warning'>
+        Gagal Login, Mungkin Email atau Password Salah!
+        </div>
+        <meta http-equiv='refresh' content='1; url= login.php'/>
+      <?php endif; ?>
       <div class="login">
         <a href="javascript:history.back()"><i class="bx bx-left-arrow-alt icon"></i></a>
-        <h2 class="login-title">Welcome</h2>
+        <h2 class="login-title">Login</h2>
         <form action="" method="post">
           <ul>
             <li class="form">
-              <label for="username">Username</label>
-              <input type="text" name="username" id="username" />
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" required />
             </li>
             <li class="form">
               <label for="password">Password</label>
-              <input type="password" name="password" id="password" />
+              <input type="password" name="password" id="password" required />
             </li>
             <li class="remember">
               <input type="checkbox" name="remember" id="remember" />
               <label for="remember">Remember me</label>
             </li>
-            <li class="button-login">
-              <a type="submit" name="login" class="button-light" href="#">Login</a>
+            <li>
+            <input type="submit" name="login" class="button-light button-login" value="Login">
             </li>
             <li class="login-signup">
-              <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+              <p>Don't have an account? <a href="register.php">Sign Up</a></p>
             </li>
           </ul>
         </form>
