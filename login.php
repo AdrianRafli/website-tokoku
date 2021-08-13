@@ -2,6 +2,21 @@
   session_start();
   include 'dbconnect.php';
 
+  // cek cookie
+  if ( isset($_COOKIE['aidi']) && isset($_COOKIE['yusernem']) ) {
+    $id = $_COOKIE['aidi'];
+    $username = $_COOKIE['yusername'];
+
+    // ambil username berdasarkan id
+    $akun = mysqli_query($conn, "SELECT username FROM users WHERE userid ='$id'");
+    $row = mysqli_fetch_assoc($akun);
+
+    // cek cookie
+    if ($username === hash('sha256', $row['username'])) {
+      $_SESSION['login'] = true;
+    }
+  }
+
   if(isset($_SESSION['login'])){
     header('location:index.php');
     exit;
@@ -18,10 +33,20 @@
     if (mysqli_num_rows($akun) === 1) {
       // cek password
       if (password_verify($password, $row["password"])) {
+        // cek session
         $_SESSION['id'] = $row['userid'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['login'] = true;
+
+        // cek remember me
+        if (isset($_POST['remember'])) {
+          // buat cookie
+
+          setcookie('aidi', $row['userid'], time() + 60);
+          setcookie('yusernem', hash('sha256', $row['username']), time() + 60);
+        }
+
         header('location:index.php');
       } 
     }
