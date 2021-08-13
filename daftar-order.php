@@ -21,10 +21,10 @@
     $q1 = mysqli_query($conn, "UPDATE detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
     if($q1){
       echo "Berhasil Update Cart
-      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+      <meta http-equiv='refresh' content='2; url= cart.php'/>";
     } else {
       echo "Gagal update cart
-      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+      <meta http-equiv='refresh' content='2; url= cart.php'/>";
     }
   } else if(isset($_POST["hapus"])){
     $kode = $_POST['idproduknya'];

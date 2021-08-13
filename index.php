@@ -132,31 +132,31 @@
           <article class="product product-home">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
-              <a href="display-product.php?idproduk=1"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=7"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">ROG Flow 13</span>
             <span class="product_price">Rp 30.000.000</span>
-            <a href="display-product.php?idproduk=1" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=7" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
 
           <article class="product product-home">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
-              <a href="display-product.php?idproduk=4"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Zenbook Pro Duo</span>
             <span class="product_price">Rp 20.000.000</span>
-            <a href="display-product.php?idproduk=4" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=10" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
 
           <article class="product product-home">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
-              <a href="display-product.php?idproduk=8"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Vivobook 14</span>
             <span class="product_price">Rp 10.000.000</span>
-            <a href="display-product.php?idproduk=8" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=12" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
         </div>
       </section>
@@ -168,27 +168,27 @@
         <div class="best-seller_container bd-grid">
           <article class="product product-home">
             <div class="product-layout">
-              <a href="display-product.php?idproduk=30"><img src="assets/img/Laptop/Lenovo/Ideapad/Ideapad S340/Ideapad S340 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=13"><img src="assets/img/Laptop/Lenovo/Ideapad/Ideapad S340/Ideapad S340 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Ideapad S340</span>
             <span class="product_price">Rp 8.500.000</span>
-            <a href="display-product.php?idproduk=30" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=13" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
           <article class="product product-home">
             <div class="product-layout">
-              <a href="display-product.php?idproduk=8"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">VivoBook 14</span>
             <span class="product_price">Rp 10.500.000</span>
-            <a href="display-product.php?idproduk=8" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=12" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
           <article class="product product-home">
             <div class="product-layout">
-              <a href="display-product.php?idproduk=4"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Depan.png" alt="Featured 1" class="product_img laptop" /></a>
+              <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Zenbook Pro</span>
             <span class="product_price">Rp 18.500.000</span>
-            <a href="display-product.php?idproduk=4" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=1&idproduk=10" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
         </div>
       </section>
@@ -215,49 +215,49 @@
             <img src="assets/img/Watch/Mi Smart Band 5/Mi Smart Band 5.png" alt="New" class="new_img watch-home" />
             <h3 class="new_title">Mi Band 5</h3>
             <span class="new_price">Mulai dari Rp 800.000</span>
-            <a href="display-product.php?idproduk=15" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
+            <a href="display-product.php?idkategori=3&idproduk=25" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </div>
 
           <div class="new_product">
             <div class="new_product-card">
               <img src="assets/img/Watch/Realme Watch/Realme Watch.png" alt="New" class="new_mens-img watch" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=18" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=3&idproduk=29" class="button">Lihat Produk</a>
               </div>
             </div>
 
             <div class="new_product-card">
               <img src="assets/img/Watch/Realme Watch Pro 2/Black.png" alt="New" class="new_mens-img" width="70px" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=19" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=3&idproduk=28" class="button">Lihat Produk</a>
               </div>
             </div>
 
             <div class="new_product-card">
               <img src="assets/img/Phone/Xiaomi/Poco X3 Pro/Phantom Black.png" alt="New" class="new_mens-img phone-home" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=13" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=2&idproduk=23" class="button">Lihat Produk</a>
               </div>
             </div>
 
             <div class="new_product-card">
               <img src="assets/img/Phone/Xiaomi/MI 11 Ultra/Midnight Gray.png" alt="New" class="new_mens-img phone-home" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=12" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=2&idproduk=22" class="button">Lihat Produk</a>
               </div>
             </div>
 
             <div class="new_product-card">
               <img src="assets/img/Phone/Xiaomi/MI 11 Ultra/Horizon Blue.png" alt="New" class="new_mens-img phone-home" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=12" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=2&idproduk=22" class="button">Lihat Produk</a>
               </div>
             </div>
 
             <div class="new_product-card">
               <img src="assets/img/Phone/Xiaomi/Redmi Note 10 Pro/Glacier Blue.png" alt="New" class="new_mens-img phone-home" />
               <div class="new_product-overlay">
-                <a href="display-product.php?idproduk=14" class="button">Lihat Produk</a>
+                <a href="display-product.php?idkategori=2&idproduk=24" class="button">Lihat Produk</a>
               </div>
             </div>
           </div>

@@ -18,15 +18,15 @@
   if(isset($_POST["checkout"])){
     $q3 = mysqli_query($conn, "UPDATE cart SET STATUS='Payment' WHERE orderid='$orderidd'");
     if($q3){
-      echo "<div class='alert alert-success'>
+      echo "<div class='alert alert-success' style='position: fixed;'>
             Berhasil Check Out
       </div>
-      <meta http-equiv='refresh' content='1; url= index.php'/>";
+      <meta http-equiv='refresh' content='2; url= index.php'/>";
     } else {
-      echo "<div class='alert alert-danger'>
+      echo "<div class='alert alert-danger' style='position: fixed;'>
             Gagal Check Out
       </div>
-      <meta http-equiv='refresh' content='1; url= index.php'/>";
+      <meta http-equiv='refresh' content='2; url= index.php'/>";
     }
   }
 ?>
@@ -91,7 +91,7 @@
     <main class="main">
       <div class="checkout-page">
         <div class="container">
-          <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['name'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
+          <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['username'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
 
           <div class="chekcout">
             <table class="table table-bordered" width="80">
@@ -101,7 +101,7 @@
                   <th scope="col">Produk</th>
                   <th scope="col">Nama Produk</th>
                   <th scope="col">Jumlah</th>
-                  <th scope="col">Harga Satuan</th>
+                  <th scope="col">Sub Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -110,9 +110,9 @@
                   $no=1;
                   while($b=mysqli_fetch_array($brg)) :
                 ?>
-                <tr>
+                <tr class="rem1">
                   <form action="" method="post">
-                  <th><?php $no++ ?></th>
+                  <th><?= $no++ ?></th>
                   <td>
                     <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar'] ?>" width="150px" height="150px" /></a>
                   </td>
@@ -149,10 +149,10 @@
                 <h4>Total Harga yang harus dibayar saat ini</h4>
                 <ul>
                   <?php 
-                    $brg=mysqli_query($conn,"SELECT * from detailorder d, produk p where orderid='$orderidd' and d.idproduk=p.idproduk order by d.idproduk ASC");
+                    $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
                     $no=1;
-                    $subtotal = 0;
-                    while($b=mysqli_fetch_array($brg)){
+                    $subtotal = 10000;
+                    while( $b=mysqli_fetch_array($brg) ){
                     $hrg = $b['hargaafter'];
                     $qtyy = $b['qty'];
                     $totalharga = $hrg * $qtyy;

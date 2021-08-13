@@ -22,20 +22,22 @@
       // cek duplikasi user
       $duplikasi = mysqli_query($conn, "SELECT email FROM users WHERE email = '$email'");
       if (mysqli_fetch_assoc($duplikasi)) {
-        echo "<div class='alert alert-warning'>
+        echo "<div class='alert alert-warning' style='position: fixed;'>
         Pengguna sudah terdaftar
         </div>
-       <meta http-equiv='refresh' content='1; url= register.php'/> ";
+       <meta http-equiv='refresh' content='2; url= register.php'/> ";
        return false;
+       exit;
       }
 
       // cek konfirmasi password 
       if ($password !== $verify) {
-        echo "<div class='alert alert-warning'>
+        echo "<div class='alert alert-warning' style='position: fixed;'>
         konfirmasi password tidak sesuai!
         </div>
-       <meta http-equiv='refresh' content='1; url= register.php'/> ";
+       <meta http-equiv='refresh' content='2; url= register.php'/> ";
         return false;
+        exit;
       }
 
       // enkripsi password
@@ -47,15 +49,12 @@
     }
     
     if (registrasi($_POST) > 0) {
-      echo " <div class='alert alert-success'>
+      echo " <div class='alert alert-success' style='position: fixed;'>
 			Berhasil mendaftar, silakan masuk.
 		  </div>
-		<meta http-equiv='refresh' content='1; url= login.php'/>  ";
+		<meta http-equiv='refresh' content='2; url= login.php'/>  ";
     } else {
-      echo "<div class='alert alert-warning'>
-			Gagal mendaftar, silakan coba lagi.
-		  </div>
-		 <meta http-equiv='refresh' content='1; url= register.php'/> ";
+      $error = true;
     }
   }
 
@@ -82,8 +81,14 @@
   </head>
   <body>
     <div class="login-page">
+      <?php if (isset($error)) : ?>
+        <div class='alert alert-warning' style="position: fixed;">
+			  Gagal mendaftar, silakan coba lagi.
+		    </div>
+		    <meta http-equiv='refresh' content='2; url= register.php'/>
+      <?php endif; ?>
       <div class="register">
-        <a href="javascript:history.back()"><i class="bx bx-left-arrow-alt icon"></i></a>
+        <a href="login.php"><i class="bx bx-left-arrow-alt icon"></i></a>
         <h2 class="login-title">Register</h2>
         <form action="" method="post">
           <ul>

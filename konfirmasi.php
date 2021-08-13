@@ -28,19 +28,19 @@
       $up = mysqli_query($conn,"UPDATE cart SET STATUS='Confirmed' WHERE orderid='$idorder'");
       
       
-      echo "<div class='alert alert-success' >
+      echo "<div class='alert alert-success' style='position: fixed;'>
             Terima kasih telah melakukan konfirmasi, team kami akan melakukan verifikasi. 
             Informasi selanjutnya akan dikirim via Email
       </div>
-        <meta http-equiv='refresh' content='7; url= index.php'/>  ";
+        <meta http-equiv='refresh' content='4; url= index.php'/>  ";
 		} else { 
-      echo "<div class='alert alert-danger' >
+      echo "<div class='alert alert-danger' style='position: fixed;'>
           Gagal Submit, silakan ulangi lagi.
       </div>
       <meta http-equiv='refresh' content='3; url= konfirmasi.php'/> ";
 		}
 	} else {
-			echo "<div class='alert alert-danger' >
+			echo "<div class='alert alert-danger' style='position: fixed;'>
 			      Kode Order tidak ditemukan, harap masukkan kembali dengan benar
 		  </div>
 		 <meta http-equiv='refresh' content='4; url= konfirmasi.php'/> ";

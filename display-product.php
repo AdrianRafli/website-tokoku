@@ -30,28 +30,28 @@
           $updateaja = mysqli_query($conn,"UPDATE detailorder SET qty='$baru' WHERE orderid='$orid' AND idproduk='$idp'");
                     
             if($updateaja){
-              echo " <div class='alert alert-success'>
+              echo " <div class='alert alert-success' style='position: fixed;'>
                     Barang sudah pernah dimasukkan ke keranjang, jumlah akan ditambahkan
                     </div>
-                    <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
+                    <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
             } else {
-              echo "<div class='alert alert-warning'>
+              echo "<div class='alert alert-warning' style='position: fixed;'>
                     Gagal menambahkan ke keranjang
                     </div>
-                    <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
+                    <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
                     }
           } else {
             $tambahdata = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$orid','$idp','1')");
             if ($tambahdata){
-              echo " <div class='alert alert-success'>
+              echo " <div class='alert alert-success' style='position: fixed;'>
                     Berhasil menambahkan ke keranjang
                     </div>
-                  <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
+                  <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
             } else { 
-              echo "<div class='alert alert-warning'>
+              echo "<div class='alert alert-warning' style='position: fixed;'>
                     Gagal menambahkan ke keranjang
                     </div>
-                  <meta http-equiv='refresh' content='1; display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+                  <meta http-equiv='refresh' content='2; display-product.php?idkategori=$idk&idproduk=$idp'/> ";
             }
         };
     } else {
@@ -62,14 +62,14 @@
       if($bikincart){
         $tambahuser = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$oi','$idp','1')");
         if ($tambahuser){
-          echo " <div class='alert alert-success'>
+          echo " <div class='alert alert-success' style='position: fixed;'>
                   Berhasil menambahkan ke keranjang
                   </div>
-                <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
-          } else { echo "<div class='alert alert-warning'>
+                <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
+          } else { echo "<div class='alert alert-warning' style='position: fixed;'>
                   Gagal menambahkan ke keranjang
                   </div>
-                 <meta http-equiv='refresh' content='1; url= display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+                 <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/> ";
           }
       } else {
         echo "gagal bikin cart";

@@ -14,10 +14,13 @@
 
     // pengecekkan akun
     $akun = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    $row = mysqli_fetch_assoc($akun);
     if (mysqli_num_rows($akun) === 1) {
       // cek password
-      $row = mysqli_fetch_assoc($akun);
       if (password_verify($password, $row["password"])) {
+        $_SESSION['id'] = $row['userid'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['username'] = $row['username'];
         $_SESSION['login'] = true;
         header('location:index.php');
       } 
@@ -48,13 +51,13 @@
   <body>
     <div class="login-page">
       <?php if (isset($error)) : ?>
-        <div class='alert alert-warning'>
+        <div class='alert alert-warning' style='position: fixed;'>
         Gagal Login, Mungkin Email atau Password Salah!
         </div>
-        <meta http-equiv='refresh' content='1; url= login.php'/>
+        <meta http-equiv='refresh' content='2; url= login.php'/>
       <?php endif; ?>
       <div class="login">
-        <a href="javascript:history.back()"><i class="bx bx-left-arrow-alt icon"></i></a>
+        <a href="index.php"><i class="bx bx-left-arrow-alt icon"></i></a>
         <h2 class="login-title">Login</h2>
         <form action="" method="post">
           <ul>

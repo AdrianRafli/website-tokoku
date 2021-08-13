@@ -18,17 +18,17 @@
   if (isset($_POST["update"])) {
     $kode = $_POST['idproduknya'];
     $jumlah = $_POST['jumlah'];
-    $q1 = mysqli_query($conn, "update detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
+    $q1 = mysqli_query($conn, "UPDATE detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
     if($q1){
       echo "Berhasil Update Cart
-      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+      <meta http-equiv='refresh' content='2; url= cart.php'/>";
     } else {
       echo "Gagal update cart
-      <meta http-equiv='refresh' content='1; url= cart.php'/>";
+      <meta http-equiv='refresh' content='2; url= cart.php'/>";
     }
   } else if(isset($_POST["hapus"])) {
     $kode = $_POST['idproduknya'];
-    $q2 = mysqli_query($conn, "delete from detailorder where idproduk='$kode' and orderid='$orderidd'");
+    $q2 = mysqli_query($conn, "DELETE from detailorder where idproduk='$kode' and orderid='$orderidd'");
     if($q2){
       echo "Berhasil Hapus";
     } else {
@@ -118,7 +118,8 @@
               $no=1;
               while($b=mysqli_fetch_array($brg)) :
             ?>
-            <tr>
+            <tr class="rem1">
+              <form action="" method="post">
               <th><?= $no++ ?></th>
               <td>
                 <a href="product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?php echo $b['gambar'] ?>" width="100px" height="100px" /></a>
@@ -147,6 +148,7 @@
                   });
                 </script>
               </td>
+              </form>
             </tr>
             <?php endwhile; ?>
               <!--quantity-->
