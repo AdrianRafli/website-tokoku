@@ -92,8 +92,8 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <form class="d-flex" action="search.php" method="post">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
               if(isset($_SESSION['login'])) {

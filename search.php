@@ -2,7 +2,7 @@
   session_start();
   include 'dbconnect.php';
 
-  $idk = $_GET['idkategori'];
+  $s = $_POST['search'];
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +54,8 @@
             <a href="cart.php" class="nav-icon">
               <i class="bx bxs-cart button-icon me-3"></i>
             </a>
-            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-dark me-2" type="submit">Search</button>
+              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
               if(isset($_SESSION['login'])) {
                 echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
@@ -102,7 +102,7 @@
 
             <div class="col-sm products-right">
               <?php 
-              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' ORDER BY idkategori ASC");
+              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE namaproduk like '%$s%' or deskripsi like '%$s%' order by idproduk ASC");
                 $x = mysqli_num_rows($brgs);
 
                 if ( $x > 0 ) {
@@ -123,10 +123,10 @@
                   <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
                 </article>
               <?php
-                endwhile;
-              } else {
-                echo "Data tidak Ditemukan";
-              } ?>
+                  endwhile;
+                } else {
+                  echo "Data tidak Ditemukan";
+                } ?>
             </div>
           </div>
         </div>
