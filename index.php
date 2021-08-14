@@ -41,7 +41,7 @@
                   while($p=mysqli_fetch_array($kat)) :
                 ?>
                 <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
-                <?php endwhile; ?>
+              <?php endwhile; ?>
               </ul>
             </li>
           </ul>

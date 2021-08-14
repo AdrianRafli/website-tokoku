@@ -78,24 +78,14 @@
               <div class="brands rounded">
                 <h2>Brands</h2>
                 <ul class="list-brands">
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Acer</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Asus</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Lenovo</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Samsung</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Xiaomi</i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="bx bx-right-arrow-alt button-icon icon-brand">Realme</i></a>
-                  </li>
+                  <?php 
+                    $brnd=mysqli_query($conn,"SELECT * from brand order by idbrand ASC");
+                    while($p=mysqli_fetch_array($brnd)) :
+                  ?>
+                    <li>
+                      <a href="brand.php?idbrand=<?= $p['idbrand'] ?>"><i class="bx bx-right-arrow-alt button-icon icon-brand"><?= $p['namabrand'] ?></i></a>
+                    </li>
+                  <?php endwhile; ?>
                 </ul>
               </div>
             </div>
