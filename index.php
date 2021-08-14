@@ -99,7 +99,7 @@
               <a href="product.php?idkategori=1" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
             </div>
 
-            <a href="product.php?idkategori=1"><img src="assets/img/Laptop/Lenovo/Yoga/Yoga Slim 9I/Yoga Slim 9I Belakang.png" alt="category" class="category_img laptop" /></a>
+            <a href="product.php?idkategori=1"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Depan.png" alt="category" class="category_img laptop" /></a>
           </div>
 
           <div class="category_card">
@@ -266,34 +266,27 @@
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-      <div class="footer_container bd-grid">
-        <div class="footer_box">
+    <footer class="footer container">
+      <div class="row">
+        <div class="footer_box col">
           <h3 class="footer_title">Tokoku</h3>
           <p class="footer_description">Produk Baru Gadget di 2021</p>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Explore</h3>
+        <div class="footer_box col">
+          <h3 class="footer_title">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="./product.php" class="footer_link">Product</a></li>
+            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
+            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
+            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
           </ul>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Support</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Product Help</a></li>
-            <li><a href="#" class="footer_link">Customer Care</a></li>
-            <li><a href="#" class="footer_link">Authorized Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_box">
-          <a href="#" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer_box col">
+          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
+          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 

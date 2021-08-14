@@ -301,6 +301,26 @@ body a:hover {
   right: 1.5rem;
 }
 
+.laptop {
+  width: 200px;
+}
+
+.phone-home {
+  width: 100px;
+}
+
+.phone {
+  width: 90px;
+}
+
+.watch-home {
+  width: 200px;
+}
+
+.watch {
+  width: 70px;
+}
+
 .category_name {
   font-size: var(--bigger-font-size);
   margin-bottom: 0.25rem;
@@ -432,11 +452,10 @@ body a:hover {
   justify-content: center;
   background-color: var(--dark-color-lighten);
   border-radius: 0.5rem;
-  padding: 2rem;
 }
 
 .new_img {
-  margin-left: var(--mb-1);
+  margin: auto;
 }
 
 .new_mens-img {
@@ -497,12 +516,17 @@ body a:hover {
 }
 
 /*----- FOOTER -----*/
-.footer_container {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+.footer {
+  padding-top: 8rem;
 }
 
 .footer_box {
   margin-bottom: var(--mb-4);
+}
+
+.footer_box ul {
+  padding: 0;
 }
 
 .footer_title {
@@ -510,27 +534,40 @@ body a:hover {
   margin-bottom: var(--mb-1);
 }
 
-.footer a {
-  color: var(--dark-color);
-}
-
-.footer a:hover {
-  color: var(--dark-color);
+.footer_description {
+  font-size: 12px;
 }
 
 .footer_link {
+  font-size: 12px;
   display: block;
   width: max-content;
   margin-bottom: var(--mb-1);
+  color: var(--dark-color-light);
+  font-weight: 2rem;
+  transition: 0.3s;
+}
+
+.footer_link:hover {
+  color: var(--dark-color);
+  transition: 0.3s;
 }
 
 .footer_social {
-  font-size: 1.5rem;
+  font-size: 17px;
+  margin: auto;
   margin-right: 1.25rem;
+  color: var(--dark-color-light);
+  transition: 0.3s;
+}
+
+.footer_social:hover {
+  color: var(--dark-color);
+  transition: 0.3s;
 }
 
 .footer_copy {
-  padding-top: 3rem;
+  padding: 3rem 0;
   font-size: var(--smaller-font-size);
   color: var(--dark-color-light);
   text-align: center;
@@ -546,6 +583,7 @@ body a:hover {
 
   .phone-home {
     width: 120px;
+    height: auto;
   }
 
   .phone {
@@ -565,7 +603,7 @@ body a:hover {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .laptop {
     width: 180px;
   }
@@ -575,7 +613,7 @@ body a:hover {
   }
 
   .watch {
-    width: 200px;
+    width: 70px;
   }
 
   .product-layout {
@@ -715,7 +753,7 @@ body a:hover {
   }
 
   .new_mens-img {
-    margin-bottom: var(--mb-6);
+    margin-bottom: var(--mb-1);
   }
 
   /* ============================ Product ================================ */
@@ -1101,5 +1139,22 @@ body a:hover {
     box-shadow: 5px 10px rgb(206, 206, 206);
     background-color: #fbfbfb;
     border-radius: 10px;
+  }
+
+  /* ===================================== Footer ================================== */
+  .footer_title {
+    font-size: var(--bigger-font-size);
+  }
+
+  .footer_description {
+    font-size: var(--normal-font-size);
+  }
+
+  .footer_link {
+    font-size: var(--normal-font-size);
+  }
+
+  .footer_social {
+    font-size: 30px;
   }
 }
