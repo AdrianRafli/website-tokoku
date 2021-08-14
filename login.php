@@ -43,8 +43,8 @@
         if (isset($_POST['remember'])) {
           // buat cookie
 
-          setcookie('aidi', $row['userid'], time() + 60);
-          setcookie('yusernem', hash('sha256', $row['username']), time() + 60);
+          setcookie('aidi', $row['userid'], time() + 604800); // cookie 1 minggu
+          setcookie('yusernem', hash('sha256', $row['username']), time() + 604800); // cookie 1 minggu
         }
 
         header('location:index.php');
