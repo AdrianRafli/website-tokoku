@@ -788,12 +788,12 @@ body a:hover {
     margin: 0 50px 0 50px;
     padding-top: 100px;
     overflow: hidden;
-    height: calc(100vh - var(--header-height));
   }
 
-  .border-image {
-    width: 600px;
-    height: 600px;
+  .border-product {
+    width: 500px;
+    height: 400px;
+    margin: auto;
     position: relative;
     display: flex;
     justify-content: center;
@@ -801,25 +801,59 @@ body a:hover {
   }
 
   .image-product-laptop {
-    margin-top: 100px;
-    width: 500px;
+    margin: auto;
+    width: 400px;
     height: auto;
+    transition: 0.5s;
+  }
+
+  .image-product-laptop:hover {
+    width: 450px;
+    transition: 0.5s;
   }
 
   .image-product-phone {
-    margin-top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 250px;
+    margin: auto;
+    width: 150px;
     height: auto;
+    transition: 0.5s;
+  }
+
+  .image-product-phone:hover {
+    width: 200px;
+    transition: 0.5s;
   }
 
   .image-product-watch {
-    margin-top: 90px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
+    margin: auto;
+    width: 150px;
     height: auto;
+    transition: 0.5s;
+  }
+
+  .image-product-watch:hover {
+    width: 180px;
+    transition: 0.5s;
+  }
+
+  .thumbnail {
+    display: inline;
+    object-fit: cover;
+    max-width: 100px;
+    max-height: 100px;
+    cursor: pointer;
+    opacity: 0.5;
+    margin: 10px 7px;
+    transition: 0.3s;
+  }
+
+  .thumbnail:hover {
+    transition: 0.3s;
+    opacity: 1;
+  }
+
+  .thumb-active {
+    opacity: 1;
   }
 
   .display-spec {

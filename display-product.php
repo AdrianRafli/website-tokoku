@@ -147,33 +147,22 @@
       <div class="display-product row">
         <?php
          $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));
-         if ( $idk == 1 ) {
         ?>
-          <div class="border-product border border-2 rounded col-5">
-            <img src="<?= $produk['gambar']?>" alt="" class="image-product-laptop" />
+          <div class="display-image col-5">
+            <div class="border-product border border-2 rounded" id="magnifying_area">
+              <?php if ( $idk == 1 ) { ?>
+                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-laptop" id="featured" />
+              <?php } else if ( $idk == 2 ) { ?>
+                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-phone" id="featured"/>
+              <?php } else if ( $idk == 3 ) { ?>
+                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-watch" id="featured"/>
+              <?php } ?>
+            </div>
+            <img class="thumbnail border border-2 rounded thumb-active" src="<?= $produk['gambar1']?>" alt="">
+            <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar2']?>" alt="">
+            <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar3']?>" alt="">
           </div>
-
-          <div class="display-spec col-5 ms-5">
-            <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
-            <p class="product-description">
-              <span>Description :</span> <br />
-              <?= $produk["deskripsi"] ?>
-            </p>
-            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <form action="" method="post">
-              <fieldset>
-                  <input type="hidden" name="idprod" value="<?php echo $idp ?>">
-                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
-                </fieldset>
-            </form>
-          </div>
-        <?php
-         } else if ( $idk == 2 ) {
-        ?>
-          <div class="border-product border border-2 rounded col-5">
-            <img src="<?= $produk['gambar']?>" alt="" class="image-product-phone" />
-          </div>
-
+          
           <div class="display-spec col-5 ms-5">
             <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
             <p class="product-description">
@@ -188,31 +177,6 @@
                 </fieldset>
             </form>
           </div>
-        <?php 
-          } else if ( $idk == 3 ) {
-        ?>
-          <div class="border-product border border-2 rounded col-5">
-            <img src="<?= $produk['gambar']?>" alt="" class="image-product-watch" />
-          </div>
-    
-          <div class="display-spec col-5 ms-5">
-            <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
-            <p class="product-description">
-              <span>Description :</span> <br />
-              <?= $produk["deskripsi"] ?>
-            </p>
-            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <form action="" method="post">
-              <fieldset>
-                  <input type="hidden" name="idprod" value="<?php echo $idp ?>">
-                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
-                </fieldset>
-            </form>
-          </div>  
-        <?php 
-          }
-        ?>
-
       </div>
     </main>
 
@@ -254,6 +218,7 @@
     </footer>
 
     <!--===== MAIN JS =====-->
+    <script src="assets/js/thumbnail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
