@@ -62,7 +62,7 @@ html {
 
 body {
   margin: var(--header-height) 0 0 0;
-  font-family: var(--body-font);
+  font-family: var(--body-font) !important;
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
   color: var(--dark-color);
@@ -713,24 +713,6 @@ body a:hover {
 
 /* ----- MEDIA QUERIES-----*/
 
-@media only screen and (min-width: 768px) {
-  .laptop {
-    width: 180px;
-  }
-
-  .phone {
-    width: 120px;
-  }
-
-  .watch {
-    width: 70px;
-  }
-
-  .product-layout {
-    height: 200px;
-  }
-}
-
 /* Tablet */
 
 @media only screen and (min-width: 576px) {
@@ -767,6 +749,24 @@ body a:hover {
 
   .section-title::after {
     width: 76px;
+  }
+
+  /* ============================ Image Layout ====================== */
+
+  .laptop {
+    width: 180px;
+  }
+
+  .phone {
+    width: 120px;
+  }
+
+  .watch {
+    width: 70px;
+  }
+
+  .product-layout {
+    height: 200px;
   }
 
   /* Navigation */
