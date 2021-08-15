@@ -375,7 +375,7 @@ body a:hover {
 
 .product_name,
 .product_price {
-  font-size: var(--h2-font-size);
+  font-size: var(--normal-font-size);
   letter-spacing: 0.1rem;
   font-weight: var(--font-bold);
 }
@@ -573,6 +573,65 @@ body a:hover {
   text-align: center;
 }
 
+/* ============================ Product Page ================================ */
+.products {
+  padding: 3em 0;
+}
+
+.products-left {
+  margin-bottom: 80px;
+}
+
+.products-right {
+  margin-left: 40px;
+}
+
+.brands {
+  margin: auto;
+  width: 300px;
+  border: 2px solid var(--dark-color-light);
+}
+
+.brands h2 {
+  font-size: 1.5em;
+  color: var(--dark-color);
+  margin: 0;
+  padding: 0.5em;
+  background: var(--dark-color-lighten);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.list-brands {
+  padding: 2em;
+}
+
+.brands ul {
+  margin-left: 2em;
+}
+
+.brands ul li {
+  display: block;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+
+.brands ul li a {
+  color: var(--dark-color-light);
+  text-decoration: none;
+}
+
+.brands ul li a:hover {
+  color: var(--dark-color);
+}
+
+.product-laptop {
+  float: left;
+  margin: 0 15px 30px 15px;
+}
+
 /* ----- MEDIA QUERIES-----*/
 
 /*---------- Img Layout------- */
@@ -756,72 +815,19 @@ body a:hover {
     margin-bottom: var(--mb-1);
   }
 
-  /* ============================ Product ================================ */
-  .products {
-    padding: 3em 0;
-  }
-
-  .row {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-  .products-left {
-    padding: 0;
-    margin-bottom: 20px;
-  }
-
-  .brands {
-    width: 300px;
-    border: 2px solid var(--dark-color-light);
-  }
-  .brands h2 {
-    font-size: 1.5em;
-    color: var(--dark-color);
-    margin: 0;
-    padding: 0.5em;
-    background: var(--dark-color-lighten);
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 5px;
-  }
-
-  .list-brands {
-    padding: 2em;
-  }
-
-  .brands ul {
-    margin-left: 2em;
-  }
-
-  .brands ul li {
-    display: block;
-    color: #999;
-    font-size: 14px;
-    margin-bottom: 1em;
-  }
-
-  .brands ul li a {
-    color: var(--dark-color-light);
-    text-decoration: none;
-  }
-
-  .brands ul li a:hover {
-    color: var(--dark-color);
-  }
+  /* ================================ PRODUCT PAGE ================================= */
 
   .products-right {
     padding: 0;
-    flex: 0 0 auto;
-    margin-left: 48px;
   }
 
-  .product-laptop {
-    float: left;
-    margin: 0 15px 30px 15px;
+  .brands {
+    position: sticky;
+    top: 12rem;
   }
 
   /* ================================ DISPLAY PRODUCT ================================= */
+
   .display-product {
     margin: 0 50px 0 50px;
     padding-top: 100px;
