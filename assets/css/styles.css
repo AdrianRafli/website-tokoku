@@ -632,35 +632,86 @@ body a:hover {
   margin: 0 15px 30px 15px;
 }
 
-/* ----- MEDIA QUERIES-----*/
-
-/*---------- Img Layout------- */
-@media only screen and (min-width: 1024px) {
-  .laptop {
-    width: 200px;
-  }
-
-  .phone-home {
-    width: 120px;
-    height: auto;
-  }
-
-  .phone {
-    width: 90px;
-  }
-
-  .watch-home {
-    width: 200px;
-  }
-
-  .watch {
-    width: 80px;
-  }
-
-  .product-layout {
-    height: 200px;
-  }
+/* ===================================== LOGIN PAGE ============================== */
+.login-page {
+  padding: 70px 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
 }
+
+.login {
+  margin: auto;
+  width: 350px;
+  height: 350px;
+  box-shadow: 5px 10px rgb(206, 206, 206);
+  background-color: var(--white-color);
+  border-radius: 10px;
+}
+
+.icon {
+  color: var(--dark-color);
+  font-size: var(--big-font-size);
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.login-title {
+  font-size: var(--big-font-size);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form label {
+  font-size: var(--normal-font-size);
+  display: block;
+}
+
+.form input {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.form select {
+  width: 90%;
+  color: var(--dark-color);
+  background-color: var(--white-color);
+}
+
+.remember label {
+  font-size: var(--smaller-font-size);
+  margin-bottom: 20px;
+}
+
+.button-login {
+  font-size: var(--smaller-font-size);
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.login-signup {
+  font-size: var(--normal-font-size);
+  padding-left: 40px;
+}
+
+.login-signup a:hover {
+  color: var(--dark-color);
+}
+
+.alert {
+  position: relative;
+}
+/* ============================= Register Page ===================================== */
+.register {
+  margin: auto;
+  width: 350px;
+  height: 420px;
+  box-shadow: 5px 10px rgb(206, 206, 206);
+  background-color: var(--white-color);
+  border-radius: 10px;
+}
+
+/* ----- MEDIA QUERIES-----*/
 
 @media only screen and (min-width: 768px) {
   .laptop {
@@ -739,6 +790,33 @@ body a:hover {
 
   .nav_toggle {
     display: none;
+  }
+
+  /* Gadget Image */
+
+  .laptop {
+    width: 200px;
+  }
+
+  .phone-home {
+    width: 120px;
+    height: auto;
+  }
+
+  .phone {
+    width: 90px;
+  }
+
+  .watch-home {
+    width: 200px;
+  }
+
+  .watch {
+    width: 80px;
+  }
+
+  .product-layout {
+    height: 200px;
   }
 
   /* Home */
@@ -824,6 +902,46 @@ body a:hover {
   .brands {
     position: sticky;
     top: 12rem;
+  }
+
+  /* ================================== Login Page =================================== */
+
+  .login {
+    width: 500px;
+    height: 500px;
+  }
+
+  .icon {
+    font-size: var(--big-font-size);
+  }
+
+  .login-title {
+    font-size: var(--bigger-font-size);
+  }
+
+  .form label {
+    font-size: var(--h2-font-size);
+  }
+
+  .remember label {
+    font-size: var(--normal-font-size);
+    margin-bottom: 80px;
+  }
+
+  .button-login {
+    font-size: var(--normal-font-size);
+  }
+
+  .login-signup {
+    font-size: var(--normal-font-size);
+    padding-left: 100px;
+  }
+
+  /* ============================= Register Page ===================================== */
+
+  .register {
+    width: 500px;
+    height: 550px;
   }
 
   /* ================================ DISPLAY PRODUCT ================================= */
@@ -924,90 +1042,6 @@ body a:hover {
     padding-left: 10px;
     text-decoration: line-through var(--dark-color);
     color: var(--dark-color-light);
-  }
-
-  /* ===================================== LOGIN PAGE ============================== */
-  .login-page {
-    padding: 70px 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #eee;
-  }
-
-  .login {
-    margin: auto;
-    width: 500px;
-    height: 500px;
-    box-shadow: 5px 10px rgb(206, 206, 206);
-    background-color: var(--white-color);
-    border-radius: 10px;
-  }
-
-  .icon {
-    color: var(--dark-color);
-    font-size: var(--bigger-font-size);
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-
-  .login-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .form label {
-    font-size: var(--h2-font-size);
-    display: block;
-  }
-
-  .form input {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-
-  .form select {
-    width: 90%;
-    color: var(--dark-color);
-    background-color: var(--white-color);
-  }
-
-  .remember label {
-    font-size: var(--normal-font-size);
-    margin-bottom: 50px;
-  }
-
-  .button-login {
-    margin-top: 20px;
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .button-login a {
-    width: 90%;
-    padding-left: 180px;
-    margin-bottom: 20px;
-  }
-
-  .login-signup {
-    padding-left: 95px;
-  }
-
-  .login-signup a:hover {
-    color: var(--dark-color-light);
-    transition: 0.3s;
-  }
-
-  .alert {
-    position: relative;
-  }
-  /* ============================= Register Page ===================================== */
-  .register {
-    margin: auto;
-    width: 500px;
-    height: 550px;
-    box-shadow: 5px 10px rgb(206, 206, 206);
-    background-color: var(--white-color);
-    border-radius: 10px;
   }
 
   /* =========================== Cart & Checkout Page ============================================ */

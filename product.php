@@ -33,21 +33,21 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.php">Home</a>
+              <a class="nav-link active fs-6" href="#">Home</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?php 
+              <?php 
                   $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
                   while($p=mysqli_fetch_array($kat)) :
                 ?>
                 <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
-                <?php endwhile; ?>
+              <?php endwhile; ?>
               </ul>
             </li>
           </ul>
-          <form class="d-flex" action="search.php" method="post">
+          <form class="d-flex" action="search.php" method="POST">
             <a href="daftar-order.php" class="nav-icon">
               <i class="bx bx-history button-icon me-1"></i>
             </a>
