@@ -711,6 +711,117 @@ body a:hover {
   border-radius: 10px;
 }
 
+/* ================================ DISPLAY PRODUCT ================================= */
+
+.display-product {
+  margin: 0 50px;
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+.border-product {
+  width: 330px;
+  height: 280px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.image-product-laptop {
+  margin: auto;
+  width: 200px;
+  height: auto;
+  transition: 0.5s;
+}
+
+.image-product-laptop:hover {
+  width: 300px;
+  transition: 0.5s;
+}
+
+.image-product-phone {
+  margin: auto;
+  width: 100px;
+  height: auto;
+  transition: 0.5s;
+}
+
+.image-product-phone:hover {
+  width: 150px;
+  transition: 0.5s;
+}
+
+.image-product-watch {
+  margin: auto;
+  width: 100px;
+  height: auto;
+  transition: 0.5s;
+}
+
+.image-product-watch:hover {
+  width: 150px;
+  transition: 0.5s;
+}
+
+.thumbnails {
+  margin-left: 20px;
+}
+
+.thumbnail {
+  display: inline;
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  opacity: 0.5;
+  margin: 10px 7px;
+  transition: 0.3s;
+}
+
+.thumbnail:hover {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.thumb-active {
+  opacity: 1;
+}
+
+.display-spec {
+  margin-left: 20px;
+  margin-top: 80px !important;
+}
+
+.display-product-name {
+  font-size: 25px;
+  font-weight: var(--font-bold);
+  padding-bottom: 15px;
+}
+
+.display-product-price {
+  font-size: 16px;
+  padding-bottom: 30px;
+  font-weight: var(--font-semi-bold);
+}
+
+.display-product-price span {
+  font-size: 14px;
+  padding-left: 10px;
+  text-decoration: line-through var(--dark-color);
+  color: var(--dark-color-light);
+}
+
+.product-description {
+  font-size: 14px;
+  padding-top: 40px;
+}
+
+.product-description span {
+  font-weight: var(--font-semi-bold);
+}
+
 /* ----- MEDIA QUERIES-----*/
 
 /* Tablet */
@@ -944,104 +1055,68 @@ body a:hover {
     height: 550px;
   }
 
-  /* ================================ DISPLAY PRODUCT ================================= */
-
-  .display-product {
-    margin: 0 50px 0 50px;
-    padding-top: 100px;
-    overflow: hidden;
-  }
+  /* ============================= Display Product Page ===================================== */
 
   .border-product {
     width: 500px;
-    height: 400px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+    height: 450px;
+    margin-left: 30px;
   }
 
   .image-product-laptop {
-    margin: auto;
-    width: 400px;
+    width: 300px;
     height: auto;
-    transition: 0.5s;
   }
 
   .image-product-laptop:hover {
-    width: 450px;
-    transition: 0.5s;
+    width: 400px;
   }
 
   .image-product-phone {
-    margin: auto;
     width: 150px;
     height: auto;
-    transition: 0.5s;
   }
 
   .image-product-phone:hover {
     width: 200px;
-    transition: 0.5s;
   }
 
   .image-product-watch {
-    margin: auto;
     width: 150px;
     height: auto;
-    transition: 0.5s;
   }
 
   .image-product-watch:hover {
-    width: 180px;
-    transition: 0.5s;
+    width: 200px;
+  }
+
+  .thumbnails {
+    margin-left: 25px;
   }
 
   .thumbnail {
-    display: inline;
-    object-fit: cover;
-    max-width: 100px;
-    max-height: 100px;
-    cursor: pointer;
-    opacity: 0.5;
-    margin: 10px 7px;
-    transition: 0.3s;
-  }
-
-  .thumbnail:hover {
-    transition: 0.3s;
-    opacity: 1;
-  }
-
-  .thumb-active {
-    opacity: 1;
-  }
-
-  .display-spec {
-    margin-top: 80px !important;
+    width: 80px;
+    height: 80px;
   }
 
   .display-product-name {
-    font-weight: var(--font-bold);
-    padding-bottom: 10px;
-  }
-
-  .product-description span {
-    font-weight: var(--font-semi-bold);
+    font-size: var(--bigger-font-size);
+    padding-bottom: 15px;
   }
 
   .display-product-price {
-    padding-top: 20px;
-    padding-bottom: 40px;
-    font-weight: var(--font-semi-bold);
+    font-size: var(--big-font-size);
+    padding-bottom: 30px;
   }
 
   .display-product-price span {
-    font-size: 1.3rem;
+    font-size: var(--normal-font-size);
     padding-left: 10px;
-    text-decoration: line-through var(--dark-color);
-    color: var(--dark-color-light);
+  }
+
+  .product-description {
+    font-size: var(--normal-font-size);
+    padding-top: 40px;
   }
 
   /* =========================== Cart & Checkout Page ============================================ */

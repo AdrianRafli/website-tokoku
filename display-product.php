@@ -148,7 +148,7 @@
         <?php
          $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));
         ?>
-          <div class="display-image col-5">
+          <div class="display-image col-sm-5">
             <div class="border-product border border-2 rounded" id="magnifying_area">
               <?php if ( $idk == 1 ) { ?>
                 <img src="<?= $produk['gambar1']?>" alt="" class="image-product-laptop" id="featured" />
@@ -158,59 +158,52 @@
                 <img src="<?= $produk['gambar1']?>" alt="" class="image-product-watch" id="featured"/>
               <?php } ?>
             </div>
-            <img class="thumbnail border border-2 rounded thumb-active" src="<?= $produk['gambar1']?>" alt="">
-            <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar2']?>" alt="">
-            <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar3']?>" alt="">
+            <div class="thumbnails">
+              <img class="thumbnail border border-2 rounded thumb-active" src="<?= $produk['gambar1']?>" alt="">
+              <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar2']?>" alt="">
+              <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar3']?>" alt="">
+            </div>
           </div>
           
-          <div class="display-spec col-5 ms-5">
+          <div class="display-spec col-sm-5">
             <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
+            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
+            <form action="" method="post">
+              <fieldset>
+                <input type="hidden" name="idprod" value="<?= $idp ?>">
+                <input type="submit" name="addprod" value="Add to cart" class="button-light">
+              </fieldset>
+            </form>
             <p class="product-description">
               <span>Description :</span> <br />
               <?= $produk["deskripsi"] ?>
             </p>
-            <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
-            <form action="" method="post">
-              <fieldset>
-                  <input type="hidden" name="idprod" value="<?= $idp ?>">
-                  <input type="submit" name="addprod" value="Add to cart" class="button-light">
-                </fieldset>
-            </form>
           </div>
       </div>
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-      <div class="footer_container bd-grid">
-        <div class="footer_box">
+    <footer class="footer container">
+      <div class="row">
+        <div class="footer_box col">
           <h3 class="footer_title">Tokoku</h3>
-          <p class="footer_description">New collection of shoes 2021</p>
+          <p class="footer_description">Produk Baru Gadget di 2021</p>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Explore</h3>
+        <div class="footer_box col">
+          <h3 class="footer_title">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="#" class="footer_link">Featured</a></li>
-            <li><a href="#" class="footer_link">Women</a></li>
-            <li><a href="#" class="footer_link">New</a></li>
+            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
+            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
+            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
           </ul>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Support</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Product Help</a></li>
-            <li><a href="#" class="footer_link">Customer Care</a></li>
-            <li><a href="#" class="footer_link">Authorized Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_box">
-          <a href="#" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer_box col">
+          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
+          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 
