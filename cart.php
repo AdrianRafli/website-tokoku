@@ -99,76 +99,79 @@
       <div class="container">
         <h2 class="jumlah-barang">Dalam Keranjangmu ada : <span><?= $itungtrans3 ?> barang</span></h2>
 
-        <table class="table table-bordered" width="80">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Produk</th>
-              <th scope="col">Nama Produk</th>
-              <th scope="col">Jumlah</th>
-              <th scope="col">Harga Satuan</th>
-              <th scope="col">Hapus</th>
-            </tr>
-          </thead>
+        <div class="table-responsive">
+          <table class="table table-bordered" width="80">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Produk</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Harga Satuan</th>
+                <th scope="col">Hapus</th>
+              </tr>
+            </thead>
 
-          
-          <tbody>
-            <?php 
-              $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
-              $no=1;
-              while($b=mysqli_fetch_array($brg)) :
-            ?>
-            <tr class="rem1">
-              <form action="" method="post">
-              <th><?= $no++ ?></th>
-              <td>
-                <a href="product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?php echo $b['gambar'] ?>" width="100px" height="100px" /></a>
-              </td>
-              <td><?= $b['namaproduk'] ?></td>
-              <td>
-                <div class="quantity">
-                  <div class="quantity-select">
-                    <input type="number" name="jumlah" class="form-control" height="100px" value="<?= $b['qty'] ?>" \ />
+            
+            <tbody>
+              <?php 
+                $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
+                $no=1;
+                while($b=mysqli_fetch_array($brg)) :
+              ?>
+              <tr class="rem1">
+                <form action="" method="post">
+                <th><?= $no++ ?></th>
+                <td>
+                  <a href="product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar1'] ?>" width="100px" height="100px" /></a>
+                </td>
+                <td><?= $b['namaproduk'] ?></td>
+                <td>
+                  <div class="quantity">
+                    <div class="quantity-select">
+                      <input type="number" name="jumlah" class="form-control" height="100px" value="<?= $b['qty'] ?>" \ />
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td><?= number_format($b['hargaafter']) ?></td>
-              <td>
-                <div class="rem">
-                  <input type="submit" name="update" class="form-control" value="Update" \ />
-                  <input type="hidden" name="idproduknya" value="<?= $b['idproduk'] ?>" \ />
-                  <input type="submit" name="hapus" class="form-control" value="Hapus" \ />
-                </div>
-                <script>$(document).ready(function(c) {
-                  $('.close1').on('click', function(c){
-                    $('.rem1').fadeOut('slow', function(c){
-                      $('.rem1').remove();
+                </td>
+                <td><?= number_format($b['hargaafter']) ?></td>
+                <td>
+                  <div class="rem">
+                    <input type="submit" name="update" class="form-control" value="Update" \ />
+                    <input type="hidden" name="idproduknya" value="<?= $b['idproduk'] ?>" \ />
+                    <input type="submit" name="hapus" class="form-control" value="Hapus" \ />
+                  </div>
+                  <script>$(document).ready(function(c) {
+                    $('.close1').on('click', function(c){
+                      $('.rem1').fadeOut('slow', function(c){
+                        $('.rem1').remove();
+                      });
+                      });	  
                     });
-                    });	  
+                  </script>
+                </td>
+                </form>
+              </tr>
+              <?php endwhile; ?>
+                <!--quantity-->
+                <script>
+                  $('.value-plus').on('click', function(){
+                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                    divUpd.text(newVal);
+                  });
+
+                  $('.value-minus').on('click', function(){
+                    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                    if(newVal>=1) divUpd.text(newVal);
                   });
                 </script>
-              </td>
-              </form>
-            </tr>
-            <?php endwhile; ?>
-              <!--quantity-->
-							<script>
-								$('.value-plus').on('click', function(){
-									var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-									divUpd.text(newVal);
-								});
+                <!--quantity-->
+            </tbody>
+          </table>
+        </div>
+        
 
-								$('.value-minus').on('click', function(){
-									var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-									if(newVal>=1) divUpd.text(newVal);
-								});
-							</script>
-							<!--quantity-->
-          </tbody>
-        </table>
-
-        <div class="cart-left">	
-          <div class="cart-left-basket">
+        <div class="cart-left row">	
+          <div class="cart-left-basket col-sm-4">
             <h4>Total Harga</h4>
             <ul>
               <?php 
@@ -186,9 +189,9 @@
               <li class="total">Total (inc. 10k Ongkir)<i> - </i> <span>Rp <?= number_format($subtotal) ?></span></li>
             </ul>
           </div>
-          <div class="cart-right-basket">
+          <div class="cart-right-basket col-sm-6 ">
             <a href="index.php" ><i class='bx bx-left-arrow-alt button-icon'></i>Continue Shopping</a>
-            <a href="checkout.php">Checkout<i class='bx bx-right-arrow-alt button-icon' ></i></a>
+            <a href="checkout.php">Checkout<i class='bx bx-right-arrow-alt button-icon col' ></i></a>
           </div>
       </div>
 
@@ -196,36 +199,27 @@
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-      <div class="footer_container bd-grid">
-        <div class="footer_box">
+    <footer class="footer container">
+      <div class="row">
+        <div class="footer_box col">
           <h3 class="footer_title">Tokoku</h3>
-          <p class="footer_description">New collection of shoes 2021</p>
+          <p class="footer_description">Produk Baru Gadget di 2021</p>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Explore</h3>
+        <div class="footer_box col">
+          <h3 class="footer_title">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="#" class="footer_link">Featured</a></li>
-            <li><a href="#" class="footer_link">Women</a></li>
-            <li><a href="#" class="footer_link">New</a></li>
+            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
+            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
+            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
           </ul>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Support</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Product Help</a></li>
-            <li><a href="#" class="footer_link">Customer Care</a></li>
-            <li><a href="#" class="footer_link">Authorized Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_box">
-          <a href="#" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer_box col">
+          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
+          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 

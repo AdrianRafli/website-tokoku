@@ -5,7 +5,7 @@
   // cek cookie
   if ( isset($_COOKIE['aidi']) && isset($_COOKIE['yusernem']) ) {
     $id = $_COOKIE['aidi'];
-    $username = $_COOKIE['yusername'];
+    $username = $_COOKIE['yusernem'];
 
     // ambil username berdasarkan id
     $akun = mysqli_query($conn, "SELECT username FROM users WHERE userid ='$id'");

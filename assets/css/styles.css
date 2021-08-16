@@ -822,6 +822,133 @@ body a:hover {
   font-weight: var(--font-semi-bold);
 }
 
+/* =========================== Cart & Checkout Page ============================================ */
+.cart-page {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.checkout-page {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.jumlah-barang {
+  font-size: var(--normal-font-size);
+  margin-top: 110px;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  text-align: center;
+  padding: 7px;
+}
+
+.table td a img {
+  margin: 0 auto;
+}
+
+.rem {
+  position: relative;
+}
+
+.cart-left-basket h4,
+.checkout-left-basket h4 {
+  padding: 1em;
+  background: var(--dark-color);
+  font-size: var(--smaller-font-size);
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 1em;
+}
+.cart-left,
+.checkout-left {
+  padding-top: 50px;
+}
+
+.cart-left-basket ul,
+.checkout-left-basket ul {
+  padding: 0;
+}
+
+.cart-left-basket ul li,
+.checkout-left-basket ul li {
+  list-style-type: none;
+  margin-bottom: 1em;
+  font-size: 12px;
+  color: #999;
+}
+.cart-left-basket,
+.checkout-left-basket {
+  float: left;
+  width: 37%;
+}
+.cart-right-basket {
+  padding-top: 50px;
+}
+.cart-left-basket ul li span {
+  float: right;
+}
+.cart-left-basket ul li:last-child {
+  font-size: 13px;
+  color: var(--dark-color);
+  font-weight: 600;
+  padding: 1em 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 2em 0 0;
+}
+.cart-right-basket a {
+  margin-left: 20px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 12px;
+  background: var(--dark-color);
+  text-decoration: none;
+}
+.cart-right-basket a span {
+  left: -0.5em;
+  top: 0.1em;
+}
+
+.konfirmasi {
+  font-size: var(--normal-font-size);
+  text-align: center;
+  margin: 350px 0 100px 0;
+}
+
+.payment {
+  margin-top: 50px;
+}
+
+.payment h4 {
+  text-align: center;
+}
+
+.payment-method {
+  padding: 5px;
+  margin: 50px 10px;
+  background-color: var(--dark-color-lighten);
+  border-radius: 10px;
+}
+
+.payment-method img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 100px;
+}
+
+.submit-checkout {
+  margin: 100px 0;
+  text-align: center;
+}
+
 /* ----- MEDIA QUERIES-----*/
 
 /* Tablet */
@@ -1119,130 +1246,38 @@ body a:hover {
     padding-top: 40px;
   }
 
-  /* =========================== Cart & Checkout Page ============================================ */
-  .cart-page {
-    width: 100%;
-    margin-top: 100px;
-  }
-
-  .checkout-page {
-    width: 100%;
-    margin-top: 100px;
-  }
+  /* ============================= Display Product Page ===================================== */
 
   .jumlah-barang {
     font-size: var(--big-font-size);
-    margin-top: 110px;
-    margin-bottom: 20px;
   }
 
   .table th,
   .table td {
-    vertical-align: middle;
     font-size: var(--normal-font-size);
-    text-align: center;
-    padding: 7px;
-  }
-
-  .table td a img {
-    margin: 0 auto;
-  }
-
-  .rem {
-    position: relative;
   }
 
   .cart-left-basket h4,
   .checkout-left-basket h4 {
-    padding: 1em;
-    background: var(--dark-color);
-    font-size: 1em;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 0 1em;
-  }
-  .cart-left,
-  .checkout-left {
-    margin-top: 4em;
-  }
-
-  .cart-left-basket ul,
-  .checkout-left-basket ul {
-    padding: 0;
+    font-size: var(--normal-font-size);
   }
 
   .cart-left-basket ul li,
   .checkout-left-basket ul li {
-    list-style-type: none;
-    margin-bottom: 1em;
     font-size: 14px;
-    color: #999;
   }
-  .cart-left-basket,
-  .checkout-left-basket {
-    float: left;
-    width: 37%;
-  }
+
   .cart-right-basket {
-    float: right;
-    margin: 8em 0 0 0em;
+    margin-left: 190px;
+    padding-top: 140px;
   }
-  .cart-left-basket ul li span {
-    float: right;
-  }
+
   .cart-left-basket ul li:last-child {
-    font-size: 1em;
-    color: var(--dark-color);
-    font-weight: 600;
-    padding: 1em 0;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 2em 0 0;
+    font-size: 16px;
   }
   .cart-right-basket a {
     padding: 10px 30px;
-    color: #fff;
-    font-size: 1em;
-    background: var(--dark-color);
-    text-decoration: none;
-  }
-  .cart-right-basket a span {
-    left: -0.5em;
-    top: 0.1em;
-  }
-
-  .konfirmasi {
-    font-size: var(--normal-font-size);
-    text-align: center;
-    margin: 350px 0 100px 0;
-  }
-
-  .payment {
-    margin-top: 50px;
-  }
-
-  .payment h4 {
-    text-align: center;
-  }
-
-  .payment-method {
-    padding: 5px;
-    margin: 50px 10px;
-    background-color: var(--dark-color-lighten);
-    border-radius: 10px;
-  }
-
-  .payment-method img {
-    margin-left: auto;
-    margin-right: auto;
-    width: 150px;
-    height: 100px;
-  }
-
-  .submit-checkout {
-    margin: 100px 0;
-    text-align: center;
+    font-size: 16px;
   }
 
   /* ============================== Konfirmasi Page ================================ */
