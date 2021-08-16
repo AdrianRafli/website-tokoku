@@ -7,35 +7,10 @@
     exit;
   }
 
-  $uid = $_SESSION['id'];
-	$caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND STATUS='Cart'");
-	$fetc = mysqli_fetch_array($caricart);
-	$orderidd = $fetc['orderid'];
-	$itungtrans = mysqli_query($conn,"SELECT count(orderid) AS jumlahtrans FROM cart WHERE userid='$uid' AND STATUS!='Cart'");
+  $id = $_SESSION['id'];
+	$itungtrans = mysqli_query($conn,"SELECT count(orderid) AS jumlahtrans FROM cart WHERE userid='$id' AND STATUS!='Cart'");
 	$itungtrans2 = mysqli_fetch_assoc($itungtrans);
 	$itungtrans3 = $itungtrans2['jumlahtrans'];
-
-  if(isset($_POST["update"])){
-    $kode = $_POST['idproduknya'];
-    $jumlah = $_POST['jumlah'];
-    $q1 = mysqli_query($conn, "UPDATE detailorder set qty='$jumlah' where idproduk='$kode' and orderid='$orderidd'");
-    if($q1){
-      echo "Berhasil Update Cart
-      <meta http-equiv='refresh' content='2; url= cart.php'/>";
-    } else {
-      echo "Gagal update cart
-      <meta http-equiv='refresh' content='2; url= cart.php'/>";
-    }
-  } else if(isset($_POST["hapus"])){
-    $kode = $_POST['idproduknya'];
-    $q2 = mysqli_query($conn, "DELETE FROM detailorder where idproduk='$kode' and orderid='$orderidd'");
-    if($q2){
-      echo "Berhasil Hapus";
-    } else {
-      echo "Gagal Hapus";
-    }
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -98,130 +73,124 @@
       </div>
     </nav>
 
-    <main class="cart-page">
+    <main class="cart-page" style="padding-bottom: 50px;">
       <div class="container">
         <h2 class="jumlah-barang">Kamu memiliki <span><?=$itungtrans3 ?> transaksi</h2>
 
-        <table class="table table-bordered" width="80">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Kode Order</th>
-              <th scope="col">Tanggal Order</th>
-              <th scope="col">Total</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php 
-              $brg=mysqli_query($conn,"SELECT DISTINCT(idcart), c.orderid, tglorder, STATUS FROM cart c, detailorder d WHERE c.userid='$uid' AND d.orderid=c.orderid AND STATUS!='Cart' ORDER BY tglorder DESC");
-              $no=1;
-              while($b=mysqli_fetch_array($brg)):
-            ?>
-            <tr>
-              <form action="" method="post">
-                <th><?= $no++ ?></th>
-                <td><?= $b['orderid'] ?></td>
-                <td><?= $b['tglorder'] ?></td>
-                <td>
-                  <?php 
-                    $ongkir = 10000;
-                    $ordid = $b['orderid'];
-                    $result1 = mysqli_query($conn,"SELECT SUM(qty*hargaafter)+$ongkir AS count FROM detailorder d, produk p WHERE d.orderid='$ordid' AND p.idproduk=d.idproduk ORDER BY d.idproduk ASC");
-                    $cekrow = mysqli_num_rows($result1);
-                    $row1 = mysqli_fetch_assoc($result1);
-                    $count = $row1['count'];
-                    if($cekrow > 0){
-                  ?>
-                    Rp <?= number_format($count); ?>
-                  <?php 
-                    } else {
-                      echo 'No data';
-                    }
-                  ?>
-                </td>
-                <td>
-                  <div class="rem">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Kode Order</th>
+                <th scope="col">Tanggal Order</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+                $brg=mysqli_query($conn,"SELECT DISTINCT(idcart), c.orderid, tglorder, STATUS FROM cart c, detailorder d WHERE c.userid='$id' AND d.orderid=c.orderid AND STATUS!='Cart' ORDER BY tglorder DESC");
+                $no=1;
+                while($b=mysqli_fetch_array($brg)):
+              ?>
+              <tr>
+                <form action="" method="post">
+                  <th><?= $no++ ?></th>
+                  <td><?= $b['orderid'] ?></td>
+                  <td><?= $b['tglorder'] ?></td>
+                  <td>
                     <?php 
-                      if($b['STATUS']=='Payment'){
-                        echo '
-                        <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
-                        ';}
-                        else if($b['STATUS']=='Diproses'){
-                        echo 'Pesanan Diproses (Pembayaran Diterima)';
-                        }
-                        else if($b['STATUS']=='Dikirim'){
-                          echo 'Pesanan Dikirim';
-                        } else if($b['STATUS']=='Selesai'){
-                          echo 'Pesanan Selesai';
-                        } else if($b['STATUS']=='Dibatalkan'){
-                          echo 'Pesanan Dibatalkan';
-                        } else {
-                          echo 'Konfirmasi diterima';
-                        }
+                      $ongkir = 10000;
+                      $ordid = $b['orderid'];
+                      $result1 = mysqli_query($conn,"SELECT SUM(qty*hargaafter)+$ongkir AS count FROM detailorder d, produk p WHERE d.orderid='$ordid' AND p.idproduk=d.idproduk ORDER BY d.idproduk ASC");
+                      $cekrow = mysqli_num_rows($result1);
+                      $row1 = mysqli_fetch_assoc($result1);
+                      $count = $row1['count'];
+                      if($cekrow > 0){
                     ?>
-                  </div>
-                  <script>$(document).ready(function(c) {
-                    $('.close1').on('click', function(c){
-                      $('.rem1').fadeOut('slow', function(c){
-                        $('.rem1').remove();
+                      Rp <?= number_format($count); ?>
+                    <?php 
+                      } else {
+                        echo 'No data';
+                      }
+                    ?>
+                  </td>
+                  <td>
+                    <div class="rem">
+                      <?php 
+                        if($b['STATUS']=='Payment'){
+                          echo '
+                          <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
+                          ';}
+                          else if($b['STATUS']=='Diproses'){
+                          echo 'Pesanan Diproses (Pembayaran Diterima)';
+                          }
+                          else if($b['STATUS']=='Dikirim'){
+                            echo 'Pesanan Dikirim';
+                          } else if($b['STATUS']=='Selesai'){
+                            echo 'Pesanan Selesai';
+                          } else if($b['STATUS']=='Dibatalkan'){
+                            echo 'Pesanan Dibatalkan';
+                          } else {
+                            echo 'Konfirmasi diterima';
+                          }
+                      ?>
+                    </div>
+                    <script>$(document).ready(function(c) {
+                      $('.close1').on('click', function(c){
+                        $('.rem1').fadeOut('slow', function(c){
+                          $('.rem1').remove();
+                        });
+                        });	  
                       });
-                      });	  
-                    });
-                  </script>
-                </td>
-              </form>
-            </tr>
-            <?php endwhile; ?>
-          </tbody>
-          <!--quantity-->
-						<script>
-							$('.value-plus').on('click', function(){
-							  var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-								divUpd.text(newVal);
-							});
+                    </script>
+                  </td>
+                </form>
+              </tr>
+              <?php endwhile; ?>
+            </tbody>
+            <!--quantity-->
+              <script>
+                $('.value-plus').on('click', function(){
+                  var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                  divUpd.text(newVal);
+                });
 
-							$('.value-minus').on('click', function(){
-								var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-								if(newVal>=1) divUpd.text(newVal);
-							});
-						</script>
-					<!--quantity-->
-        </table>
+                $('.value-minus').on('click', function(){
+                  var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                  if(newVal>=1) divUpd.text(newVal);
+                });
+              </script>
+            <!--quantity-->
+          </table>
+        </div>
+        
       <div class="clearfix"></div>
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-      <div class="footer_container bd-grid">
-        <div class="footer_box">
+    <footer class="footer container">
+      <div class="row">
+        <div class="footer_box col">
           <h3 class="footer_title">Tokoku</h3>
-          <p class="footer_description">New collection of shoes 2021</p>
+          <p class="footer_description">Produk Baru Gadget di 2021</p>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Explore</h3>
+        <div class="footer_box col">
+          <h3 class="footer_title">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="#" class="footer_link">Featured</a></li>
-            <li><a href="#" class="footer_link">Women</a></li>
-            <li><a href="#" class="footer_link">New</a></li>
+            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
+            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
+            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
           </ul>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Support</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Product Help</a></li>
-            <li><a href="#" class="footer_link">Customer Care</a></li>
-            <li><a href="#" class="footer_link">Authorized Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_box">
-          <a href="#" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer_box col">
+          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
+          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 
