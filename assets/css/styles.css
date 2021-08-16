@@ -705,7 +705,7 @@ body a:hover {
 .register {
   margin: auto;
   width: 350px;
-  height: 420px;
+  height: 450px;
   box-shadow: 5px 10px rgb(206, 206, 206);
   background-color: var(--white-color);
   border-radius: 10px;
@@ -965,6 +965,12 @@ body a:hover {
 .submit-checkout h5,
 .submit-checkout input {
   font-size: 12px;
+}
+
+/* ============================== Konfirmasi Page ================================ */
+
+.konfirmasi-page {
+  margin: 150px 0;
 }
 
 /* ----- MEDIA QUERIES-----*/
@@ -1331,17 +1337,6 @@ body a:hover {
   .submit-checkout h5,
   .submit-checkout input {
     font-size: 20px;
-  }
-
-  /* ============================== Konfirmasi Page ================================ */
-  .konfirmasi-page {
-    margin-top: 100px;
-    margin-left: 420px;
-    width: 500px;
-    height: 550px;
-    box-shadow: 5px 10px rgb(206, 206, 206);
-    background-color: #fbfbfb;
-    border-radius: 10px;
   }
 
   /* ===================================== Footer ================================== */
