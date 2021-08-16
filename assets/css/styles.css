@@ -856,6 +856,10 @@ body a:hover {
   position: relative;
 }
 
+.quantity-select h4 {
+  font-size: var(--normal-font-size);
+}
+
 .cart-left-basket h4,
 .checkout-left-basket h4 {
   padding: 1em;
@@ -866,6 +870,11 @@ body a:hover {
   text-align: center;
   margin: 0 0 1em;
 }
+
+.checkout-left-basket h2 {
+  font-size: 16px;
+}
+
 .cart-left,
 .checkout-left {
   padding-top: 50px;
@@ -916,10 +925,13 @@ body a:hover {
   top: 0.1em;
 }
 
-.konfirmasi {
-  font-size: var(--normal-font-size);
+.agree {
   text-align: center;
-  margin: 350px 0 100px 0;
+  margin: 100px 0 100px 0;
+}
+
+.agree h5 {
+  font-size: 12px;
 }
 
 .payment {
@@ -927,12 +939,13 @@ body a:hover {
 }
 
 .payment h4 {
+  font-size: var(--smaller-font-size);
   text-align: center;
 }
 
 .payment-method {
   padding: 5px;
-  margin: 50px 10px;
+  margin: 40px 10px;
   background-color: var(--dark-color-lighten);
   border-radius: 10px;
 }
@@ -940,13 +953,18 @@ body a:hover {
 .payment-method img {
   margin-left: auto;
   margin-right: auto;
-  width: 150px;
-  height: 100px;
+  width: 75px;
+  height: 50px;
 }
 
 .submit-checkout {
-  margin: 100px 0;
+  margin: 50px 0;
   text-align: center;
+}
+
+.submit-checkout h5,
+.submit-checkout input {
+  font-size: 12px;
 }
 
 /* ----- MEDIA QUERIES-----*/
@@ -1246,7 +1264,7 @@ body a:hover {
     padding-top: 40px;
   }
 
-  /* ============================= Display Product Page ===================================== */
+  /* ============================= Cart & Checkout Page ===================================== */
 
   .jumlah-barang {
     font-size: var(--big-font-size);
@@ -1262,6 +1280,10 @@ body a:hover {
     font-size: var(--normal-font-size);
   }
 
+  .checkout-left-basket h2 {
+    font-size: var(--bigger-font-size);
+  }
+
   .cart-left-basket ul li,
   .checkout-left-basket ul li {
     font-size: 14px;
@@ -1275,9 +1297,40 @@ body a:hover {
   .cart-left-basket ul li:last-child {
     font-size: 16px;
   }
+
   .cart-right-basket a {
     padding: 10px 30px;
     font-size: 16px;
+  }
+
+  .agree {
+    margin: 150px 0 100px 0;
+  }
+
+  .agree h5 {
+    font-size: 20px;
+  }
+
+  .payment {
+    margin-top: 50px;
+  }
+
+  .payment h4 {
+    font-size: var(--h2-font-size);
+  }
+
+  .payment-method img {
+    width: 150px;
+    height: 100px;
+  }
+
+  .submit-checkout {
+    margin: 50px 0;
+  }
+
+  .submit-checkout h5,
+  .submit-checkout input {
+    font-size: 20px;
   }
 
   /* ============================== Konfirmasi Page ================================ */

@@ -94,58 +94,60 @@
           <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['username'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>
 
           <div class="chekcout">
-            <table class="table table-bordered" width="80">
-              <thead class="table-dark">
-                <tr>
-                  <th scope="col">No.</th>
-                  <th scope="col">Produk</th>
-                  <th scope="col">Nama Produk</th>
-                  <th scope="col">Jumlah</th>
-                  <th scope="col">Sub Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                  $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
-                  $no=1;
-                  while($b=mysqli_fetch_array($brg)) :
-                ?>
-                <tr class="rem1">
-                  <form action="" method="post">
-                  <th><?= $no++ ?></th>
-                  <td>
-                    <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar'] ?>" width="150px" height="150px" /></a>
-                  </td>
-                  <td><?= $b['namaproduk'] ?></td>
-                  <td>
-                    <div class="quantity">
-                      <div class="quantity-select">
-                        <h4><?= $b['qty'] ?></h4>
+            <div class="table-responsive">
+              <table class="table table-bordered" width="80">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Produk</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Jumlah</th>
+                    <th scope="col">Sub Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    $brg=mysqli_query($conn,"SELECT * FROM detailorder d, produk p WHERE orderid='$orderidd' AND d.idproduk=p.idproduk ORDER BY d.idproduk ASC");
+                    $no=1;
+                    while($b=mysqli_fetch_array($brg)) :
+                  ?>
+                  <tr class="rem1">
+                    <form action="" method="post">
+                    <th><?= $no++ ?></th>
+                    <td>
+                      <a href="display-product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar1'] ?>" width="150px" height="150px" /></a>
+                    </td>
+                    <td><?= $b['namaproduk'] ?></td>
+                    <td>
+                      <div class="quantity">
+                        <div class="quantity-select">
+                          <h4><?= $b['qty'] ?></h4>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>Rp<?= number_format($b['hargaafter']*$b['qty']) ?></td>
-                  </form>
-                </tr>
-                <?php endwhile; ?>
-                <!--quantity-->
-                    <script>
-                    $('.value-plus').on('click', function(){
-                      var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-                      divUpd.text(newVal);
-                    });
-
-                    $('.value-minus').on('click', function(){
-                      var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-                      if(newVal>=1) divUpd.text(newVal);
-                    });
-                    </script>
+                    </td>
+                    <td>Rp<?= number_format($b['hargaafter']*$b['qty']) ?></td>
+                    </form>
+                  </tr>
+                  <?php endwhile; ?>
                   <!--quantity-->
-              </tbody>
-            </table>
+                      <script>
+                      $('.value-plus').on('click', function(){
+                        var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                        divUpd.text(newVal);
+                      });
 
-            <div class="checkout-left">
-              <div class="checkout-left-basket" \>
+                      $('.value-minus').on('click', function(){
+                        var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+                        if(newVal>=1) divUpd.text(newVal);
+                      });
+                      </script>
+                    <!--quantity-->
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="checkout-left row">
+              <div class="checkout-left-basket col-sm" \>
                 <h4>Total Harga yang harus dibayar saat ini</h4>
                 <ul>
                   <?php 
@@ -162,14 +164,14 @@
                   <h2><input type="text" value="Rp<?= number_format($subtotal) ?>" disabled \ /></h2>
                 </ul>
               </div>
-              <div class="checkout-left-basket" style="margin-left: 200px">
+              <div class="checkout-left-basket col-sm">
                 <h4>Kode Order Anda</h4>
                 <h2><input type="text" value="<?= $orderidd ?>" disabled \ /></h2>
               </div>
             </div>
           </div>
 
-          <div class="konfirmasi">
+          <div class="agree">
             <hr />
             <br />
             <h5>Total harga yang tertera di atas sudah termasuk ongkos kirim sebesar Rp10.000</h5>
@@ -208,36 +210,27 @@
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-      <div class="footer_container bd-grid">
-        <div class="footer_box">
+    <footer class="footer container">
+      <div class="row">
+        <div class="footer_box col">
           <h3 class="footer_title">Tokoku</h3>
-          <p class="footer_description">New collection of shoes 2021</p>
+          <p class="footer_description">Produk Baru Gadget di 2021</p>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Explore</h3>
+        <div class="footer_box col">
+          <h3 class="footer_title">Explore</h3>
           <ul>
             <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="#" class="footer_link">Featured</a></li>
-            <li><a href="#" class="footer_link">Women</a></li>
-            <li><a href="#" class="footer_link">New</a></li>
+            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
+            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
+            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
           </ul>
         </div>
 
-        <div class="footer_box">
-          <h3 class="footer_title ms-4">Support</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Product Help</a></li>
-            <li><a href="#" class="footer_link">Customer Care</a></li>
-            <li><a href="#" class="footer_link">Authorized Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer_box">
-          <a href="#" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer_box col">
+          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
+          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
         </div>
       </div>
 
