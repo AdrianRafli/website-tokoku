@@ -791,7 +791,7 @@ body a:hover {
 
 .display-spec {
   margin-left: 20px;
-  margin-top: 80px !important;
+  margin-top: 50px !important;
 }
 
 .display-product-name {
@@ -1156,6 +1156,10 @@ body a:hover {
   }
 
   /* ================================ PRODUCT PAGE ================================= */
+
+  .products-left {
+    margin-left: 50px;
+  }
 
   .products-right {
     padding: 0;
