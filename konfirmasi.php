@@ -28,22 +28,12 @@
       $up = mysqli_query($conn,"UPDATE cart SET STATUS='Confirmed' WHERE orderid='$idorder'");
       
       
-      echo "<div class='alert alert-success' style='position: fixed;'>
-            Terima kasih telah melakukan konfirmasi, team kami akan melakukan verifikasi. 
-            Informasi selanjutnya akan dikirim via Email
-      </div>
-        <meta http-equiv='refresh' content='4; url= index.php'/>  ";
+      $berhasil = true;
 		} else { 
-      echo "<div class='alert alert-danger' style='position: fixed;'>
-          Gagal Submit, silakan ulangi lagi.
-      </div>
-      <meta http-equiv='refresh' content='3; url= konfirmasi.php'/> ";
+      $gagal = true;
 		}
 	} else {
-			echo "<div class='alert alert-danger' style='position: fixed;'>
-			      Kode Order tidak ditemukan, harap masukkan kembali dengan benar
-		  </div>
-		 <meta http-equiv='refresh' content='4; url= konfirmasi.php'/> ";
+			$error = true;
 	}		
 };
 ?>
@@ -108,6 +98,24 @@
     </nav>
 
     <main class="main">
+      <?php if (isset($berhasil)) { ?>
+        <div class='alert alert-success'>
+            Terima kasih telah melakukan konfirmasi, team kami akan melakukan verifikasi. 
+            Informasi selanjutnya akan dikirim via Email
+        </div>
+        <meta http-equiv='refresh' content='4; url= index.php'/>  "
+      <?php } else if (isset($gagal)) { ?>
+        <div class='alert alert-danger'>
+          Gagal Submit, Silakan ulangi lagi.
+        </div>
+        <meta http-equiv='refresh' content='3; url= konfirmasi.php'/>
+      <?php } else if (isset($error)) { ?>
+        <div class='alert alert-danger'>
+			      Kode Order tidak ditemukan, harap masukkan kembali dengan benar!
+        </div>
+        <meta http-equiv='refresh' content='4; url= konfirmasi.php'/> 
+      <?php } ?>
+
       <div class="konfirmasi-page">
       <div class="register" style="padding-top: 20px;">
           <h2 class="login-title">Konfirmasi</h2>

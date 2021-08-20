@@ -99,6 +99,15 @@ hr {
   margin-top: 100px;
 }
 
+.alert {
+  margin-top: 50px !important;
+  margin-bottom: 0 !important;
+}
+
+.swal2-title {
+  font-size: 1.6rem !important;
+}
+
 /*----- CLASS CSS ----- */
 body a {
   text-decoration: none;
@@ -178,7 +187,7 @@ body a:hover {
 
 /*----- HOME -----*/
 .home {
-  padding-top: 25px;
+  /* padding-top: 25px; */
   background-color: var(--dark-color-lighten);
   overflow: hidden;
 }
@@ -662,6 +671,12 @@ body a:hover {
   margin-bottom: 20px;
 }
 
+.login-error {
+  font-size: 14px;
+  text-align: center;
+  color: red;
+}
+
 .form label {
   font-size: var(--normal-font-size);
   display: block;
@@ -698,9 +713,6 @@ body a:hover {
   color: var(--dark-color);
 }
 
-.alert {
-  position: relative;
-}
 /* ============================= Register Page ===================================== */
 .register {
   margin: auto;
@@ -715,7 +727,7 @@ body a:hover {
 
 .display-product {
   margin: 0 50px;
-  padding-top: 100px;
+  padding-top: 84px;
   overflow: hidden;
 }
 
@@ -1126,6 +1138,10 @@ body a:hover {
   .bd-grid {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .main {
+    padding-top: 1rem !important;
   }
 
   .home_container {

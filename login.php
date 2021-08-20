@@ -75,15 +75,14 @@
   </head>
   <body>
     <div class="login-page">
-      <?php if (isset($error)) : ?>
-        <div class='alert alert-warning' style='position: fixed;'>
-        Gagal Login, Mungkin Email atau Password Salah!
-        </div>
-        <meta http-equiv='refresh' content='2; url= login.php'/>
-      <?php endif; ?>
       <div class="login">
         <a href="index.php"><i class="bx bx-left-arrow-alt icon"></i></a>
         <h2 class="login-title">Login</h2>
+        <?php if (isset($error)) : ?>
+          <p class="login-error">
+            Gagal Login, Mungkin Email atau Password Salah!
+          </p>
+        <?php endif; ?>
         <form action="" method="post">
           <ul>
             <li class="form">

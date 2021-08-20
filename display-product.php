@@ -30,28 +30,16 @@
           $updateaja = mysqli_query($conn,"UPDATE detailorder SET qty='$baru' WHERE orderid='$orid' AND idproduk='$idp'");
                     
             if($updateaja){
-              echo " <div class='alert alert-success' style='position: fixed;'>
-                    Barang sudah pernah dimasukkan ke keranjang, jumlah akan ditambahkan
-                    </div>
-                    <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
+              $tambah = true;
             } else {
-              echo "<div class='alert alert-warning' style='position: fixed;'>
-                    Gagal menambahkan ke keranjang
-                    </div>
-                    <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>";
-                    }
+              $error = true;
+            }
           } else {
             $tambahdata = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$orid','$idp','1')");
             if ($tambahdata){
-              echo " <div class='alert alert-success' style='position: fixed;'>
-                    Berhasil menambahkan ke keranjang
-                    </div>
-                  <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
+              $berhasil = true;
             } else { 
-              echo "<div class='alert alert-warning' style='position: fixed;'>
-                    Gagal menambahkan ke keranjang
-                    </div>
-                  <meta http-equiv='refresh' content='2; display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+              $error = true;
             }
         };
     } else {
@@ -62,14 +50,9 @@
       if($bikincart){
         $tambahuser = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$oi','$idp','1')");
         if ($tambahuser){
-          echo " <div class='alert alert-success' style='position: fixed;'>
-                  Berhasil menambahkan ke keranjang
-                  </div>
-                <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/>  ";
-          } else { echo "<div class='alert alert-warning' style='position: fixed;'>
-                  Gagal menambahkan ke keranjang
-                  </div>
-                 <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=$idk&idproduk=$idp'/> ";
+          $berhasil = true;
+        } else { 
+          $error = true;
           }
       } else {
         echo "gagal bikin cart";
@@ -94,6 +77,11 @@
 
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- ===== SweetAlert 2 ===== -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
     <?php 
       $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));
@@ -147,6 +135,25 @@
     </nav>
 
     <main class="main">
+
+      <?php if (isset($berhasil)) { ?>
+        <div class='alert alert-success' style="margin-top: 7px !important;">
+          Berhasil menambahkan ke keranjang
+        </div>
+        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>  
+      <?php } else if (isset($tambah)) { ?>
+        <div class='alert alert-success' >
+          Barang sudah dimasukkan ke keranjang, jumlah akan ditambahkan
+        </div>
+        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>
+      <?php } else if (isset($error)) { ?>
+        <div class='alert alert-warning' >
+          Gagal menambahkan ke keranjang
+        </div>
+        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>
+      <?php } ?>
+
+
       <div class="display-product row">
         <?php
          $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));

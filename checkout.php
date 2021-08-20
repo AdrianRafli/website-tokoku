@@ -18,15 +18,9 @@
   if(isset($_POST["checkout"])){
     $q3 = mysqli_query($conn, "UPDATE cart SET STATUS='Payment' WHERE orderid='$orderidd'");
     if($q3){
-      echo "<div class='alert alert-success' style='position: fixed;'>
-            Berhasil Check Out
-      </div>
-      <meta http-equiv='refresh' content='2; url= index.php'/>";
+      $berhasil = true;
     } else {
-      echo "<div class='alert alert-danger' style='position: fixed;'>
-            Gagal Check Out
-      </div>
-      <meta http-equiv='refresh' content='2; url= index.php'/>";
+      $error = true;
     }
   }
 ?>
@@ -89,6 +83,19 @@
     </nav>
 
     <main class="main">
+
+      <?php if (isset($berhasil)) { ?>
+        <div class='alert alert-success'>
+          Berhasil Check Out
+        </div>
+        <meta http-equiv='refresh' content='2; url= index.php'/>
+      <?php } else if (isset($error)) { ?>
+        <div class='alert alert-danger'>
+          Gagal Check Out
+        </div>
+        <meta http-equiv='refresh' content='2; url= index.php'/>
+      <?php } ?>
+
       <div class="checkout-page">
         <div class="container">
           <h2 class="jumlah-barang">Terima Kasih  <?= $_SESSION['username'] ?>, telah membeli <?= $itungtrans3 ?> barang di Tokoku</h2>

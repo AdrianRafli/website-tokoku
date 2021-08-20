@@ -199,7 +199,7 @@
           <div class="offer_data">
             <h3 class="offer_title">15%</h3>
             <p class="offer_description">Semua Produk Xiaomi</p>
-            <a href="product.php?idkategori=2" class="button-light">Lihat Produk</a>
+            <a href="brand.php?idbrand=5" class="button-light">Lihat Produk</a>
           </div>
 
           <img src="assets/img/Phone/Xiaomi/MI 11 Ultra/Horizon Blue.png" alt="offer" class="offer_img phone-home" />

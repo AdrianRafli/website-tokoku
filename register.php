@@ -13,6 +13,8 @@
 
     function registrasi($data) {
       global $conn;
+      global $dup;
+      global $confirm;
 
       $email = $data["email"];
       $username = strtolower(stripslashes($data["username"]));
@@ -22,20 +24,14 @@
       // cek duplikasi user
       $duplikasi = mysqli_query($conn, "SELECT email FROM users WHERE email = '$email'");
       if (mysqli_fetch_assoc($duplikasi)) {
-        echo "<div class='alert alert-warning' style='position: fixed;'>
-        Pengguna sudah terdaftar
-        </div>
-       <meta http-equiv='refresh' content='2; url= register.php'/> ";
-       return false;
-       exit;
+        $dup = true;
+        return false;
+        exit;
       }
 
       // cek konfirmasi password 
       if ($password !== $verify) {
-        echo "<div class='alert alert-warning' style='position: fixed;'>
-        konfirmasi password tidak sesuai!
-        </div>
-       <meta http-equiv='refresh' content='2; url= register.php'/> ";
+        $confirm = true;
         return false;
         exit;
       }
@@ -81,15 +77,16 @@
   </head>
   <body>
     <div class="login-page">
-      <?php if (isset($error)) : ?>
-        <div class='alert alert-warning' style="position: fixed;">
-			  Gagal mendaftar, silakan coba lagi.
-		    </div>
-		    <meta http-equiv='refresh' content='2; url= register.php'/>
-      <?php endif; ?>
       <div class="register">
         <a href="login.php"><i class="bx bx-left-arrow-alt icon"></i></a>
         <h2 class="login-title">Register</h2>
+        <?php if (isset($confirm)) { ?>
+          <p class="login-error">Konfirmasi Password Tidak Sesuai</p>
+        <?php } else if (isset($dup)) { ?>
+          <p class="login-error">Pengguna sudah terdaftar</p>
+        <?php } else if (isset($error)) { ?>
+          <p class="login-error">Gagal mendaftar, silakan coba lagi.</p>
+        <?php } ?>
         <form action="" method="post">
           <ul>
             <li class="form">
@@ -105,7 +102,7 @@
               <input type="password" name="password" id="password" required />
             </li>
             <li class="form">
-              <label for="verify">Verify Password</label>
+              <label for="verify">Konfirmasi Password</label>
               <input type="password" name="verify" id="verify" required />
             </li>
               <input type="submit" name="register" class="button-light button-login" value="Register">
