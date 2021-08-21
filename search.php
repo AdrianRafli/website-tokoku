@@ -146,7 +146,7 @@
           <div class="footer-link col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 class="mb-4">Link</h5>
             <p>
-              <a href="#" class="footer_link">About Us</a>
+              <a href="about-us.php" class="footer_link">About Us</a>
             </p>
           </div>
           <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">

@@ -1,10 +1,3 @@
-<?php
-  session_start();
-  include 'dbconnect.php';
-
-  $idb = $_GET['idbrand'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,11 +13,11 @@
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Tokoku | Product</title>
+    <title>Tokoku | Konfirmasi</title>
   </head>
   <body>
     <!--===== HEADER =====-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar ">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
         <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,21 +32,15 @@
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?php 
-                  $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
+                  $kat=mysqli_query($conn,"SELECT * FROM kategori ORDER BY idkategori ASC");
                   while($p=mysqli_fetch_array($kat)) :
                 ?>
-                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
                 <?php endwhile; ?>
               </ul>
             </li>
           </ul>
           <form class="d-flex" action="search.php" method="post">
-            <a href="daftar-order.php" class="nav-icon">
-              <i class="bx bx-history button-icon me-1"></i>
-            </a>
-            <a href="cart.php" class="nav-icon">
-              <i class="bx bxs-cart button-icon me-3"></i>
-            </a>
             <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
@@ -69,58 +56,28 @@
     </nav>
 
     <main class="main">
-      <section class="featured section" id="shop">
-        <h2 class="section-title">Produk</h2>
-
-        <div class="products">
-          <div class="row">
-            <div class="products-left col-sm-3">
-              <div class="brands rounded">
-                <h2>Brands</h2>
-                <ul class="list-brands">
-                  <?php 
-                    $brnd=mysqli_query($conn,"SELECT * from brand order by idbrand ASC");
-                    while($p=mysqli_fetch_array($brnd)) :
-                  ?>
-                    <li>
-                      <a href="brand.php?idbrand=<?= $p['idbrand'] ?>"><i class="bx bx-right-arrow-alt button-icon icon-brand"><?= $p['namabrand'] ?></i></a>
-                    </li>
-                  <?php endwhile; ?>
-                </ul>
-              </div>
-            </div>
-
-            <div class="products-right col-sm-8">
-              <?php 
-              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idbrand='$idb' ORDER BY idbrand ASC");
-                $x = mysqli_num_rows($brgs);
-
-                if ( $x > 0 ) {
-                  while($p=mysqli_fetch_array($brgs)) :
-              ?>
-                <article class="product product-laptop">
-                  <div class="product-layout">
-                    <?php if ($p['idkategori'] == 1) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img laptop" /></a>
-                    <?php } else if ($p['idkategori'] == 2) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img phone" /></a>
-                    <?php } else if ($p['idkategori'] == 3) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img watch" /></a>
-                    <?php } ?>
-                  </div>
-                  <span class="product_name"><?= $p["namaproduk"] ?></span>
-                  <span class="product_price">Rp <?php echo number_format($p['hargaafter']) ?></span>
-                  <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
-                </article>
-              <?php
-                endwhile;
-              } else {
-                echo "Data tidak Ditemukan";
-              } ?>
-            </div>
-          </div>
+      <div class="about container">
+          <h2>About Us</h2>
+          <p>
+            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. Project ini merupakan project Open Source, jadi bisa di akses siapa saja. Project ini dikerjakan oleh <strong>Kelompok 1</strong> kelas <strong>XII RPL 1</strong>. 
+          </p>
+          <div class="about-icon">
+          <ul>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class='bx bxl-facebook' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class='bx bxl-instagram' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class='bx bxl-twitter' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/AdrianRafli/project-web-bsd" target="_blank" class="footer_social"><i class='bx bxl-github' ></i></a>
+              </li>
+            </ul>
         </div>
-      </section>
+      </div>
     </main>
 
     <!--===== FOOTER =====-->
@@ -146,7 +103,7 @@
           <div class="footer-link col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 class="mb-4">Link</h5>
             <p>
-              <a href="about-us.php" class="footer_link">About Us</a>
+              <a href="#" class="footer_link">About Us</a>
             </p>
           </div>
           <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
@@ -187,9 +144,6 @@
           </div>
         </div>
       </div>
-    </footer>
-
-      <p class="footer_copy">&#169; 2021 Kelompok 1. XII RPL 1</p>
     </footer>
 
     <!--===== MAIN JS =====-->

@@ -563,7 +563,7 @@ body a:hover {
 }
 
 .footer_social {
-  font-size: 17px;
+  font-size: 22px;
   margin: auto;
   margin-right: 1.25rem;
   color: var(--dark-color-light);
@@ -985,7 +985,30 @@ body a:hover {
   margin: 150px 0;
 }
 
-/* ----- MEDIA QUERIES-----*/
+/* ============================== About Us Page ================================ */
+
+.about {
+  height: 80vh;
+  padding-top: 200px;
+}
+
+.about h2 {
+  font-size: var(--biggest-font-size);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.about p {
+  text-align: center;
+  font-size: var(--normal-font-size);
+  padding-bottom: 50px;
+}
+
+.about-icon {
+  padding-left: 52px;
+}
+
+/* ************************************ MEDIA QUERIES ************************************ */
 
 /* Tablet */
 
@@ -1357,6 +1380,12 @@ body a:hover {
   .submit-checkout h5,
   .submit-checkout input {
     font-size: 20px;
+  }
+
+  /* ===================================== About Page ================================== */
+
+  .about-icon {
+    padding-left: 425px;
   }
 
   /* ===================================== Footer ================================== */

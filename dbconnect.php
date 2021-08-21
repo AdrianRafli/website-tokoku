@@ -3,7 +3,7 @@
 $conn = mysqli_connect("localhost","root","","tokoku");
 
 if(!$conn){
-	echo "gagal konek database menn";
+	echo "Gagal Koneksi Database";
 } else {
 	
 };
