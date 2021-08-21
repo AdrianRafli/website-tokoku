@@ -653,9 +653,9 @@ body a:hover {
   margin: auto;
   width: 350px;
   height: 350px;
-  box-shadow: 5px 10px rgb(206, 206, 206);
-  background-color: var(--white-color);
-  border-radius: 10px;
+  border-radius: 30px;
+  background: var(--white-color);
+  box-shadow: 35px 35px 70px #b3b3b3, -35px -35px 70px #ffffff;
 }
 
 .icon {
@@ -718,9 +718,9 @@ body a:hover {
   margin: auto;
   width: 350px;
   height: 450px;
-  box-shadow: 5px 10px rgb(206, 206, 206);
-  background-color: var(--white-color);
-  border-radius: 10px;
+  border-radius: 30px;
+  background: var(--white-color);
+  box-shadow: 35px 35px 70px #b3b3b3, -35px -35px 70px #ffffff;
 }
 
 /* ================================ DISPLAY PRODUCT ================================= */
@@ -1360,6 +1360,10 @@ body a:hover {
   }
 
   /* ===================================== Footer ================================== */
+
+  footer {
+    margin-top: 100px !important;
+  }
 
   .footer-top,
   .footer-bottom {

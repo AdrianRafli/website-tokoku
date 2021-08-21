@@ -134,8 +134,8 @@
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=7"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
-            <span class="product_name">ROG Flow 13</span>
-            <span class="product_price">Rp 30.000.000</span>
+            <span class="product_name">ROG Flow X13 GV301</span>
+            <span class="product_price">Rp 27.499.000</span>
             <a href="display-product.php?idkategori=1&idproduk=7" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
 
@@ -145,7 +145,7 @@
               <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Zenbook Pro Duo</span>
-            <span class="product_price">Rp 20.000.000</span>
+            <span class="product_price">Rp 41.499.000</span>
             <a href="display-product.php?idkategori=1&idproduk=10" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
 
@@ -154,8 +154,8 @@
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Belakang.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
-            <span class="product_name">Vivobook 14</span>
-            <span class="product_price">Rp 10.000.000</span>
+            <span class="product_name">Vivobook 14 M413</span>
+            <span class="product_price">Rp 11.399.000</span>
             <a href="display-product.php?idkategori=1&idproduk=12" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
         </div>
@@ -171,23 +171,23 @@
               <a href="display-product.php?idkategori=1&idproduk=13"><img src="assets/img/Laptop/Lenovo/Ideapad/Ideapad S340/Ideapad S340 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
             <span class="product_name">Ideapad S340</span>
-            <span class="product_price">Rp 8.500.000</span>
+            <span class="product_price">Rp 8.099.000</span>
             <a href="display-product.php?idkategori=1&idproduk=13" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
           <article class="product product-home">
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
-            <span class="product_name">VivoBook 14</span>
-            <span class="product_price">Rp 10.500.000</span>
+            <span class="product_name">VivoBook 14 M413</span>
+            <span class="product_price">Rp 11.399.000</span>
             <a href="display-product.php?idkategori=1&idproduk=12" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
           <article class="product product-home">
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Depan.png" alt="Featured 1" class="product_img laptop" /></a>
             </div>
-            <span class="product_name">Zenbook Pro</span>
-            <span class="product_price">Rp 18.500.000</span>
+            <span class="product_name">Zenbook Pro Duo</span>
+            <span class="product_price">Rp 41.499.000</span>
             <a href="display-product.php?idkategori=1&idproduk=10" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </article>
         </div>
@@ -214,7 +214,7 @@
           <div class="new_mens">
             <img src="assets/img/Watch/Mi Smart Band 5/Mi Smart Band 5.png" alt="New" class="new_img watch-home" />
             <h3 class="new_title">Mi Band 5</h3>
-            <span class="new_price">Mulai dari Rp 800.000</span>
+            <span class="new_price">Mulai dari Rp 400.000</span>
             <a href="display-product.php?idkategori=3&idproduk=25" class="button-light">Lihat Produk <i class="bx bx-right-arrow-alt button-icon"></i></a>
           </div>
 
