@@ -123,7 +123,7 @@
                 <form action="" method="post">
                 <th><?= $no++ ?></th>
                 <td>
-                  <a href="product.php?idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar1'] ?>" width="100px" height="100px" /></a>
+                  <a href="display-product.php?idkategori=<?= $b['idkategori'] ?>&idproduk=<?= $b['idproduk'] ?>"><img src="<?= $b['gambar1'] ?>" width="100px" height="100px" /></a>
                 </td>
                 <td><?= $b['namaproduk'] ?></td>
                 <td>
