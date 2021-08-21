@@ -217,31 +217,69 @@
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer container">
-      <div class="row">
-        <div class="footer_box col">
-          <h3 class="footer_title">Tokoku</h3>
-          <p class="footer_description">Produk Baru Gadget di 2021</p>
+    <footer class="pt-5 pb-4">
+      <div class="container text-md-left">
+        <div class="footer-top row text-md-left">
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="mb-4 footer_title">Tokoku</h5>
+            <p class="footer_description">Produk Baru Gadget di 2021</p>
+          </div>
+          <div class="footer-product col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="mb-4">Products</h5>
+            <p>
+              <a href="product.php?idkategori=1" class="footer_link">Laptop</a>
+            </p>
+            <p>
+              <a href="product.php?idkategori=2" class="footer_link">Phone</a>
+            </p>
+            <p>
+              <a href="product.php?idkategori=3" class="footer_link">Watch</a>
+            </p>
+          </div>
+          <div class="footer-link col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="mb-4">Link</h5>
+            <p>
+              <a href="#" class="footer_link">About Us</a>
+            </p>
+          </div>
+          <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="mb-4">Contact</h5>
+            <p>
+              <i class='bx bxs-home me-3'> Semarang</i> 
+            </p>
+            <p>
+              <i class='bx bxs-envelope me-3'> tokoku@gmail.com</i> 
+            </p>
+            <p>
+              <i class='bx bxs-phone me-3'> 081234567890</i>
+            </p>
+          </div>
         </div>
 
-        <div class="footer_box col">
-          <h3 class="footer_title">Explore</h3>
-          <ul>
-            <li><a href="#" class="footer_link">Home</a></li>
-            <li><a href="product.php?idkategori=1" class="footer_link">Laptop</a></li>
-            <li><a href="product.php?idkategori=2" class="footer_link">Phone</a></li>
-            <li><a href="product.php?idkategori=3" class="footer_link">Watch</a></li>
-          </ul>
-        </div>
+        <hr class="mb-4">
 
-        <div class="footer_box col">
-          <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="bx bxl-instagram"></i></a>
-          <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="bx bxl-twitter"></i></a>
+        <div class="footer-bottom row align-items-center">
+          <div class="col-md-7 col-lg-8">
+          <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+          </div>
+          <div class="col-md-5 col-lg-4">
+            <ul>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class='bx bxl-facebook' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class='bx bxl-instagram' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class='bx bxl-twitter' ></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/AdrianRafli/project-web-bsd" target="_blank" class="footer_social"><i class='bx bxl-github' ></i></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <p class="footer_copy">&#169; 2021 Kelompok 1. XII RPL 1</p>
     </footer>
 
     <!--===== MAIN JS =====-->

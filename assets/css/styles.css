@@ -1360,6 +1360,12 @@ body a:hover {
   }
 
   /* ===================================== Footer ================================== */
+
+  .footer-top,
+  .footer-bottom {
+    margin-left: 50px !important;
+  }
+
   .footer_title {
     font-size: var(--bigger-font-size);
   }
@@ -1373,6 +1379,10 @@ body a:hover {
   }
 
   .footer_social {
-    font-size: 30px;
+    font-size: 26px;
+  }
+
+  .footer-contact p i {
+    font-size: 18px;
   }
 }
