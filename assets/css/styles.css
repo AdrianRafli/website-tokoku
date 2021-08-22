@@ -201,6 +201,7 @@ body a:hover {
   display: flex;
   justify-content: center;
   align-self: center;
+  padding-top: 70px;
 }
 
 .home_shape {
@@ -212,7 +213,7 @@ body a:hover {
 
 .home_img {
   position: absolute;
-  top: 1.5rem;
+  top: 70px;
   max-width: initial;
   width: 275px;
 }
@@ -476,11 +477,13 @@ body a:hover {
 .new_title {
   font-size: var(--bigger-font-size);
   margin-bottom: 0.25rem;
+  padding-left: 10px;
 }
 
 .new_price {
   display: block;
   margin-bottom: var(--mb-3);
+  padding-left: 10px;
 }
 
 .new_product {
@@ -988,7 +991,7 @@ body a:hover {
 /* ============================== About Us Page ================================ */
 
 .about {
-  height: 80vh;
+  height: 100vh;
   padding-top: 200px;
 }
 
@@ -1127,6 +1130,7 @@ body a:hover {
 
   .home_product {
     order: 1;
+    padding-top: 0;
   }
 
   .home_shape {
@@ -1192,6 +1196,16 @@ body a:hover {
 
   .new_mens-img {
     margin-bottom: var(--mb-1);
+  }
+
+  .new_title {
+    font-size: var(--bigger-font-size);
+    margin-bottom: 0.25rem;
+  }
+
+  .new_price {
+    display: block;
+    margin-bottom: var(--mb-3);
   }
 
   /* ================================ PRODUCT PAGE ================================= */
@@ -1383,6 +1397,11 @@ body a:hover {
   }
 
   /* ===================================== About Page ================================== */
+
+  .about {
+    height: 80vh;
+    padding-top: 200px;
+  }
 
   .about-icon {
     padding-left: 425px;

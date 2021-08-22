@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  include "dbconnect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,7 +64,7 @@
       <div class="about container">
           <h2>About Us</h2>
           <p>
-            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. Project ini merupakan project Open Source, jadi bisa di akses siapa saja. Project ini dikerjakan oleh <strong>Kelompok 1</strong> kelas <strong>XII RPL 1</strong>. 
+            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. <br> Project ini dikerjakan oleh <strong>Kelompok 1</strong> kelas <strong>XII RPL 1</strong>. 
           </p>
           <div class="about-icon">
           <ul>
