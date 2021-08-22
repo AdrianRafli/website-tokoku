@@ -132,7 +132,7 @@
     <main class="main">
 
       <?php if (isset($berhasil)) { ?>
-        <div class='alert alert-success' style="margin-top: 7px !important;">
+        <div class='alert alert-success'>
           Berhasil menambahkan ke keranjang
         </div>
         <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>  
