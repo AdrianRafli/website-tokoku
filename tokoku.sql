@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Agu 2021 pada 13.52
+-- Waktu pembuatan: 22 Agu 2021 pada 15.10
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -205,7 +205,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `email`, `username`, `password`) VALUES
-(4, 'admin', 'admin', '$2y$10$aMj44m/oOqEjLEJ093QZke6dkCQ5qLv5RWU58fQqKewyGcykG/YmG');
+(4, 'admin', 'admin', '$2y$10$aMj44m/oOqEjLEJ093QZke6dkCQ5qLv5RWU58fQqKewyGcykG/YmG'),
+(5, 'adrian', 'adrian', '$2y$10$HCDLNTg91bvslXL9ZCUsfOXw29D.i5N91XV7.00eFimdzbxO7c7he');
 
 --
 -- Indexes for dumped tables
@@ -316,7 +317,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
