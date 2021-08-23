@@ -40,7 +40,7 @@
       $password = password_hash($password, PASSWORD_DEFAULT);
 
       // tambahkan user baru ke database 
-      mysqli_query($conn, "INSERT INTO users VALUES('','$email', '$username', '$password')");
+      mysqli_query($conn, "INSERT INTO users(email, username, password) VALUES('$email', '$username', '$password')") or trigger_error(mysqli_error($conn));
       return mysqli_affected_rows($conn);
     }
     
