@@ -118,7 +118,6 @@
                         <ul class="notification-area pull-right">
                             <li><h3><div class="date">
 								<script type='text/javascript'>
-						<!--
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 						var date = new Date();
@@ -168,8 +167,8 @@
 												?>
 												
 												<tr>
-													<td><?php echo $no++ ?></td>
-													<td><?php echo $p['namakategori'] ?></td>
+													<td><?= $no++ ?></td>
+													<td><?= $p['namakategori'] ?></td>
 													<td><?php 
 												
 														$result1 = mysqli_query($conn,"SELECT Count(idproduk) AS count FROM produk p, kategori k where p.idkategori=k.idkategori and k.idkategori='$id' order by idproduk ASC");
@@ -182,7 +181,7 @@
 															echo 'No data';
 														}
 													?></td>
-													<td><?php echo $p['tgldibuat'] ?></td>
+													<td><?= $p['tgldibuat'] ?></td>
 													
 												</tr>		
 												
@@ -207,7 +206,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->

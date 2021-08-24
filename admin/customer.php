@@ -100,7 +100,7 @@
                         <ul class="notification-area pull-right">
                             <li><h3><div class="date">
 								<script type='text/javascript'>
-						
+    
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 						var date = new Date();
@@ -137,24 +137,19 @@
 										 <table id="dataTable3" class="display" style="width:100%"><thead class="thead-dark">
 											<tr>
 												<th>No</th>
-												<th>Nama Pelanggan</th>
-												<th>No. Telepon</th>
-												<th>Alamat</th>
 												<th>Email</th>
+												<th>Username</th>
 											</tr></thead><tbody>
 											<?php 
-											$brgs=mysqli_query($conn,"SELECT * from login where role='Member' order by userid ASC");
+											$brgs=mysqli_query($conn,"SELECT * from users where role='Member' order by userid ASC");
 											$no=1;
 											while($p=mysqli_fetch_array($brgs)){
 												?>
 												
 												<tr>
 													<td><?php echo $no++ ?></td>
-													<td><?php echo $p['namalengkap'] ?></td>
-													<td><?php echo $p['notelp'] ?></td>
-													<td><?php echo $p['alamat'] ?></td>
 													<td><?php echo $p['email'] ?></td>
-													
+													<td><?php echo $p['username'] ?></td>	
 												</tr>	
 												
 												<?php 
@@ -179,7 +174,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->

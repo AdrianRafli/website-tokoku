@@ -20,23 +20,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<link rel="icon" 
-      type="image/png" 
-      href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Admin Panel - Tokopekita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <!-- <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico"> -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/metisMenu.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/slicknav.min.css">
 	
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-    <!-- others css -->
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -46,14 +40,11 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- preloader area start -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
-    <!-- preloader area end -->
+
     <!-- page container area start -->
     <div class="page-container">
         <!-- sidebar menu area start -->
@@ -125,31 +116,7 @@
                     </div>
                 </div>
             </div>
-			
-			
-			<!-- header area end -->
-			<?php 
-			/*
-				$periksa_bahan=mysqli_query($conn,"select * from stock_brg where stock <10");
-				while($p=mysqli_fetch_array($periksa_bahan)){	
-					if($p['stock']>=1){	
-						?>	
-						<script>
-							$(document).ready(function(){
-								$('#pesan_sedia').css("color","white");
-								$('#pesan_sedia').append("<i class='ti-flag'></i>");
-							});
-						</script>
-						<?php
-						echo "<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button>Stok  <strong><u>".$p['nama']. "</u> <u>".($p['jenis'])."</u></strong> yang tersisa kurang dari 10</div>";		
-					}
-				}
-				
-				*/
-				?>
-			
-            
-            <!-- page title area end -->
+	        
             <div class="main-content-inner">
 			
                 
@@ -163,7 +130,7 @@
                                         <h4 class="header-title mb-0">Pelanggan</h4>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h1><?php echo $itungcust3 ?></h1>
+                                        <h1><?= $itungcust3 ?></h1>
                                     </div>
 									</div>
                             </div>
@@ -177,7 +144,7 @@
                                         <h4 class="header-title mb-0">Pesanan</h4>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h1><?php echo $itungorder3 ?></h1>
+                                        <h1><?= $itungorder3 ?></h1>
                                     </div>
                                 </div>
                             </div>
@@ -190,26 +157,14 @@
                                         <h4 class="header-title mb-0">Konfirmasi Pembayaran</h4>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h1><?php echo $itungtrans3 ?></h1>
+                                        <h1><?= $itungtrans3 ?></h1>
                                     </div>
-									<!--
-									<button type="button" class="<?php 
-									if($itungtrans3==0){
-										echo 'btn btn-secondary btn-block';
-									} else {
-										echo 'btn btn-primary btn-block';
-									}
-									?>
-									">Lihat Transaksi</button>
-									-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                
-                <!-- overview area end -->
                 <!-- market value area start -->
                 <div class="row mt-5 mb-5">
                     <div class="col-12">
@@ -219,7 +174,7 @@
 									<h2>Selamat Datang</h2>
                                 </div>
                                 <div class="market-status-table mt-4">
-                                    Anda masuk sebagai <strong><?= $_SESSION['username'] ?></strong>
+                                    <p>Anda masuk sebagai <strong><?= $_SESSION['username'] ?></strong></p>
 									<br>
 									<p>Pada halaman admin, Anda dapat menambah kategori produk, mengelola produk, 
 									mengelola user dan admin, melihat konfirmasi pembayaran</p>
@@ -228,24 +183,16 @@
                         </div>
                     </div>
                 </div>
-              
-                
-                <!-- row area start-->
             </div>
         </div>
-        <!-- main content area end -->
 		
-		
-		
-        <!-- footer area start-->
+        <!-- Footer-->
         <footer>
             <div class="footer-area">
-                <p>by Tokoku</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
-        <!-- footer area end-->
     </div>
-    <!-- page container area end -->
 
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>

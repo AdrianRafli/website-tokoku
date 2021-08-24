@@ -104,7 +104,6 @@
                         <ul class="notification-area pull-right">
                             <li><h3><div class="date">
 								<script type='text/javascript'>
-						<!--
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 						var date = new Date();
@@ -148,17 +147,17 @@
 												<th>Status</th>
 											</tr></thead><tbody>
 											<?php 
-											$brgs=mysqli_query($conn,"SELECT * from cart c, login l where c.userid=l.userid and status!='Cart' and status!='Selesai' order by idcart ASC");
+											$brgs=mysqli_query($conn,"SELECT * from cart c, users l where c.userid=l.userid and status!='Cart' and status!='Selesai' order by idcart ASC");
 											$no=1;
 											while($p=mysqli_fetch_array($brgs)){
 											$orderids = $p['orderid'];
 												?>
 												
 												<tr>
-													<td><?php echo $no++ ?></td>
-													<td><strong><a href="order.php?orderid=<?php echo $p['orderid'] ?>">#<?php echo $p['orderid'] ?></a></strong></td>
-													<td><?php echo $p['namalengkap'] ?></td>
-													<td><?php echo $p['tglorder'] ?></td>
+													<td><?= $no++ ?></td>
+													<td><strong><a href="order.php?orderid=<?= $p['orderid'] ?>">#<?= $p['orderid'] ?></a></strong></td>
+													<td><?= $p['namalengkap'] ?></td>
+													<td><?= $p['tglorder'] ?></td>
 													<td>Rp<?php 
 												
 												$result1 = mysqli_query($conn,"SELECT SUM(d.qty*p.hargaafter) AS count FROM detailorder d, produk p where orderid='$orderids' and p.idproduk=d.idproduk order by d.idproduk ASC");
@@ -210,7 +209,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->

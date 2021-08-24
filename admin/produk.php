@@ -156,7 +156,6 @@
                         <ul class="notification-area pull-right">
                             <li><h3><div class="date">
 								<script type='text/javascript'>
-						<!--
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 						var date = new Date();
@@ -198,7 +197,6 @@
 												<th>Kategori</th>
 												<th>Harga Diskon</th>
 												<th>Deskripsi</th>
-												<th>Rate</th>
 												<th>Harga Awal</th>
 												<th>Tanggal</th>
 											</tr></thead><tbody>
@@ -210,24 +208,17 @@
 												?>
 												
 												<tr>
-													<td><?php echo $no++ ?></td>
-													<td><img src="../<?php echo $p['gambar'] ?>" width="50%"\></td>
-													<td><?php echo $p['namaproduk'] ?></td>
-													<td><?php echo $p['namakategori'] ?></td>
-													<td><?php echo $p['hargaafter'] ?></td>
-													<td><?php echo $p['deskripsi'] ?></td>
-													<td><?php echo $p['rate'] ?></td>
-													<td><?php echo $p['hargabefore'] ?></td>
-													<td><?php echo $p['tgldibuat'] ?></td>
-													
+													<td><?= $no++ ?></td>
+													<td><img src="../<?= $p['gambar1'] ?>" width="50%"\></td>
+													<td><?= $p['namaproduk'] ?></td>
+													<td><?= $p['namakategori'] ?></td>
+													<td><?= $p['hargaafter'] ?></td>
+													<td><?= $p['deskripsi'] ?></td>
+													<td><?= $p['hargabefore'] ?></td>
+													<td><?= $p['tgldibuat'] ?></td>
 												</tr>		
-												
-												<?php 
+											<?php 
 											}
-											
-												
-											
-		
 											?>
 										</tbody>
 										</table>
@@ -246,7 +237,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->
@@ -272,10 +263,10 @@
 									<select name="idkategori" class="form-control">
 									<option selected>Pilih Kategori</option>
 									<?php
-									$det=mysqli_query($conn,"select * from kategori order by namakategori ASC")or die(mysqli_error());
+									$det=mysqli_query($conn,"SELECT * from kategori order by namakategori ASC")or die(mysqli_error($conn));
 									while($d=mysqli_fetch_array($det)){
 									?>
-										<option value="<?php echo $d['idkategori'] ?>"><?php echo $d['namakategori'] ?></option>
+										<option value="<?= $d['idkategori'] ?>"><?= $d['namakategori'] ?></option>
 										<?php
 								}
 								?>		
@@ -285,10 +276,6 @@
 								<div class="form-group">
 									<label>Deskripsi</label>
 									<input name="deskripsi" type="text" class="form-control" required>
-								</div>
-								<div class="form-group">
-									<label>Rating (1-5)</label>
-									<input name="rate" type="number" class="form-control"  min="1" max="5" required>
 								</div>
 								<div class="form-group">
 									<label>Harga Sebelum Diskon</label>

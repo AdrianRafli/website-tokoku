@@ -8,7 +8,7 @@
 		$username = $_POST['uname'];
 		$password = password_hash($_POST['upass'], PASSWORD_DEFAULT); 
 			  
-		$tambahuser = mysqli_query($conn,"insert into login values('','$username','$password')");
+		$tambahuser = mysqli_query($conn,"INSERT into users values('','$username','$password')");
 		if ($tambahuser){
 		echo " <div class='alert alert-success'>
 			Berhasil menambahkan staff baru.
@@ -123,7 +123,6 @@
                         <ul class="notification-area pull-right">
                             <li><h3><div class="date">
 								<script type='text/javascript'>
-						<!--
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 						var date = new Date();
@@ -154,18 +153,17 @@
                             <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-center">
 									<h2>Daftar Staff</h2>
+                                    <button style="margin-bottom:20px" data-toggle="modal" data-target="#myModal" class="btn btn-info col-md-2">Tambah Admin</button>
 									</div>
                                     <div class="data-tables datatable-dark">
 										 <table id="dataTable3" class="display" style="width:100%"><thead class="thead-dark">
 											<tr>
 												<th>No.</th>
-												<th>Nama</th>
 												<th>Email</th>
-												<th>Telepon</th>
-												<th>Alamat</th>
+												<th>Nama</th>
 											</tr></thead><tbody>
 											<?php 
-											$brgs=mysqli_query($conn,"SELECT * from login where role='Admin' order by userid ASC");
+											$brgs=mysqli_query($conn,"SELECT * from users where role='Admin' order by userid ASC");
 											$no=1;
 											while($p=mysqli_fetch_array($brgs)){
 
@@ -173,11 +171,8 @@
 												
 												<tr>
 													<td><?php echo $no++ ?></td>
-													<td><?php echo $p['namalengkap'] ?></td>
 													<td><?php echo $p['email'] ?></td>
-													<td><?php echo $p['notelp'] ?></td>
-													<td><?php echo $p['alamat'] ?></td>
-													
+													<td><?php echo $p['username'] ?></td>
 												</tr>		
 												
 												
@@ -202,19 +197,19 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
 	
-	<!-- modal input 
+	<!-- modal input  -->
 			<div id="myModal" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4 class="modal-title">Tambah User Baru</h4>
+							<h4 class="modal-title">Tambah Admin Baru</h4>
 						</div>
 						<div class="modal-body">
 							<form method="post">
@@ -236,7 +231,7 @@
 					</div>
 				</div>
 			</div>
-	-->
+	
 	<script>
 	$(document).ready(function() {
     $('#dataTable3').DataTable( {
