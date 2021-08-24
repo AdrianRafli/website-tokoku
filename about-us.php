@@ -49,10 +49,15 @@
             <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
-              if(isset($_SESSION['login'])) {
-                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              if(!isset($_SESSION['login'])) {
+                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
-                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+                if($_SESSION['role']=='Member') {
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                } else {
+                  echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                }
               }
             ?>
           </form>

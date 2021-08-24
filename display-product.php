@@ -87,7 +87,7 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="#">Tokoku</a>
+        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -118,10 +118,15 @@
               <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
-              if(isset($_SESSION['login'])) {
-                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              if(!isset($_SESSION['login'])) {
+                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
-                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+                if($_SESSION['role']=='Member') {
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                } else {
+                  echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                }
               }
             ?>
           </form>
