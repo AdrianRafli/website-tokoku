@@ -74,7 +74,7 @@
               if(!isset($_SESSION['login'])) {
                 echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
-                if($_SESSION['role']=='Member') {
+                if($_SESSION['role']=='member') {
                   echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
                 } else {
                   echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
