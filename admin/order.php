@@ -2,16 +2,16 @@
 session_start();
 include '../dbconnect.php';
 $orderids = $_GET['orderid'];
-$liatcust = mysqli_query($conn,"select * from login l, cart c where orderid='$orderids' and l.userid=c.userid");
+$liatcust = mysqli_query($conn,"SELECT * from users l, cart c where orderid='$orderids' and l.userid=c.userid");
 $checkdb = mysqli_fetch_array($liatcust);
 date_default_timezone_set("Asia/Bangkok");
 
 if(isset($_POST['kirim']))
 	{
-		$updatestatus = mysqli_query($conn,"update cart set status='Pengiriman' where orderid='$orderids'");
-		$del =  mysqli_query($conn,"delete from konfirmasi where orderid='$orderids'");
+		$updatestatus = mysqli_query($conn,"UPDATE cart set status='Pengiriman' where orderid='$orderids'");
+		$del =  mysqli_query($conn,"DELETE from konfirmasi where orderid='$orderids'");
 		
-		if($updatestatus&&$del){
+		if($updatestatus && $del){
 			echo " <div class='alert alert-success'>
 			<center>Pesanan dikirim.</center>
 		  </div>
@@ -27,7 +27,7 @@ if(isset($_POST['kirim']))
 
 if(isset($_POST['selesai']))
 	{
-		$updatestatus = mysqli_query($conn,"update cart set status='Selesai' where orderid='$orderids'");
+		$updatestatus = mysqli_query($conn,"UPDATE cart set status='Selesai' where orderid='$orderids'");
 		
 		if($updatestatus){
 			echo " <div class='alert alert-success'>
@@ -54,7 +54,7 @@ if(isset($_POST['selesai']))
       type="image/png" 
       href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Tokopekita - Pesanan <?php echo $checkdb['namalengkap']; ?></title>
+    <title>Tokopekita - Pesanan <?= $checkdb['username']; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -178,11 +178,11 @@ if(isset($_POST['selesai']))
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-center">
-									<h3>Order id : #<?php echo $orderids ?></h3>
+									<h3>Order id : #<?= $orderids ?></h3>
 									
 								</div>
-                                   <p><?php echo $checkdb['namalengkap']; ?> (<?php echo $checkdb['alamat']; ?>)</p>
-								<p>Waktu order : <?php echo $checkdb['tglorder']; ?></p>
+                                   <p><?= $checkdb['username']; ?> (<?= $checkdb['alamat']; ?>)</p>
+								<p>Waktu order : <?= $checkdb['tglorder']; ?></p>
 									
 									<?php
 									?>
@@ -210,11 +210,11 @@ if(isset($_POST['selesai']))
 												?>
 												
 												<tr>
-													<td><?php echo $no++ ?></td>
-													<td><?php echo $p['namaproduk'] ?></td>
-													<td><?php echo $p['qty'] ?></td>
-													<td>Rp<?php echo number_format($p['hargaafter']) ?></td>
-													<td>Rp<?php echo number_format($total) ?></td>
+													<td><?= $no++ ?></td>
+													<td><?= $p['namaproduk'] ?></td>
+													<td><?= $p['qty'] ?></td>
+													<td>Rp<?= number_format($p['hargaafter']) ?></td>
+													<td>Rp<?= number_format($total) ?></td>
 													
 												</tr>
 												
@@ -246,15 +246,15 @@ if(isset($_POST['selesai']))
 									<?php
 									
 									if($checkdb['status']=='Confirmed'){
-										$ambilinfo = mysqli_query($conn,"select * from konfirmasi where orderid='$orderids'");
+										$ambilinfo = mysqli_query($conn,"SELECT * from konfirmasi where orderid='$orderids'");
 										while($tarik=mysqli_fetch_array($ambilinfo)){		
 										$met = $tarik['payment'];
 										$namarek = $tarik['namarekening'];
 										$tglb = $tarik['tglbayar'];
 										echo '
 										Informasi Pembayaran
-									<div class="data-tables datatable-dark">
-									<table id="dataTable2" class="display" style="width:100%"><thead class="thead-dark">
+										<div class="data-tables datatable-dark">
+										<table id="dataTable2" class="display" style="width:100%"><thead class="thead-dark">
 											<tr>
 												<th>Metode</th>
 												<th>Pemilik Rekening</th>
@@ -302,7 +302,7 @@ if(isset($_POST['selesai']))
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>By Richard's Lab</p>
+                <p>By Tokoku</p>
             </div>
         </footer>
         <!-- footer area end-->

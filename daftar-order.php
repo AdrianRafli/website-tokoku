@@ -8,7 +8,7 @@
   }
 
   $id = $_SESSION['id'];
-	$itungtrans = mysqli_query($conn,"SELECT count(orderid) AS jumlahtrans FROM cart WHERE userid='$id' AND STATUS!='Cart'");
+	$itungtrans = mysqli_query($conn,"SELECT count(orderid) AS jumlahtrans FROM cart WHERE userid='$id' AND status!='Cart'");
 	$itungtrans2 = mysqli_fetch_assoc($itungtrans);
 	$itungtrans3 = $itungtrans2['jumlahtrans'];
 ?>
@@ -95,7 +95,7 @@
             </thead>
             <tbody>
               <?php 
-                $brg=mysqli_query($conn,"SELECT DISTINCT(idcart), c.orderid, tglorder, STATUS FROM cart c, detailorder d WHERE c.userid='$id' AND d.orderid=c.orderid AND STATUS!='Cart' ORDER BY tglorder DESC");
+                $brg=mysqli_query($conn,"SELECT DISTINCT(idcart), c.orderid, tglorder, status FROM cart c, detailorder d WHERE c.userid='$id' AND d.orderid=c.orderid AND status!='Cart' ORDER BY tglorder DESC");
                 $no=1;
                 while($b=mysqli_fetch_array($brg)):
               ?>
@@ -124,22 +124,20 @@
                   <td>
                     <div class="rem">
                       <?php 
-                        if($b['STATUS']=='Payment'){
+                        if($b['status']=='Payment'){
                           echo '
-                          <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>
-                          ';}
-                          else if($b['STATUS']=='Diproses'){
+                          <a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-outline-dark">Konfirmasi Pembayaran</a>';
+                        } else if($b['status']=='Diproses'){
                           echo 'Pesanan Diproses (Pembayaran Diterima)';
-                          }
-                          else if($b['STATUS']=='Dikirim'){
+                        } else if($b['status']=='Dikirim'){
                             echo 'Pesanan Dikirim';
-                          } else if($b['STATUS']=='Selesai'){
+                        } else if($b['status']=='Selesai'){
                             echo 'Pesanan Selesai';
-                          } else if($b['STATUS']=='Dibatalkan'){
+                        } else if($b['status']=='Dibatalkan'){
                             echo 'Pesanan Dibatalkan';
-                          } else {
+                        } else {
                             echo 'Konfirmasi diterima';
-                          }
+                        }
                       ?>
                     </div>
                     <script>$(document).ready(function(c) {

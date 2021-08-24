@@ -156,7 +156,7 @@
 												<tr>
 													<td><?= $no++ ?></td>
 													<td><strong><a href="order.php?orderid=<?= $p['orderid'] ?>">#<?= $p['orderid'] ?></a></strong></td>
-													<td><?= $p['namalengkap'] ?></td>
+													<td><?= $p['username'] ?></td>
 													<td><?= $p['tglorder'] ?></td>
 													<td>Rp<?php 
 												
@@ -173,7 +173,7 @@
 													
 													//echo $p['status'] 
 													$orders = $p['orderid'];
-													$cekkonfirmasipembayaran = mysqli_query($conn,"select * from konfirmasi where orderid='$orders'");
+													$cekkonfirmasipembayaran = mysqli_query($conn,"SELECT * FROM konfirmasi where orderid='$orders'");
 													$cekroww = mysqli_num_rows($cekkonfirmasipembayaran);
 													
 													if($cekroww > 0){
