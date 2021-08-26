@@ -1,6 +1,7 @@
 <?php
   session_start();
   include "dbconnect.php";
+  include "badges.php";
 
   $idk = $_GET['idkategori'];
   $idp = $_GET['idproduk'];
@@ -108,13 +109,25 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" action="search.php" method="post">
-            <a href="daftar-order.php" class="nav-icon">
+          <div class="nav-icon">
+            <a href="daftar-order.php">
               <i class="bx bx-history button-icon me-1"></i>
+              <?php if ($orderid !== null) : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungorder3 ?>
+                <span class="visually-hidden">unseen order</span>
+              <?php endif; ?>
             </a>
-            <a href="cart.php" class="nav-icon">
-              <i class="bx bxs-cart button-icon me-3"></i>
+            <a href="cart.php">
+              <i class="bx bxs-cart button-icon me-1"></i>
+              <?php if ($orderidd !== null) : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungtrans3 ?>
+                <span class="visually-hidden">unseen cart</span>
+                <?php endif; ?>
             </a>
+          </div>
+          <form class="d-flex" action="search.php" method="post">
               <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 

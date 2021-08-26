@@ -8,7 +8,7 @@
   }
 
     $uid = $_SESSION['id'];
-    $caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND STATUS='Cart'");
+    $caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND status='Cart'");
     $fetc = mysqli_fetch_array($caricart);
     $orderidd = $fetc['orderid'];
     $itungtrans = mysqli_query($conn,"SELECT count(detailid) AS jumlahtrans FROM detailorder WHERE orderid='$orderidd'");
