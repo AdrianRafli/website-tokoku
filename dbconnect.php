@@ -1,4 +1,7 @@
 <?php 
+// hide error messages
+// error_reporting(0);
+
 // isi nama host, username mysql, dan password mysql anda
 $conn = mysqli_connect("localhost","root","","tokoku");
 
