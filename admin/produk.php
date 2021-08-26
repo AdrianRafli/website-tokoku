@@ -6,7 +6,6 @@
 		$namaproduk=$_POST['namaproduk'];
 		$idkategori=$_POST['idkategori'];
 		$deskripsi=$_POST['deskripsi'];
-		$rate=$_POST['rate'];
 		$hargabefore=$_POST['hargabefore'];
 		$hargaafter=$_POST['hargaafter'];
 		
@@ -24,8 +23,8 @@
 		  if($ukuran_file <= 5000000){ 
 			if(move_uploaded_file($tmp_file, $path)){ 
 			
-			  $query = "insert into produk (idkategori, namaproduk, gambar, deskripsi, rate, hargabefore, hargaafter)
-			  values('$idkategori','$namaproduk','$pathdb','$deskripsi','$rate','$hargabefore','$hargaafter')";
+			  $query = "INSERT into produk (idkategori, namaproduk, gambar, deskripsi, hargabefore, hargaafter)
+			  values('$idkategori','$namaproduk','$pathdb','$deskripsi','$hargabefore','$hargaafter')";
 			  $sql = mysqli_query($conn, $query); // Eksekusi/ Jalankan query dari variabel $query
 			  
 			  if($sql){ 
@@ -65,7 +64,7 @@
       type="image/png" 
       href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kelola Produk - Tokopekita</title>
+    <title>Tokoku | Kelola Produk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -253,6 +252,7 @@
 						</div>
 						
 						<div class="modal-body">
+						<p>Maaf untuk sekarang belum bisa menambahkan barang, karena gambar yang kami gunakan belum menggunakan database</p> <br>
 						<form action="produk.php" method="post" enctype="multipart/form-data" >
 								<div class="form-group">
 									<label>Nama Produk</label>

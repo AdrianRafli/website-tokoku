@@ -29,7 +29,7 @@
       type="image/png" 
       href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kelola Metode Pembayaran - Tokopekita</title>
+    <title>Tokoku | Kelola Metode Pembayaran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -215,6 +215,7 @@
 							<h4 class="modal-title">Tambah Metode</h4>
 						</div>
 						<div class="modal-body">
+                            <p>Maaf untuk sekarang belum bisa menambahkan Metode Pembayaran, karena gambar yang kami gunakan belum menggunakan database</p> <br>
 							<form method="post">
 								<div class="form-group">
 									<label>Nama Metode</label>

@@ -5,17 +5,18 @@
 		
 	if(isset($_POST['adduser']))
 	{
+		$email = $_POST['uemail'];
 		$username = $_POST['uname'];
 		$password = password_hash($_POST['upass'], PASSWORD_DEFAULT); 
 			  
-		$tambahuser = mysqli_query($conn,"INSERT into users values('','$username','$password')");
+		$tambahuser = mysqli_query($conn,"INSERT into users (email, username, password, role) values('$email','$username','$password', 'admin')");
 		if ($tambahuser){
 		echo " <div class='alert alert-success'>
-			Berhasil menambahkan staff baru.
+			Berhasil menambahkan Admin baru.
 		  </div>
 		<meta http-equiv='refresh' content='1; url= user.php'/>  ";
 		} else { echo "<div class='alert alert-warning'>
-			Gagal menambahkan staff baru.
+			Gagal menambahkan Admin baru.
 		  </div>
 		 <meta http-equiv='refresh' content='1; url= user.php'/> ";
 		}
@@ -32,7 +33,7 @@
       type="image/png" 
       href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kelola Staff - Tokopekita</title>
+    <title>Tokoku | Kelola Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -93,7 +94,7 @@
                                 </ul>
                             </li>
 							<li><a href="customer.php"><span>Kelola Pelanggan</span></a></li>
-							<li class="active"><a href="user.php"><span>Kelola Staff</span></a></li>
+							<li class="active"><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
                                 
@@ -152,7 +153,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-center">
-									<h2>Daftar Staff</h2>
+									<h2>Daftar Admin</h2>
                                     <button style="margin-bottom:20px" data-toggle="modal" data-target="#myModal" class="btn btn-info col-md-2">Tambah Admin</button>
 									</div>
                                     <div class="data-tables datatable-dark">
@@ -213,6 +214,10 @@
 						</div>
 						<div class="modal-body">
 							<form method="post">
+								<div class="form-group">
+									<label>Email</label>
+									<input name="uemail" type="text" class="form-control" placeholder="Email" required autofocus>
+								</div>
 								<div class="form-group">
 									<label>Username</label>
 									<input name="uname" type="text" class="form-control" placeholder="Username" required autofocus>

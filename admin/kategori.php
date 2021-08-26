@@ -7,7 +7,7 @@
 	{
 		$namakategori = $_POST['namakategori'];
 			  
-		$tambahkat = mysqli_query($conn,"insert into kategori (namakategori) values ('$namakategori')");
+		$tambahkat = mysqli_query($conn,"INSERT into kategori (namakategori) values ('$namakategori')");
 		if ($tambahkat){
 		echo "
 		<meta http-equiv='refresh' content='1; url= kategori.php'/>  ";
@@ -27,7 +27,7 @@
       type="image/png" 
       href="../favicon.png">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kelola Kategori - Tokopekita</title>
+    <title>Tokoku | Kelola Kategori</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
