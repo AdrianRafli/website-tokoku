@@ -37,6 +37,7 @@
         $_SESSION['id'] = $row['userid'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['username'] = $row['username'];
+        $_SESSION['role'] = $row['role'];
         $_SESSION['login'] = true;
 
         // cek remember me

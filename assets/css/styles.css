@@ -168,9 +168,18 @@ body a:hover {
   padding-right: 30px;
 }
 
+.nav-icon {
+  margin-right: 20px;
+}
+
 .nav-icon i {
+  margin-left: 0;
   font-size: var(--bigger-font-size);
   color: var(--dark-color);
+}
+
+.nav-badges {
+  transform: translate(-50%, -50%) !important;
 }
 
 /*Show menu*/

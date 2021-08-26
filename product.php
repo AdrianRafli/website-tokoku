@@ -1,6 +1,7 @@
 <?php
   session_start();
   include 'dbconnect.php';
+  include 'badges.php';
 
   $idk = $_GET['idkategori'];
 ?>
@@ -47,20 +48,37 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" action="search.php" method="POST">
-            <a href="daftar-order.php" class="nav-icon">
+          <div class="nav-icon">
+            <a href="daftar-order.php">
               <i class="bx bx-history button-icon me-1"></i>
+              <?php if ($orderid !== null) : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungorder3 ?>
+                <span class="visually-hidden">unseen order</span>
+              <?php endif; ?>
             </a>
-            <a href="cart.php" class="nav-icon">
-              <i class="bx bxs-cart button-icon me-3"></i>
+            <a href="cart.php">
+              <i class="bx bxs-cart button-icon me-1"></i>
+              <?php if ($orderidd !== null) : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungtrans3 ?>
+                <span class="visually-hidden">unseen cart</span>
+                <?php endif; ?>
             </a>
+          </div>
+          <form class="d-flex" action="search.php" method="POST">
             <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
-              if(isset($_SESSION['login'])) {
-                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              if(!isset($_SESSION['login'])) {
+                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
-                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+                if($_SESSION['role']=='member') {
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                } else {
+                  echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                }
               }
             ?>
           </form>

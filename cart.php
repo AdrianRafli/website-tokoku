@@ -8,7 +8,7 @@
   }
 
     $uid = $_SESSION['id'];
-    $caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND STATUS='Cart'");
+    $caricart = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$uid' AND status='Cart'");
     $fetc = mysqli_fetch_array($caricart);
     $orderidd = $fetc['orderid'];
     $itungtrans = mysqli_query($conn,"SELECT count(detailid) AS jumlahtrans FROM detailorder WHERE orderid='$orderidd'");
@@ -84,10 +84,15 @@
               <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
-              if(isset($_SESSION['login'])) {
-                echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+              if(!isset($_SESSION['login'])) {
+                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
-                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+                if($_SESSION['role']=='member') {
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                } else {
+                  echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
+                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                }
               }
             ?>
           </form>
