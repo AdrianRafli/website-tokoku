@@ -729,7 +729,7 @@ body a:hover {
 .register {
   margin: auto;
   width: 350px;
-  height: 450px;
+  height: 500px;
   border-radius: 30px;
   background: var(--white-color);
   box-shadow: 35px 35px 70px #b3b3b3, -35px -35px 70px #ffffff;
@@ -1269,7 +1269,7 @@ body a:hover {
 
   .register {
     width: 500px;
-    height: 550px;
+    height: 570px;
   }
 
   /* ============================= Display Product Page ===================================== */

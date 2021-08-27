@@ -18,6 +18,7 @@
 
       $email = $data["email"];
       $username = strtolower(stripslashes($data["username"]));
+      $alamat = $data["alamat"];
       $password = mysqli_real_escape_string($conn, $data["password"]);
       $verify = mysqli_real_escape_string($conn, $data["verify"]);
 
@@ -40,7 +41,7 @@
       $password = password_hash($password, PASSWORD_DEFAULT);
 
       // tambahkan user baru ke database 
-      mysqli_query($conn, "INSERT INTO users(email, username, password) VALUES('$email', '$username', '$password')") or trigger_error(mysqli_error($conn));
+      mysqli_query($conn, "INSERT INTO users(email, username, alamat, password) VALUES('$email', '$username','$alamat', '$password')") or trigger_error(mysqli_error($conn));
       return mysqli_affected_rows($conn);
     }
     
@@ -104,6 +105,10 @@
               <input type="text" name="username" id="username" required />
             </li>
             <li class="form">
+              <label for="alamat">Alamat</label>
+              <input type="text" name="alamat" id="alamat" required />
+            </li>
+            <li class="form">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required />
             </li>
@@ -111,6 +116,7 @@
               <label for="verify">Konfirmasi Password</label>
               <input type="password" name="verify" id="verify" required />
             </li>
+            <br>
               <input type="submit" name="register" class="button-light button-login" value="Register">
           </ul>
         </form>
