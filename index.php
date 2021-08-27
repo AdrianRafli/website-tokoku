@@ -50,7 +50,7 @@
           <div class="nav-icon">
             <a href="daftar-order.php">
               <i class="bx bx-history button-icon me-1"></i>
-              <?php if ($orderid !== null) : ?>
+              <?php if ($orderid !== null && $itungorder3 !== 0) : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungorder3 ?>
                 <span class="visually-hidden">unseen order</span>
@@ -58,7 +58,7 @@
             </a>
             <a href="cart.php">
               <i class="bx bxs-cart button-icon me-1"></i>
-              <?php if ($orderidd !== null) : ?>
+              <?php if ($orderidd !== null && $itungtrans3 !== 0) : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungtrans3 ?>
                 <span class="visually-hidden">unseen cart</span>
