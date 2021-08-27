@@ -7,56 +7,59 @@
   $idp = $_GET['idproduk'];
 
   if(isset($_POST['addprod'])){
-    
-    $ui = $_SESSION['id'];
-    $cek = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$ui' AND STATUS='Cart'");
-    $liat = mysqli_num_rows($cek);
-    $f = mysqli_fetch_array($cek);
-    $orid = $f['orderid'];
-          
-    //kalo ternyata udeh ada order id nya
-    if($liat>0){
-                
-      //cek barang serupa
-      $cekbrg = mysqli_query($conn,"SELECT * FROM detailorder WHERE idproduk='$idp' AND orderid='$orid'");
-      $liatlg = mysqli_num_rows($cekbrg);
-      $brpbanyak = mysqli_fetch_array($cekbrg);
-      $jmlh = $brpbanyak['qty'];
-                
-        //kalo ternyata barangnya ud ada
-        if($liatlg>0){
-        $i=1;
-        $baru = $jmlh + $i;
-                  
-          $updateaja = mysqli_query($conn,"UPDATE detailorder SET qty='$baru' WHERE orderid='$orid' AND idproduk='$idp'");
-                    
-            if($updateaja){
-              $tambah = true;
-            } else {
-              $error = true;
-            }
-          } else {
-            $tambahdata = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$orid','$idp','1')");
-            if ($tambahdata){
-              $berhasil = true;
-            } else { 
-              $error = true;
-            }
-        };
+    if (!isset($_SESSION["login"])) {
+      header("Location: login.php");
     } else {
-      //kalo belom ada order id nya
-      $oi = crypt(rand(22,999),time());
-              
-      $bikincart = mysqli_query($conn,"INSERT INTO cart (orderid, userid) VALUES('$oi','$ui')");
-      if($bikincart){
-        $tambahuser = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$oi','$idp','1')");
-        if ($tambahuser){
-          $berhasil = true;
-        } else { 
-          $error = true;
-          }
+      $ui = $_SESSION['id'];
+      $cek = mysqli_query($conn,"SELECT * FROM cart WHERE userid='$ui' AND STATUS='Cart'");
+      $liat = mysqli_num_rows($cek);
+      $f = mysqli_fetch_array($cek);
+      $orid = $f['orderid'];
+            
+      //kalo ternyata udeh ada order id nya
+      if($liat>0){
+                  
+        //cek barang serupa
+        $cekbrg = mysqli_query($conn,"SELECT * FROM detailorder WHERE idproduk='$idp' AND orderid='$orid'");
+        $liatlg = mysqli_num_rows($cekbrg);
+        $brpbanyak = mysqli_fetch_array($cekbrg);
+        $jmlh = $brpbanyak['qty'];
+                  
+          //kalo ternyata barangnya ud ada
+          if($liatlg>0){
+          $i=1;
+          $baru = $jmlh + $i;
+                    
+            $updateaja = mysqli_query($conn,"UPDATE detailorder SET qty='$baru' WHERE orderid='$orid' AND idproduk='$idp'");
+                      
+              if($updateaja){
+                $tambah = true;
+              } else {
+                $error = true;
+              }
+            } else {
+              $tambahdata = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$orid','$idp','1')");
+              if ($tambahdata){
+                $berhasil = true;
+              } else { 
+                $error = true;
+              }
+          };
       } else {
-        echo "gagal bikin cart";
+        //kalo belom ada order id nya
+        $oi = crypt(rand(22,999),time());
+                
+        $bikincart = mysqli_query($conn,"INSERT INTO cart (orderid, userid) VALUES('$oi','$ui')");
+        if($bikincart){
+          $tambahuser = mysqli_query($conn,"INSERT INTO detailorder (orderid,idproduk,qty) VALUES('$oi','$idp','1')");
+          if ($tambahuser){
+            $berhasil = true;
+          } else { 
+            $error = true;
+            }
+        } else {
+          echo "gagal bikin cart";
+        }
       }
     }
   }
