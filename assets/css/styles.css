@@ -680,7 +680,7 @@ body a:hover {
 .login-title {
   font-size: var(--big-font-size);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .login-error {
