@@ -1,10 +1,10 @@
 # TOKOKU
 
+![Screenshot](assets/img/screenshot.jpeg)
+
 Sebuah Project tugas akhir sekolah berupa Website E-Commerce bernama TOKOKU
 
 ## Description
-
-![Screenshot](assets/img/screenshot.jpeg)
 
 Tokoku ini simplenya adalah sebuah Website E-Commerce yang menjual barang dibidang Teknologi, khususnya Gadget
 
