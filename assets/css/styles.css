@@ -170,11 +170,12 @@ body a:hover {
 
 .nav-icon {
   margin-right: 20px;
+  margin-bottom: 15px;
 }
 
 .nav-icon i {
   margin-left: 0;
-  font-size: var(--bigger-font-size);
+  font-size: var(--biggest-font-size);
   color: var(--dark-color);
 }
 
@@ -1169,6 +1170,14 @@ body a:hover {
 @media only screen and (min-width: 1024px) {
   .navbar {
     padding: 100px;
+  }
+
+  .nav-icon {
+    margin-bottom: 0;
+  }
+
+  .nav-icon i {
+    font-size: var(--bigger-font-size);
   }
 
   .bd-grid {
