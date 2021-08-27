@@ -99,6 +99,7 @@
             <li class="form">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required />
+              <i class="bx bx-low-vision pass-icon" onclick="visible()" id="pass-icon"></i>
             </li>
             <li class="remember">
               <input type="checkbox" name="remember" id="remember" />
@@ -114,5 +115,7 @@
         </form>
       </div>
     </div>
+
+    <script src="assets/js/password.js"></script>
   </body>
 </html>

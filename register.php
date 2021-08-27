@@ -111,10 +111,12 @@
             <li class="form">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required />
+              <i class="bx bx-low-vision pass-icon" onclick="visible()" id="pass-icon"></i>
             </li>
             <li class="form">
               <label for="verify">Konfirmasi Password</label>
               <input type="password" name="verify" id="verify" required />
+              <i class="bx bx-low-vision pass-icon" onclick="visible2()" id="verify-icon"></i>
             </li>
             <br>
               <input type="submit" name="register" class="button-light button-login" value="Register">
@@ -122,5 +124,7 @@
         </form>
       </div>
     </div>
+
+    <script src="assets/js/password.js"></script>
   </body>
 </html>

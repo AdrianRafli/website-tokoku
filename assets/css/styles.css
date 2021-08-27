@@ -706,6 +706,16 @@ body a:hover {
   background-color: var(--white-color);
 }
 
+.pass-icon {
+  font-size: var(--bigger-font-size);
+  color: var(--dark-color-light);
+  vertical-align: middle;
+}
+
+.pass-icon2 {
+  color: var(--dark-color) !important;
+}
+
 .remember label {
   font-size: var(--smaller-font-size);
   margin-bottom: 20px;
