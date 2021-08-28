@@ -125,11 +125,11 @@
                 <article class="product product-laptop">
                   <div class="product-layout">
                     <?php if ($p['idkategori'] == 1) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img laptop" /></a>
+                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" loading="lazy" alt="Gambar Produk" class="product_img laptop" /></a>
                     <?php } else if ($p['idkategori'] == 2) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img phone" /></a>
+                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" loading="lazy" alt="Gambar Produk" class="product_img phone" /></a>
                     <?php } else if ($p['idkategori'] == 3) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" alt="Gambar Produk" class="product_img watch" /></a>
+                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>" loading="lazy" alt="Gambar Produk" class="product_img watch" /></a>
                     <?php } ?>
                   </div>
                   <span class="product_name"><?= $p["namaproduk"] ?></span>
