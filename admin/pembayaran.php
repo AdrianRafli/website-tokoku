@@ -90,7 +90,7 @@
                                 </ul>
                             </li>
 							<li><a href="customer.php"><span>Kelola Pelanggan</span></a></li>
-							<li><a href="user.php"><span>Kelola Staff</span></a></li>
+							<li><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
                                 
@@ -215,7 +215,7 @@
 							<h4 class="modal-title">Tambah Metode</h4>
 						</div>
 						<div class="modal-body">
-                            <p>Maaf untuk sekarang belum bisa menambahkan Metode Pembayaran, karena gambar yang kami gunakan belum menggunakan database</p> <br>
+                            <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Metode Pembayaran, karena gambar yang kami gunakan belum menggunakan database</p> <br>
 							<form method="post">
 								<div class="form-group">
 									<label>Nama Metode</label>
@@ -237,7 +237,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-								<input name="addmethod" type="submit" class="btn btn-primary" value="Tambah">
+								<input name="addmethod" type="submit" class="btn btn-primary" disabled value="Tambah">
 							</div>
 						</form>
 					</div>

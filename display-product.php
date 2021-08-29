@@ -82,8 +82,8 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <!-- ===== BOX ICONS ===== -->
-    <link href="https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css" rel="stylesheet" />
+    <!-- ===== FontAwesome ===== -->
+    <link href="assets/icon/css/all.css" rel="stylesheet">
 
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -120,7 +120,7 @@
           </ul>
           <div class="nav-icon">
             <a href="daftar-order.php">
-              <i class="bx bx-history button-icon me-1"></i>
+              <i class="fas fa-list-ul button-icon me-1"></i>
               <?php if ($orderid !== null && $itungorder3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungorder3 ?>
@@ -128,7 +128,7 @@
               <?php endif; ?>
             </a>
             <a href="cart.php">
-              <i class="bx bxs-cart button-icon me-1"></i>
+              <i class="fas fa-shopping-cart button-icon me-1"></i>
               <?php if ($orderidd !== null && $itungtrans3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungtrans3 ?>
@@ -237,19 +237,19 @@
           <div class="footer-link col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 class="mb-4">Link</h5>
             <p>
-              <a href="about-us.php" class="footer_link">About Us</a>
+              <a href="#" class="footer_link">About Us</a>
             </p>
           </div>
           <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 class="mb-4">Contact</h5>
             <p>
-              <i class='bx bxs-home me-3'> Semarang</i> 
+              <i class='fas fa-home me-3'> Semarang</i>
             </p>
             <p>
-              <i class='bx bxs-envelope me-3'> tokoku@gmail.com</i> 
+              <i class='fas fa-envelope me-3'> tokoku@gmail.com</i> 
             </p>
             <p>
-              <i class='bx bxs-phone me-3'> 081234567890</i>
+              <i class='fas fa-phone me-3'> 081234567890</i> 
             </p>
           </div>
         </div>
@@ -262,17 +262,17 @@
           </div>
           <div class="col-md-5 col-lg-4">
             <ul>
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class='bx bxl-facebook' ></i></a>
+            <li class="list-inline-item">
+                <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="fab fa-instagram"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class='bx bxl-twitter' ></i></a>
+                <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="fab fa-twitter"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://github.com/AdrianRafli/project-web-bsd" target="_blank" class="footer_social"><i class='bx bxl-github' ></i></a>
+                <a href="https://github.com/AdrianRafli/project-web-bsd" target="_blank" class="footer_social"><i class="fab fa-github"></i></a>
               </li>
             </ul>
           </div>

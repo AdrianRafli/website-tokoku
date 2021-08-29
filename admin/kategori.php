@@ -88,7 +88,7 @@
                                 </ul>
                             </li>
 							<li><a href="customer.php"><span>Kelola Pelanggan</span></a></li>
-							<li><a href="user.php"><span>Kelola Staff</span></a></li>
+							<li><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
                                 
@@ -221,6 +221,7 @@
 							<h4 class="modal-title">Tambah Kategori</h4>
 						</div>
 						<div class="modal-body">
+                        <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Kategori</p> <br>
 							<form method="post">
 								<div class="form-group">
 									<label>Nama Kategori</label>
@@ -230,7 +231,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-								<input name="addcategory" type="submit" class="btn btn-primary" value="Tambah">
+								<input name="addcategory" type="submit" class="btn btn-primary" disabled value="Tambah">
 							</div>
 						</form>
 					</div>

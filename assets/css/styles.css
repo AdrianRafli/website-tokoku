@@ -276,14 +276,16 @@ body a:hover {
 
 .button-icon {
   vertical-align: middle;
-  font-size: 1.25rem;
+  font-size: var(--h2-font-size);
   margin-left: var(--mb-1);
+  margin-right: var(--mb-1);
   transition: 0.3s;
 }
 
 .icon-brand {
   color: var(--dark-color-light);
   transition: 0.3s;
+  margin-right: var(--mb-1);
 }
 
 .icon-brand:hover {
@@ -641,6 +643,7 @@ body a:hover {
 }
 
 .brands ul li a {
+  font-size: var(--h2-font-size);
   color: var(--dark-color-light);
   text-decoration: none;
 }
@@ -673,9 +676,9 @@ body a:hover {
 
 .icon {
   color: var(--dark-color);
-  font-size: var(--big-font-size);
-  margin-top: 20px;
-  margin-left: 20px;
+  font-size: var(--h2-font-size);
+  margin-top: 25px;
+  margin-left: 25px;
 }
 
 .login-title {
@@ -696,7 +699,7 @@ body a:hover {
 }
 
 .form input {
-  width: 90%;
+  width: 88%;
   margin-bottom: 10px;
 }
 
@@ -707,13 +710,18 @@ body a:hover {
 }
 
 .pass-icon {
-  font-size: var(--bigger-font-size);
-  color: var(--dark-color-light);
+  margin-left: 3px;
+  font-size: var(--big-font-size);
+  color: var(--dark-color);
+  opacity: 50%;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .pass-icon2 {
   color: var(--dark-color) !important;
+  opacity: 100%;
+  cursor: pointer;
 }
 
 .remember label {
@@ -729,7 +737,7 @@ body a:hover {
 
 .login-signup {
   font-size: var(--normal-font-size);
-  padding-left: 40px;
+  padding-left: 25px;
 }
 
 .login-signup a:hover {
@@ -1028,7 +1036,7 @@ body a:hover {
 }
 
 .about-icon {
-  padding-left: 52px;
+  padding-left: 60px;
 }
 
 /* ************************************ MEDIA QUERIES ************************************ */
@@ -1187,7 +1195,7 @@ body a:hover {
   }
 
   .nav-icon i {
-    font-size: var(--bigger-font-size);
+    font-size: var(--big-font-size);
   }
 
   .bd-grid {
@@ -1259,7 +1267,7 @@ body a:hover {
   }
 
   .icon {
-    font-size: var(--big-font-size);
+    font-size: var(--h2-font-size);
   }
 
   .login-title {
@@ -1275,13 +1283,17 @@ body a:hover {
     margin-bottom: 80px;
   }
 
+  .pass-icon {
+    margin-left: 10px;
+  }
+
   .button-login {
     font-size: var(--normal-font-size);
   }
 
   .login-signup {
     font-size: var(--normal-font-size);
-    padding-left: 100px;
+    padding-left: 80px;
   }
 
   /* ============================= Register Page ===================================== */
@@ -1432,7 +1444,7 @@ body a:hover {
   }
 
   .about-icon {
-    padding-left: 425px;
+    padding-left: 435px;
   }
 
   /* ===================================== Footer ================================== */
@@ -1459,10 +1471,11 @@ body a:hover {
   }
 
   .footer_social {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .footer-contact p i {
-    font-size: 18px;
+    font-size: var(--normal-font-size);
+    color: var(--dark-color-light);
   }
 }

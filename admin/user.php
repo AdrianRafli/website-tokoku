@@ -214,6 +214,7 @@
 							<h4 class="modal-title">Tambah Admin Baru</h4>
 						</div>
 						<div class="modal-body">
+                            <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Kategori</p> <br>
 							<form method="post">
 								<div class="form-group">
 									<label>Email</label>
@@ -231,7 +232,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-								<input name="adduser" type="submit" class="btn btn-primary" value="Simpan">
+								<input name="adduser" type="submit" class="btn btn-primary" disabled value="Simpan">
 							</div>
 						</form>
 					</div>

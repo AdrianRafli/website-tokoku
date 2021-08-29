@@ -125,7 +125,7 @@
                                 </ul>
                             </li>
 							<li><a href="customer.php"><span>Kelola Pelanggan</span></a></li>
-							<li><a href="user.php"><span>Kelola Staff</span></a></li>
+							<li><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
                                 
@@ -252,7 +252,7 @@
 						</div>
 						
 						<div class="modal-body">
-						<p>Maaf untuk sekarang belum bisa menambahkan barang, karena gambar yang kami gunakan belum menggunakan database</p> <br>
+						<p style="color: red;">Maaf untuk sekarang belum bisa menambahkan barang, karena gambar yang kami gunakan belum menggunakan database</p> <br>
 						<form action="produk.php" method="post" enctype="multipart/form-data" >
 								<div class="form-group">
 									<label>Nama Produk</label>
@@ -293,7 +293,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-								<input name="addproduct" type="submit" class="btn btn-primary" value="Tambah">
+								<input name="addproduct" type="submit" class="btn btn-primary" disabled value="Tambah">
 							</div>
 						</form>
 					</div>

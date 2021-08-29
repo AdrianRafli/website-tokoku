@@ -72,8 +72,8 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
-    <!-- ===== BOX ICONS ===== -->
-    <link href="https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css" rel="stylesheet" />
+    <!-- ===== FontAwesome ===== -->
+    <link href="assets/icon/css/all.css" rel="stylesheet">
 
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -83,7 +83,7 @@
   <body>
     <div class="login-page">
       <div class="login">
-        <a href="index.php"><i class="bx bx-left-arrow-alt icon"></i></a>
+        <a href="index.php"><i class="fas fa-arrow-left icon"></i></a>
         <h2 class="login-title">Login</h2>
         <?php if (isset($error)) : ?>
           <p class="login-error">
@@ -99,7 +99,7 @@
             <li class="form">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" required />
-              <i class="bx bx-low-vision pass-icon" onclick="visible()" id="pass-icon"></i>
+              <i class="fas fa-eye pass-icon" onclick="visible()" id="pass-icon"></i>
             </li>
             <li class="remember">
               <input type="checkbox" name="remember" id="remember" />
