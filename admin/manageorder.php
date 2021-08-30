@@ -77,9 +77,7 @@
 							<li><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
-                                
                             </li>
-                            
                         </ul>
                     </nav>
                 </div>
