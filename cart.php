@@ -140,7 +140,7 @@
                 <td>
                   <div class="quantity">
                     <div class="quantity-select">
-                      <input type="number" name="jumlah" class="form-control" height="100px" value="<?= $b['qty'] ?>" \ />
+                      <input type="number" name="jumlah" class="form-control" height="100px" min="1" max="10" value="<?= $b['qty'] ?>" \ />
                     </div>
                   </div>
                 </td>
