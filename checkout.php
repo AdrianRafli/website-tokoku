@@ -99,12 +99,12 @@
         <div class='alert alert-success'>
           Berhasil Check Out
         </div>
-        <meta http-equiv='refresh' content='2; url= index.php'/>
+        <meta http-equiv='refresh' content='2; url= daftar-order.php'/>
       <?php } else if (isset($error)) { ?>
         <div class='alert alert-danger'>
           Gagal Check Out
         </div>
-        <meta http-equiv='refresh' content='2; url= index.php'/>
+        <meta http-equiv='refresh' content='2; url= checkout.php'/>
       <?php } ?>
 
       <div class="checkout-page">
