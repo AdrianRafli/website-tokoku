@@ -32,7 +32,8 @@
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/metisMenu.css">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/typography.css">
@@ -56,7 +57,7 @@
             <div class="main-menu">
                 <div class="menu-inner">
                     <nav>
-                        <ul class="metismenu" id="menu">
+                    <ul class="metismenu" id="menu">
 							<li class="active"><a href="index.php"><span>Home</span></a></li>
 							<li><a href="../"><span>Kembali ke Toko</span></a></li>
 							<li>
@@ -75,9 +76,7 @@
 							<li><a href="user.php"><span>Kelola Admin</span></a></li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
-                                
                             </li>
-                            
                         </ul>
                     </nav>
                 </div>

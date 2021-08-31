@@ -214,7 +214,7 @@
 							<h4 class="modal-title">Tambah Admin Baru</h4>
 						</div>
 						<div class="modal-body">
-                            <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Kategori</p> <br>
+                            <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Admin</p> <br>
 							<form method="post">
 								<div class="form-group">
 									<label>Email</label>
