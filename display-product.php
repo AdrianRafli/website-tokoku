@@ -203,7 +203,13 @@
             <form action="" method="post">
               <fieldset>
                 <input type="hidden" name="idprod" value="<?= $idp ?>">
-                <input type="submit" name="addprod" value="Add to cart" class="button-light">
+                <?php 
+                if($_SESSION['role']=='admin') {
+                  echo "<input type='submit' name='addprod' value='Add to cart' class='button-light' style='opacity: 0.5;' disabled>";
+                } else {
+                  echo "<input type='submit' name='addprod' value='Add to cart' class='button-light'>";
+                }
+              ?>
               </fieldset>
             </form>
             <p class="product-description">
