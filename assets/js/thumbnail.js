@@ -13,4 +13,11 @@ for (let i = 0; i < thumbnails.length; i++) {
     this.classList.add("thumb-active");
     image.src = this.src;
   });
+  thumbnails[i].addEventListener("click", function () {
+    if (activeImages.length > 0) {
+      activeImages[0].classList.remove("thumb-active");
+    }
+    this.classList.add("thumb-active");
+    image.src = this.src;
+  });
 }

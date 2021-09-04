@@ -97,14 +97,14 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
+        <a class="navbar-brand fs-3" href="./">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.php">Home</a>
+              <a class="nav-link fs-6" href="./">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
@@ -120,7 +120,7 @@
           </ul>
           <div class="nav-icon">
             <a href="daftar-order.php">
-              <i class="fas fa-list-ul button-icon me-1"></i>
+              <i class="fas fa-list-ul nav-icon me-1"></i>
               <?php if ($orderid !== null && $itungorder3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungorder3 ?>
@@ -128,7 +128,7 @@
               <?php endif; ?>
             </a>
             <a href="cart.php">
-              <i class="fas fa-shopping-cart button-icon me-1"></i>
+              <i class="fas fa-shopping-cart nav-icon me-1"></i>
               <?php if ($orderidd !== null && $itungtrans3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungtrans3 ?>
@@ -180,7 +180,7 @@
         <?php
          $produk = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' AND idproduk='$idp'"));
         ?>
-          <div class="display-image col-sm-5">
+          <div class="display-image col-lg-5 col-sm-5 col-md-12">
             <div class="border-product border border-2 rounded" id="magnifying_area">
               <?php if ( $idk == 1 ) { ?>
                 <img src="<?= $produk['gambar1']?>" alt="" class="image-product-laptop" id="featured" />
@@ -197,7 +197,7 @@
             </div>
           </div>
           
-          <div class="display-spec col-sm-5">
+          <div class="display-spec col-lg-4 col-sm-5 col-md-12">
             <h2 class="display-product-name"><?= $produk["namaproduk"] ?></h2>
             <h3 class="display-product-price">Rp <?= number_format($produk['hargaafter']) ?><span>Rp <?= number_format($produk['hargabefore']) ?></span></h3>
             <form action="" method="post">

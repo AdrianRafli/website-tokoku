@@ -171,7 +171,7 @@ body a:hover {
 
 .nav-icon i {
   margin-left: 0;
-  font-size: var(--biggest-font-size);
+  font-size: var(--bigger-font-size);
   color: var(--dark-color);
 }
 
@@ -265,6 +265,7 @@ body a:hover {
   background-color: var(--dark-color);
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
+  font-size: 10px;
   font-weight: var(--font-bold);
   align-items: center;
   transition: 0.3s;
@@ -272,7 +273,7 @@ body a:hover {
 
 .button-icon {
   vertical-align: middle;
-  font-size: var(--h2-font-size);
+  font-size: var(--smaller-font-size);
   margin-left: var(--mb-1);
   margin-right: var(--mb-1);
   transition: 0.3s;
@@ -363,6 +364,19 @@ body a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 150px;
+  height: 340px;
+  padding: 1.5rem;
+  background-color: var(--dark-color-lighten);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.product-home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 264px;
   padding: 2rem;
   background-color: var(--dark-color-lighten);
@@ -370,8 +384,12 @@ body a:hover {
   transition: 0.3s;
 }
 
-.product-home {
+.product-width {
   width: auto;
+}
+
+.product-layout {
+  height: 180px;
 }
 
 .product_sale {
@@ -393,17 +411,18 @@ body a:hover {
 
 .product_name,
 .product_price {
-  font-size: var(--normal-font-size);
+  font-size: 10px;
   letter-spacing: 0.1rem;
-  font-weight: var(--font-bold);
 }
 
 .product_name {
   margin-bottom: var(--mb-1);
+  font-weight: var(--font-medium);
 }
 
 .product_price {
   margin-bottom: var(--mb-4);
+  font-weight: var(--font-bold);
 }
 
 .product:hover {
@@ -413,17 +432,6 @@ body a:hover {
 /*------ Shop -------*/
 .product_pages {
   margin-top: var(--mb-6);
-}
-
-.product_pag {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--dark-color);
-  transition: 0.3s;
-}
-
-.product_pag:hover {
-  background-color: var(--dark-color);
-  color: var(--white-color);
 }
 
 /*----- best-seller products -----*/
@@ -600,10 +608,6 @@ body a:hover {
 
 .products-left {
   margin-bottom: 80px;
-}
-
-.products-right {
-  margin-left: 40px;
 }
 
 .brands {
@@ -1037,30 +1041,7 @@ body a:hover {
 
 /* ************************************ MEDIA QUERIES ************************************ */
 
-/* Tablet */
-
-@media only screen and (min-width: 576px) {
-  /* category */
-  .category_container {
-    grid-template-columns: 415px;
-  }
-
-  /* Offer */
-  .offer_container {
-    grid-template-columns: max-content max-content;
-  }
-
-  .offer_data {
-    text-align: center;
-  }
-
-  /* New Collection */
-  .new_mens {
-    align-items: center;
-  }
-}
-
-/* Laptop & PC */
+/* ==================================== Breakpoint Tablet ============================= */
 
 @media only screen and (min-width: 768px) {
   body {
@@ -1075,28 +1056,27 @@ body a:hover {
     width: 76px;
   }
 
-  /* ============================ Image Layout ====================== */
-
-  .laptop {
-    width: 180px;
-  }
-
-  .phone {
-    width: 120px;
-  }
-
-  .watch {
-    width: 70px;
-  }
-
-  .product-layout {
-    height: 200px;
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Navigation */
-
   .nav {
     height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .nav-icon {
+    margin-bottom: 20px;
+    display: inline;
+  }
+
+  .nav-icon i {
+    margin-right: 20px !important;
   }
 
   .nav_menu {
@@ -1112,18 +1092,14 @@ body a:hover {
     margin-bottom: 0;
   }
 
-  .nav_toggle {
-    display: none;
-  }
-
   /* Gadget Image */
 
   .laptop {
-    width: 200px;
+    width: 180px;
   }
 
   .phone-home {
-    width: 120px;
+    width: 100px;
     height: auto;
   }
 
@@ -1132,29 +1108,18 @@ body a:hover {
   }
 
   .watch-home {
-    width: 200px;
+    width: 180px;
   }
 
   .watch {
     width: 80px;
   }
 
-  .product-layout {
-    height: 200px;
-  }
+  /* ========================================= Home Page ================================== */
 
   /* Home */
-
   .home_container {
-    height: 100vh;
-    grid-template-columns: max-content max-content;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .home_product {
-    order: 1;
-    padding-top: 0;
+    height: 80vh;
   }
 
   .home_shape {
@@ -1164,48 +1129,10 @@ body a:hover {
 
   .home_img {
     width: 470px;
-    top: 1.5rem;
-    right: 0;
-    left: -3rem;
+    margin: auto;
   }
 
-  .product_name {
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-semi-bold);
-  }
-
-  .product_price {
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-bold);
-  }
-}
-
-/* ==== Laptop ==== */
-@media only screen and (min-width: 1024px) {
-  .navbar {
-    padding: 100px;
-  }
-
-  .nav-icon {
-    margin-bottom: 0;
-  }
-
-  .nav-icon i {
-    font-size: var(--big-font-size);
-  }
-
-  .bd-grid {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .main {
-    padding-top: 1rem !important;
-  }
-
-  .home_container {
-    column-gap: 8rem;
-  }
+  /* Category */
 
   .category_container {
     display: flex;
@@ -1216,6 +1143,16 @@ body a:hover {
     width: 100%;
   }
 
+  /* Offer */
+  .offer_container {
+    grid-template-columns: max-content max-content;
+  }
+
+  .offer_data {
+    text-align: center;
+  }
+
+  /* New */
   .new_container {
     grid-template-columns: max-content 1fr;
   }
@@ -1242,17 +1179,314 @@ body a:hover {
 
   /* ================================ PRODUCT PAGE ================================= */
 
+  .product {
+    width: 198px;
+    height: 370px;
+    padding: 1.5rem;
+  }
+
+  .product-layout {
+    height: 180px;
+  }
+
+  .products-right {
+    padding: 0;
+    margin-left: 20px;
+  }
+
+  .brands {
+    position: sticky;
+    top: 12rem;
+    margin: auto;
+    width: 200px;
+  }
+
+  .brands h2 {
+    font-size: var(--normal-font-size);
+  }
+
+  .brands ul {
+    margin-left: 5px;
+  }
+
+  .brands ul li {
+    font-size: 10px;
+  }
+
+  .brands ul li a {
+    font-size: var(--normal-font-size);
+  }
+
+  /* button product */
+  .button-light {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-bold);
+  }
+
+  .button-icon {
+    font-size: var(--smaller-font-size);
+  }
+
+  /* ================================== Login Page =================================== */
+
+  .login-page {
+    padding-top: 300px;
+  }
+
+  .login {
+    width: 600px;
+    height: 550px;
+  }
+
+  .icon {
+    font-size: var(--big-font-size);
+  }
+
+  .login-title {
+    font-size: var(--bigger-font-size);
+  }
+
+  .form label {
+    font-size: var(--big-font-size);
+  }
+
+  .remember label {
+    font-size: var(--h2-font-size);
+    margin-bottom: 100px;
+  }
+
+  .pass-icon {
+    margin-left: 10px;
+  }
+
+  .button-login {
+    font-size: var(--normal-font-size);
+  }
+
+  .login-signup {
+    font-size: var(--normal-font-size);
+    padding-left: 130px;
+  }
+
+  /* ============================= Register Page ===================================== */
+
+  .register {
+    width: 670px;
+    height: 620px;
+  }
+
+  /* ================================ DISPLAY PRODUCT ================================= */
+
+  .border-product {
+    width: 400px;
+    height: 300px;
+  }
+
+  .image-product-laptop {
+    margin: auto;
+    width: 300px;
+    height: auto;
+  }
+
+  .image-product-phone {
+    margin: auto;
+    width: 150px;
+    height: auto;
+  }
+
+  .image-product-watch {
+    margin: auto;
+    width: 150px;
+    height: auto;
+  }
+
+  .thumbnails {
+    margin-left: 250px;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* ===================================== About Page ================================== */
+
+  .about {
+    height: 60vh;
+    padding-top: 350px;
+  }
+
+  .about-icon {
+    padding-left: 235px;
+  }
+
+  /* ===================================== Footer ================================== */
+
+  footer {
+    margin-top: 100px !important;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    margin-left: 50px !important;
+  }
+
+  .footer_title {
+    font-size: var(--bigger-font-size);
+  }
+
+  .footer_description {
+    font-size: var(--normal-font-size);
+  }
+
+  .footer_link {
+    font-size: var(--normal-font-size);
+  }
+
+  .footer_social {
+    font-size: 22px;
+  }
+
+  .footer-contact p i {
+    font-size: var(--normal-font-size);
+    color: var(--dark-color-light);
+  }
+}
+
+/* ==================================== Breakpoint Desktop ============================= */
+@media only screen and (min-width: 1024px) {
+  .main {
+    padding-top: 1rem !important;
+  }
+
+  /* Navigation */
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .navbar {
+    padding: 100px;
+  }
+
+  .nav-icon {
+    margin-bottom: 0;
+  }
+
+  .nav-icon i {
+    font-size: var(--big-font-size);
+  }
+
+  .nav_menu {
+    margin-left: auto;
+  }
+
+  .nav_list {
+    display: flex;
+  }
+
+  .nav_item {
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+
+  .nav_toggle {
+    display: none;
+  }
+
+  .product-layout {
+    height: 190px;
+  }
+
+  /* Home */
+
+  .home_container {
+    column-gap: 8rem;
+  }
+
+  .home_container {
+    height: 100vh;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home_product {
+    order: 1;
+    padding-top: 0;
+  }
+
+  .home_shape {
+    width: 376px;
+    height: 376px;
+  }
+
+  .home_img {
+    width: 470px;
+    top: 1.5rem;
+    right: 0;
+    left: -3rem;
+  }
+
+  /* ================================ PRODUCT PAGE ================================= */
+
+  .product {
+    width: 264px;
+    padding: 2rem;
+  }
+
+  .product_name,
+  .product_price {
+    font-size: var(--normal-font-size);
+  }
+
   .products-left {
     margin-left: 50px;
   }
 
   .products-right {
     padding: 0;
+    margin-left: 40px;
+  }
+
+  /* Button Product */
+  .button-light {
+    font-size: var(--normal-font-size);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .button-icon {
+    font-size: var(--normal-font-size);
   }
 
   .brands {
     position: sticky;
+    margin: auto;
+    width: 300px;
     top: 12rem;
+  }
+
+  .brands h2 {
+    font-size: 1.5em;
+  }
+
+  .list-brands {
+    padding: 2em;
+  }
+
+  .brands ul {
+    margin-left: 2em;
+  }
+
+  .brands ul li {
+    font-size: 14px;
+    margin-bottom: 1em;
+  }
+
+  .brands ul li a {
+    font-size: var(--h2-font-size);
   }
 
   /* ================================== Login Page =================================== */

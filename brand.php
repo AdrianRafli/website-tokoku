@@ -33,14 +33,14 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar ">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
+        <a class="navbar-brand fs-3" href="./">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.php">Home</a>
+              <a class="nav-link fs-6" href="./">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
@@ -56,7 +56,7 @@
           </ul>
           <div class="nav-icon">
             <a href="daftar-order.php">
-              <i class="fas fa-list-ul button-icon me-1"></i>
+              <i class="fas fa-list-ul nav-icon me-1"></i>
               <?php if ($orderid !== null && $itungorder3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungorder3 ?>
@@ -64,7 +64,7 @@
               <?php endif; ?>
             </a>
             <a href="cart.php">
-              <i class="fas fa-shopping-cart button-icon me-1"></i>
+              <i class="fas fa-shopping-cart nav-icon me-1"></i>
               <?php if ($orderidd !== null  && $itungtrans3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungtrans3 ?>
@@ -98,7 +98,7 @@
 
         <div class="products">
           <div class="row">
-            <div class="products-left col-sm-3">
+            <div class="products-left col-lg-3 col-md-4">
               <div class="brands rounded">
                 <h2>Brands</h2>
                 <ul class="list-brands">
@@ -114,7 +114,7 @@
               </div>
             </div>
 
-            <div class="products-right col-sm-8">
+            <div class="products-right col-lg-8 col-md-7 col-sm-8">
               <?php 
               	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idbrand='$idb' ORDER BY idbrand ASC");
                 $x = mysqli_num_rows($brgs);

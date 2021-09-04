@@ -65,14 +65,14 @@
     <!--===== HEADER =====-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.php">Tokoku</a>
+        <a class="navbar-brand fs-3" href="./">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-6" href="index.php">Home</a>
+              <a class="nav-link fs-6" href="./">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
@@ -182,7 +182,7 @@
         
 
         <div class="cart-left row">	
-          <div class="cart-left-basket col-sm-4">
+          <div class="cart-left-basket col-lg-4 col-sm-4 col-md-5">
             <h4>Total Harga</h4>
             <ul>
               <?php 
@@ -200,7 +200,7 @@
               <li class="total">Total (inc. 10k Ongkir)<i> - </i> <span>Rp <?= number_format($subtotal) ?></span></li>
             </ul>
           </div>
-          <div class="cart-right-basket col-sm-6 ">
+          <div class="cart-right-basket col-lg-6 col-sm-6 col-md-6">
             <a href="index.php" ><i class='fas fa-arrow-left button-icon'></i>Continue Shopping</a>
             <?php if ($subtotal > 10000) { ?>
               <a href="checkout.php" >Checkout<i class='fas fa-arrow-right button-icon col'></i></a>

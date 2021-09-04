@@ -111,7 +111,7 @@
     <main class="main">
       <?php if (isset($berhasil)) { ?>
         <div class='alert alert-success'>
-            Terima kasih telah melakukan konfirmasi, team kami akan melakukan Verifikasi Pemesanan
+            Terima kasih telah melakukan konfirmasi. Tim kami akan melakukan Verifikasi Pemesanan
         </div>
         <meta http-equiv='refresh' content='4; url= index.php'/>  "
       <?php } else if (isset($gagal)) { ?>
