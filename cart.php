@@ -201,7 +201,7 @@
             </ul>
           </div>
           <div class="cart-right-basket col-lg-6 col-sm-6 col-md-6">
-            <a href="index.php" ><i class='fas fa-arrow-left button-icon'></i>Continue Shopping</a>
+            <a href="./" ><i class='fas fa-arrow-left button-icon'></i>Continue Shopping</a>
             <?php if ($subtotal > 10000) { ?>
               <a href="checkout.php" >Checkout<i class='fas fa-arrow-right button-icon col'></i></a>
             <?php } ?>

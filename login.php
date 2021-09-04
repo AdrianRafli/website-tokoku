@@ -83,7 +83,7 @@
   <body>
     <div class="login-page">
       <div class="login">
-        <a href="index.php"><i class="fas fa-arrow-left icon"></i></a>
+        <a href="./"><i class="fas fa-arrow-left icon"></i></a>
         <h2 class="login-title">Login</h2>
         <?php if (isset($error)) : ?>
           <p class="login-error">

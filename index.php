@@ -154,7 +154,7 @@
         <h2 class="section-title">Featured</h2>
 
         <div class="featured_container bd-grid">
-          <article class="product-home product-width">
+          <article class="product-home ">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=7"><img src="assets/img/Laptop/Asus/ROG/ROG Flow X13 GV301/ROG Flow X13 Belakang.png"  alt="Featured 1" class="product_img laptop" /></a>
@@ -164,7 +164,7 @@
             <a href="display-product.php?idkategori=1&idproduk=7" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
           </article>
 
-          <article class="product-home product-width">
+          <article class="product-home">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Belakang.png"  alt="Featured 1" class="product_img laptop" /></a>
@@ -174,7 +174,7 @@
             <a href="display-product.php?idkategori=1&idproduk=10" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
           </article>
 
-          <article class="product-home product-width">
+          <article class="product-home">
             <div class="product_sale">Sale</div>
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Belakang.png"  alt="Featured 1" class="product_img laptop" /></a>
@@ -191,7 +191,7 @@
         <h2 class="section-title">Best Seller</h2>
         
         <div class="best-seller_container bd-grid">
-          <article class="product-home product-width">
+          <article class="product-home">
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=13"><img src="assets/img/Laptop/Lenovo/Ideapad/Ideapad S340/Ideapad S340 Depan.png"  alt="Featured 1" class="product_img laptop" /></a>
             </div>
@@ -199,7 +199,7 @@
             <span class="product_price">Rp 8.099.000</span>
             <a href="display-product.php?idkategori=1&idproduk=13" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
           </article>
-          <article class="product-home product-width">
+          <article class="product-home">
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=12"><img src="assets/img/Laptop/Asus/Vivobook/Vivobook 14 M413/Vivobook 14 M413 Depan.png"  alt="Featured 1" class="product_img laptop" /></a>
             </div>
@@ -207,7 +207,7 @@
             <span class="product_price">Rp 11.399.000</span>
             <a href="display-product.php?idkategori=1&idproduk=12" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
           </article>
-          <article class="product-home product-width">
+          <article class="product-home">
             <div class="product-layout">
               <a href="display-product.php?idkategori=1&idproduk=10"><img src="assets/img/Laptop/Asus/Zenbook/Zenbook Pro Duo 15' Oled/Zenbook Pro Depan.png"  alt="Featured 1" class="product_img laptop" /></a>
             </div>
