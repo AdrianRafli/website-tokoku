@@ -196,13 +196,13 @@
           <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 class="mb-4">Contact</h5>
             <p>
-              <i class='fas fa-home me-3'> Semarang</i>
+              <i class='fas fa-home me-3'> </i> Semarang
             </p>
             <p>
-              <i class='fas fa-envelope me-3'> tokoku@gmail.com</i> 
+              <i class='fas fa-envelope me-3'> </i> tokoku@gmail.com
             </p>
             <p>
-              <i class='fas fa-phone me-3'> 081234567890</i> 
+              <i class='fas fa-phone me-3'> </i> 081234567890
             </p>
           </div>
         </div>

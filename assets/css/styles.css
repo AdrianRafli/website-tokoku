@@ -411,7 +411,7 @@ body a:hover {
 
 .product_name,
 .product_price {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1rem;
 }
 
@@ -1530,7 +1530,7 @@ body a:hover {
 
   .register {
     width: 500px;
-    height: 570px;
+    height: 590px;
   }
 
   /* ============================= Display Product Page ===================================== */
