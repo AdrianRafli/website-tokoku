@@ -1,12 +1,14 @@
+![Screenshot](assets/img/screenshot.jpeg)
+
 # TOKOKU
 
-![Screenshot](assets/img/screenshot.jpeg)
+![GitHub Repo stars](https://img.shields.io/github/stars/AdrianRafli/website-tokoku)
 
 Sebuah Project tugas akhir sekolah berupa Website E-Commerce bernama TOKOKU
 
 ## Description
 
-Tokoku ini simplenya adalah sebuah Website E-Commerce yang menjual barang dibidang Teknologi, khususnya Gadget
+Tokoku merupakan sebuah Website E-Commerce yang menjual barang Gadget.
 
 ## Contributor
 
