@@ -288,6 +288,30 @@
           </div>
         </div>
       </section>
+
+      <!-- Brand -->
+      <section class="brand">
+          <div class="row ms-3">
+            <div class="brand-home col">
+              <img src="assets/img/brand/acer.png" alt="Acer">
+            </div>
+            <div class="brand-home col">
+              <img src="assets/img/brand/asus.png" alt="Asus">
+            </div>
+            <div class="brand-home col">
+              <img src="assets/img/brand/lenovo.png" alt="Lenovo">
+            </div>
+            <div class="brand-home col">
+              <img src="assets/img/brand/realme.png" alt="Realme">
+            </div>
+            <div class="brand-home col">
+              <img src="assets/img/brand/samsung.png" alt="Samsung">
+            </div>
+            <div class="brand-home col">
+              <img src="assets/img/brand/xiaomi.png" alt="Xiaomi">
+            </div>
+          </div>
+      </section>
     </main>
 
     <!--===== FOOTER =====-->

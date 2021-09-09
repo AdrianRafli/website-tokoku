@@ -242,6 +242,15 @@ body a:hover {
   margin-bottom: var(--mb-6);
 }
 
+.brand {
+  margin-top: 100px;
+}
+
+.brand-home {
+  width: 256px !important;
+  filter: grayscale(100%) opacity(70%);
+}
+
 /*BUTTONS*/
 /* -----Home----- */
 .button {
