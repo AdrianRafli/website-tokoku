@@ -72,7 +72,7 @@
             </a>
           </div>
           <form class="d-flex" action="search.php" method="POST">
-            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
+            <input class="form-control me-2" type="search" name="search" placeholder="Cari Nama Barang" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
               if(!isset($_SESSION['login'])) {

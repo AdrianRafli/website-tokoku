@@ -73,11 +73,11 @@
             </a>
           </div>
           <form class="d-flex" action="search.php" method="post">
-              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
+              <input class="form-control me-2" type="search" name="search" placeholder="Cari Nama Barang" aria-label="Search" />
               <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
               if(!isset($_SESSION['login'])) {
-                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+                echo "<a href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
               } else {
                 if($_SESSION['role']=='member') {
                   echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
@@ -116,7 +116,7 @@
 
             <div class="products-right col-lg-8 col-md-7 col-sm-8">
               <?php 
-              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE namaproduk like '%$s%' or deskripsi like '%$s%' order by idproduk ASC");
+              	$brgs=mysqli_query($conn,"SELECT p.idproduk, p.idkategori, p.idbrand, p.namaproduk, p.gambar1, p.hargaafter, b.namabrand FROM produk p JOIN brand b USING(idbrand) WHERE p.namaproduk like '%$s%' or b.namabrand like '%$s%' order by idproduk ASC");
                 $x = mysqli_num_rows($brgs);
 
                 if ( $x > 0 ) {
