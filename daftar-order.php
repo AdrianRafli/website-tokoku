@@ -218,12 +218,12 @@
         <hr class="mb-4">
 
         <div class="footer-bottom row align-items-center">
-          <div class="col-md-7 col-lg-8">
-          <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+        <div class="col-sm-12 col-lg-8">
+            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
           </div>
-          <div class="col-md-5 col-lg-4">
-            <ul>
-            <li class="list-inline-item">
+          <div class="col-sm-12 col-lg-4">
+            <ul class="d-flex justify-content-center">
+              <li class="list-inline-item">
                 <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li class="list-inline-item">

@@ -81,12 +81,12 @@
     <title>Tokoku | Login</title>
   </head>
   <body>
-    <div class="login-page">
+    <div class="login-page d-flex justify-content-center align-items-center">
       <div class="login">
         <a href="./"><i class="fas fa-arrow-left icon"></i></a>
         <h2 class="login-title">Login</h2>
         <?php if (isset($error)) : ?>
-          <p class="login-error">
+          <p class="login-error px-1">
             Gagal Login, Mungkin Email atau Password Salah!
           </p>
         <?php endif; ?>
@@ -106,7 +106,7 @@
               <label for="remember">Remember me</label>
             </li>
             <li>
-            <input type="submit" name="login" class="button-light button-login" value="Login">
+            <button type="submit" class="btn btn-dark button-login" name="login">LOGIN</button>
             </li>
             <li class="login-signup">
               <p>Don't have an account? <a href="register.php">Sign Up</a></p>

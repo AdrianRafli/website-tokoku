@@ -53,9 +53,9 @@
               </ul>
             </li>
           </ul>
-          <div class="nav-icon">
+          <div class="nav-icon me-4">
             <a href="daftar-order.php">
-              <i class="fas fa-list-ul nav-icon me-1"></i>
+              <i class="fas fa-list-ul me-1"></i>
               <?php if ($orderid !== null && $itungorder3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungorder3 ?>
@@ -63,7 +63,7 @@
               <?php endif; ?>
             </a>
             <a href="cart.php">
-              <i class="fas fa-shopping-cart nav-icon me-1"></i>
+              <i class="fas fa-shopping-cart me-1"></i>
               <?php if ($orderidd !== null && $itungtrans3 !== '0') : ?>
                 <span class="badge nav-badges rounded-pill bg-danger">
                   <?= $itungtrans3 ?>
@@ -95,7 +95,7 @@
       <!--===== HOME =====-->
       <section class="home" id="home">
         <div class="home_container bd-grid">
-          <div class="home_product">
+          <div class="home_product d-flex justify-content-center align-items-center">
             <div class="home_shape"></div>
             <img src="assets/img/Hero.png"  alt="products" class="home_img" />
           </div>
@@ -288,30 +288,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Brand -->
-      <section class="brand">
-          <div class="row ms-3">
-            <div class="brand-home col">
-              <img src="assets/img/brand/acer.png" alt="Acer">
-            </div>
-            <div class="brand-home col">
-              <img src="assets/img/brand/asus.png" alt="Asus">
-            </div>
-            <div class="brand-home col">
-              <img src="assets/img/brand/lenovo.png" alt="Lenovo">
-            </div>
-            <div class="brand-home col">
-              <img src="assets/img/brand/realme.png" alt="Realme">
-            </div>
-            <div class="brand-home col">
-              <img src="assets/img/brand/samsung.png" alt="Samsung">
-            </div>
-            <div class="brand-home col">
-              <img src="assets/img/brand/xiaomi.png" alt="Xiaomi">
-            </div>
-          </div>
-      </section>
     </main>
 
     <!--===== FOOTER =====-->
@@ -320,7 +296,7 @@
         <div class="footer-top row text-md-left">
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 class="mb-4 footer_title">Tokoku</h5>
-            <p class="footer_description">Produk Baru Gadget di 2021</p>
+            <p>Produk Baru Gadget di 2021</p>
           </div>
           <div class="footer-product col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 class="mb-4">Products</h5>
@@ -357,12 +333,12 @@
         <hr class="mb-4">
 
         <div class="footer-bottom row align-items-center">
-          <div class="col-md-7 col-lg-8">
-          <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+          <div class="col-sm-12 col-lg-8">
+            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
           </div>
-          <div class="col-md-5 col-lg-4">
-            <ul>
-            <li class="list-inline-item">
+          <div class="col-sm-12 col-lg-4">
+            <ul class="d-flex justify-content-center">
+              <li class="list-inline-item">
                 <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li class="list-inline-item">

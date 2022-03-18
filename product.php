@@ -114,33 +114,35 @@
               </div>
             </div>
 
-            <div class="products-right col-lg-8 col-md-7 col-sm-8">
-              <?php 
-              	$brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' ORDER BY idkategori ASC");
-                $x = mysqli_num_rows($brgs);
+            <div class="products-right col-lg-8 col-md-6 col-sm-6">
+              <div class="row d-flex justify-content-evenly">
+                <?php 
+                  $brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' ORDER BY idkategori ASC");
+                  $x = mysqli_num_rows($brgs);
 
-                if ( $x > 0 ) {
-                  while($p=mysqli_fetch_array($brgs)) :
-              ?>
-                <article class="product product-laptop">
-                  <div class="product-layout">
-                    <?php if ($p['idkategori'] == 1) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img laptop" /></a>
-                    <?php } else if ($p['idkategori'] == 2) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img phone" /></a>
-                    <?php } else if ($p['idkategori'] == 3) {?>
-                      <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img watch" /></a>
-                    <?php } ?>
+                  if ( $x > 0 ) {
+                    while($p=mysqli_fetch_array($brgs)) :
+                ?>
+                  <div class="col-lg-3 col-sm-2 product product-laptop shadow-sm">
+                    <div class="product-layout">
+                      <?php if ($p['idkategori'] == 1) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img laptop" /></a>
+                      <?php } else if ($p['idkategori'] == 2) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img phone" /></a>
+                      <?php } else if ($p['idkategori'] == 3) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img watch" /></a>
+                      <?php } ?>
+                    </div>
+                    <span class="product_name"><?= $p["namaproduk"] ?></span>
+                    <span class="product_price">Rp <?= number_format($p['hargaafter']) ?></span>
+                    <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
                   </div>
-                  <span class="product_name"><?= $p["namaproduk"] ?></span>
-                  <span class="product_price">Rp <?= number_format($p['hargaafter']) ?></span>
-                  <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
-                </article>
-              <?php
-                endwhile;
-              } else {
-                echo "Data tidak Ditemukan";
-              } ?>
+                  <?php
+                    endwhile;
+                  } else {
+                    echo "Produk tidak Ditemukan";
+                  } ?>
+                </div>
             </div>
           </div>
         </div>
@@ -190,12 +192,12 @@
         <hr class="mb-4">
 
         <div class="footer-bottom row align-items-center">
-          <div class="col-md-7 col-lg-8">
-          <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+        <div class="col-sm-12 col-lg-8">
+            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
           </div>
-          <div class="col-md-5 col-lg-4">
-            <ul>
-            <li class="list-inline-item">
+          <div class="col-sm-12 col-lg-4">
+            <ul class="d-flex justify-content-center">
+              <li class="list-inline-item">
                 <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li class="list-inline-item">

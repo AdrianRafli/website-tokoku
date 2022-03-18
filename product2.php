@@ -1,6 +1,9 @@
-<?php 
+<?php
   session_start();
-  include "dbconnect.php";
+  include 'dbconnect.php';
+  include 'badges.php';
+
+  $idk = $_GET['idkategori'];
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Favicon/favicon-32x32.png">
@@ -24,11 +27,11 @@
     <!-- ===== Bootstrap ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <title>Tokoku | Konfirmasi</title>
+    <title>Tokoku | Product</title>
   </head>
   <body>
     <!--===== HEADER =====-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light scroll-navbar ">
       <div class="container-fluid">
         <a class="navbar-brand fs-3" href="./">Tokoku</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +43,37 @@
               <a class="nav-link fs-6" href="./">Home</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
+              <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?php 
-                  $kat=mysqli_query($conn,"SELECT * FROM kategori ORDER BY idkategori ASC");
+              <?php 
+                  $kat=mysqli_query($conn,"SELECT * from kategori order by idkategori ASC");
                   while($p=mysqli_fetch_array($kat)) :
                 ?>
-                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?php echo $p['namakategori'] ?></a></li>
-                <?php endwhile; ?>
+                <li><a class="dropdown-item" href="product.php?idkategori=<?= $p['idkategori'] ?>"><?= $p['namakategori'] ?></a></li>
+              <?php endwhile; ?>
               </ul>
             </li>
           </ul>
-          <form class="d-flex" action="search.php" method="post">
-            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
+          <div class="nav-icon">
+            <a href="daftar-order.php">
+              <i class="fas fa-list-ul nav-icon me-1"></i>
+              <?php if ($orderid !== null && $itungorder3 !== '0') : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungorder3 ?>
+                <span class="visually-hidden">unseen order</span>
+              <?php endif; ?>
+            </a>
+            <a href="cart.php">
+              <i class="fas fa-shopping-cart nav-icon me-1"></i>
+              <?php if ($orderidd !== null && $itungtrans3 !== '0') : ?>
+                <span class="badge nav-badges rounded-pill bg-danger">
+                  <?= $itungtrans3 ?>
+                <span class="visually-hidden">unseen cart</span>
+                <?php endif; ?>
+            </a>
+          </div>
+          <form class="d-flex" action="search.php" method="POST">
+            <input class="form-control me-2" type="search" name="search" placeholder="Cari Nama Barang" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
               if(!isset($_SESSION['login'])) {
@@ -72,28 +93,60 @@
     </nav>
 
     <main class="main">
-      <div class="about container">
-          <h2>About Us</h2>
-          <p>
-            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. <br> Project ini dikerjakan oleh <strong>Kelompok 1</strong> kelas <strong>XII RPL 1</strong>. 
-          </p>
-          <div class="about-icon">
-          <ul>
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/adrianrafly_/" target="_blank" class="footer_social"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://twitter.com/ianxven" target="_blank" class="footer_social"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/AdrianRafli/project-web-bsd" target="_blank" class="footer_social"><i class="fab fa-github"></i></a>
-              </li>
-            </ul>
+      <section class="featured section" id="shop">
+        <h2 class="section-title">Produk</h2>
+
+        <div class="products">
+          <div class="row">
+            <div class="products-left col-lg-3 col-md-4">
+              <div class="brands rounded">
+                <h2>Brands</h2>
+                <ul class="list-brands">
+                  <?php 
+                    $brnd=mysqli_query($conn,"SELECT * from brand order by idbrand ASC");
+                    while($p=mysqli_fetch_array($brnd)) :
+                  ?>
+                    <li>
+                      <a href="brand.php?idbrand=<?= $p['idbrand'] ?>"><i class="fas fa-arrow-right button-icon icon-brand"></i><?= $p['namabrand'] ?></a>
+                    </li>
+                  <?php endwhile; ?>
+                </ul>
+              </div>
+            </div>
+
+            <div class="products-right col-lg-8 col-md-6 col-sm-6">
+              <div class="row d-flex justify-content-evenly">
+                <?php 
+                  $brgs=mysqli_query($conn,"SELECT * FROM produk WHERE idkategori='$idk' ORDER BY idkategori ASC");
+                  $x = mysqli_num_rows($brgs);
+
+                  if ( $x > 0 ) {
+                    while($p=mysqli_fetch_array($brgs)) :
+                ?>
+                  <div class="col-lg-3 col-md-5 col-sm-2 product product-laptop">
+                    <div class="product-layout">
+                      <?php if ($p['idkategori'] == 1) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img laptop" /></a>
+                      <?php } else if ($p['idkategori'] == 2) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img phone" /></a>
+                      <?php } else if ($p['idkategori'] == 3) {?>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img watch" /></a>
+                      <?php } ?>
+                    </div>
+                    <span class="product_name"><?= $p["namaproduk"] ?></span>
+                    <span class="product_price">Rp <?= number_format($p['hargaafter']) ?></span>
+                    <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>" class="button-light">Lihat Produk <i class="fas fa-arrow-right button-icon"></i></a>
+                  </div>
+                  <?php
+                    endwhile;
+                  } else {
+                    echo "Produk tidak Ditemukan";
+                  } ?>
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <!--===== FOOTER =====-->
@@ -119,7 +172,7 @@
           <div class="footer-link col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 class="mb-4">Link</h5>
             <p>
-              <a href="#" class="footer_link">About Us</a>
+              <a href="about-us.php" class="footer_link">About Us</a>
             </p>
           </div>
           <div class="footer-contact col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">

@@ -159,20 +159,23 @@
     <main class="main">
 
       <?php if (isset($berhasil)) { ?>
-        <div class='alert alert-success'>
+        <div class='alert alert-success alert-dismissible fade show' role='alert'>
           Berhasil menambahkan ke keranjang
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>  
+
         </div>
-        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>  
       <?php } else if (isset($tambah)) { ?>
-        <div class='alert alert-success' >
+        <div class='alert alert-success alert-dismissible fade show' role='alert'>
           Barang sudah dimasukkan ke keranjang, jumlah akan ditambahkan
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>  
         </div>
-        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>
       <?php } else if (isset($error)) { ?>
-        <div class='alert alert-warning' >
+        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
           Gagal menambahkan ke keranjang
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <meta http-equiv='refresh' content='2; url= display-product.php?idkategori=<?= $idk ?>&idproduk=<?= $idp ?>'/>
       <?php } ?>
 
 
@@ -263,12 +266,12 @@
         <hr class="mb-4">
 
         <div class="footer-bottom row align-items-center">
-          <div class="col-md-7 col-lg-8">
-          <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+        <div class="col-sm-12 col-lg-8">
+            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
           </div>
-          <div class="col-md-5 col-lg-4">
-            <ul>
-            <li class="list-inline-item">
+          <div class="col-sm-12 col-lg-4">
+            <ul class="d-flex justify-content-center">
+              <li class="list-inline-item">
                 <a href="https://www.facebook.com/adrian.m.rafli.9" target="_blank" class="footer_social"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li class="list-inline-item">

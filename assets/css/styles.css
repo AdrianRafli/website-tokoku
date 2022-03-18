@@ -113,6 +113,10 @@ body a:hover {
   color: var(--white-color);
 }
 
+/* section {
+  min-height: 100vh !important;
+} */
+
 .section {
   padding: 5rem 0 2rem;
 }
@@ -154,19 +158,13 @@ body a:hover {
   background-color: var(--dark-color-lighten);
 }
 
-.nav_item {
-  margin-bottom: var(--mb-4);
-}
-
 .navbar-brand {
   font-weight: var(--font-semi-bold);
-  font-size: var(--normal-font-size);
   padding-right: 30px;
 }
 
 .nav-icon {
-  margin-right: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .nav-icon i {
@@ -176,7 +174,7 @@ body a:hover {
 }
 
 .nav-badges {
-  transform: translate(-50%, -50%) !important;
+  transform: translate(-130%, -50%) !important;
 }
 
 /*Show menu*/
@@ -193,7 +191,6 @@ body a:hover {
 
 /*----- HOME -----*/
 .home {
-  /* padding-top: 25px; */
   background-color: var(--dark-color-lighten);
   overflow: hidden;
 }
@@ -204,9 +201,6 @@ body a:hover {
 
 .home_product {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-self: center;
   padding-top: 70px;
 }
 
@@ -294,11 +288,6 @@ body a:hover {
   margin-right: var(--mb-1);
 }
 
-.icon-brand:hover {
-  color: var(--dark-color);
-  transform: translateY(-0.25rem);
-}
-
 .button-light:hover {
   transform: translateY(-0.25rem);
 }
@@ -373,8 +362,8 @@ body a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 150px;
-  height: 340px;
+  width: 320px !important;
+  height: auto;
   padding: 1.5rem;
   background-color: var(--dark-color-lighten);
   border-radius: 0.5rem;
@@ -571,12 +560,7 @@ body a:hover {
   margin-bottom: var(--mb-1);
 }
 
-.footer_description {
-  font-size: 12px;
-}
-
 .footer_link {
-  font-size: 12px;
   display: block;
   width: max-content;
   margin-bottom: var(--mb-1);
@@ -588,6 +572,10 @@ body a:hover {
 .footer_link:hover {
   color: var(--dark-color);
   transition: 0.3s;
+}
+
+.footer_description {
+  text-align: center;
 }
 
 .footer_social {
@@ -659,6 +647,7 @@ body a:hover {
 
 .brands ul li a:hover {
   color: var(--dark-color);
+  font-weight: var(--font-medium);
 }
 
 .product-laptop {
@@ -668,7 +657,6 @@ body a:hover {
 
 /* ===================================== LOGIN PAGE ============================== */
 .login-page {
-  padding-top: 70px !important;
   width: 100%;
   height: 100vh;
   background-color: #eee;
@@ -677,7 +665,7 @@ body a:hover {
 .login {
   margin: auto;
   width: 350px;
-  height: 350px;
+  height: auto;
   border-radius: 30px;
   background: var(--white-color);
   box-shadow: 35px 35px 70px #b3b3b3, -35px -35px 70px #ffffff;
@@ -843,7 +831,7 @@ body a:hover {
 
 .display-spec {
   margin-left: 20px;
-  margin-top: 50px !important;
+  margin-top: 20px !important;
 }
 
 .display-product-name {
@@ -1057,9 +1045,9 @@ body a:hover {
     margin: 0;
   }
 
-  .section {
-    padding: 7rem 0 3rem;
-  }
+  /* .section {
+    padding: 4rem 0 3rem;
+  } */
 
   .section-title::after {
     width: 76px;
@@ -1189,8 +1177,8 @@ body a:hover {
   /* ================================ PRODUCT PAGE ================================= */
 
   .product {
-    width: 198px;
-    height: 370px;
+    width: 250px !important;
+    height: auto;
     padding: 1.5rem;
   }
 
@@ -1240,13 +1228,9 @@ body a:hover {
 
   /* ================================== Login Page =================================== */
 
-  .login-page {
-    padding-top: 300px;
-  }
-
   .login {
     width: 600px;
-    height: 550px;
+    height: auto;
   }
 
   .icon {
@@ -1348,6 +1332,7 @@ body a:hover {
 
   .footer_description {
     font-size: var(--normal-font-size);
+    text-align: left;
   }
 
   .footer_link {
@@ -1440,10 +1425,10 @@ body a:hover {
 
   /* ================================ PRODUCT PAGE ================================= */
 
-  .product {
+  /* .product {
     width: 264px;
     padding: 2rem;
-  }
+  } */
 
   .product_name,
   .product_price {
@@ -1502,7 +1487,7 @@ body a:hover {
 
   .login {
     width: 500px;
-    height: 500px;
+    height: auto;
   }
 
   .icon {
@@ -1703,6 +1688,7 @@ body a:hover {
 
   .footer_description {
     font-size: var(--normal-font-size);
+    text-align: left;
   }
 
   .footer_link {
