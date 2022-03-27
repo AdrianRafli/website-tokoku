@@ -73,11 +73,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/Favicon/site.webmanifest">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -186,17 +186,17 @@
           <div class="display-image col-lg-5 col-sm-5 col-md-12">
             <div class="border-product border border-2 rounded" id="magnifying_area">
               <?php if ( $idk == 1 ) { ?>
-                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-laptop" id="featured" />
+                <img src="assets/img/produk/<?= $produk['gambar1']?>" alt="" class="image-product-laptop" id="featured" />
               <?php } else if ( $idk == 2 ) { ?>
-                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-phone" id="featured"/>
+                <img src="assets/img/produk/<?= $produk['gambar1']?>" alt="" class="image-product-phone" id="featured"/>
               <?php } else if ( $idk == 3 ) { ?>
-                <img src="<?= $produk['gambar1']?>" alt="" class="image-product-watch" id="featured"/>
+                <img src="assets/img/produk/<?= $produk['gambar1']?>" alt="" class="image-product-watch" id="featured"/>
               <?php } ?>
             </div>
             <div class="thumbnails">
-              <img class="thumbnail border border-2 rounded thumb-active" src="<?= $produk['gambar1']?>" alt="">
-              <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar2']?>" alt="">
-              <img class="thumbnail border border-2 rounded" src="<?= $produk['gambar3']?>" alt="">
+              <img class="thumbnail border border-2 rounded thumb-active" src="assets/img/produk/<?= $produk['gambar1']?>" alt="">
+              <img class="thumbnail border border-2 rounded" src="assets/img/produk/<?= $produk['gambar2']?>" alt="">
+              <img class="thumbnail border border-2 rounded" src="assets/img/produk/<?= $produk['gambar3']?>" alt="">
             </div>
           </div>
           

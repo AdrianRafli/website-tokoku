@@ -12,11 +12,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/Favicon/site.webmanifest">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -126,11 +126,11 @@
                   <div class="col-lg-3 col-sm-2 product product-laptop shadow-sm">
                     <div class="product-layout">
                       <?php if ($p['idkategori'] == 1) {?>
-                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img laptop" /></a>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="assets/img/produk/<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img laptop" /></a>
                       <?php } else if ($p['idkategori'] == 2) {?>
-                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img phone" /></a>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="assets/img/produk/<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img phone" /></a>
                       <?php } else if ($p['idkategori'] == 3) {?>
-                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img watch" /></a>
+                        <a href="display-product.php?idkategori=<?= $p['idkategori'] ?>&idproduk=<?= $p['idproduk'] ?>"><img src="assets/img/produk/<?= $p['gambar1']?>"  alt="Gambar Produk" class="product_img watch" /></a>
                       <?php } ?>
                     </div>
                     <span class="product_name"><?= $p["namaproduk"] ?></span>

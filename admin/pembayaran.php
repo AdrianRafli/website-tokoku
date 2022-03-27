@@ -1,124 +1,217 @@
-<?php 
-	session_start();
-	include '../dbconnect.php';
-		
-	if(isset($_POST['addmethod']))
+<?php
+session_start();
+include '../dbconnect.php';
+
+if (!isset($_SESSION["login"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+if (!isset($_SESSION["admin"])) {
+    header("Location: ../index.php");
+    exit;
+}
+
+if(isset($_POST['addmethod']))
 	{
 		$metode = $_POST['metode'];
 		$norek = $_POST['norek'];
 		$an = $_POST['an'];
-		$logo = $_POST['logo'];
-			  
-		$tambahmet = mysqli_query($conn,"insert into pembayaran (metode,norek,an,logo) values ('$metode','$norek','$an','$logo')");
-		if ($tambahmet){
-		echo "
-		<meta http-equiv='refresh' content='1; url= pembayaran.php'/>  ";
-		} else { echo "
-		 <meta http-equiv='refresh' content='1; url= pembayaran.php'/> ";
-		}
-		
+		// upload gambar
+        $nama_file = $_FILES['logo']['name'];
+        $ukuran_file = $_FILES['logo']['size'];
+        $tipe_file = $_FILES['logo']['type'];
+        $tmp_file = $_FILES['logo']['tmp_name'];
+      
+        $path = "../assets/img/payment/".$nama_file;
+      
+        if($tipe_file == "image/jpeg" || $tipe_file == "image/png"){ // Cek apakah tipe file yang diupload adalah JPG / JPEG / PNG
+          // Jika tipe file yang diupload JPG / JPEG / PNG, lakukan :
+          if($ukuran_file <= 1000000){ // Cek apakah ukuran file yang diupload kurang dari sama dengan 1MB
+            // Jika ukuran file kurang dari sama dengan 1MB, lakukan :
+            // Proses upload
+            if(move_uploaded_file($tmp_file, $path)){ // Cek apakah gambar berhasil diupload atau tidak
+              // Jika gambar berhasil diupload, Lakukan :  
+               // Proses simpan ke Database
+                $input = mysqli_query($conn, "INSERT INTO pembayaran (metode,norek,an,logo) values ('$metode','$norek','$an','$nama_file')");
+                
+                if($input){ // Cek jika proses simpan ke database sukses atau tidak
+                  // Jika Sukses, Lakukan :
+                  $berhasil = true;
+                }else{
+                  // Jika Gagal, Lakukan :
+                  $error = true;
+                  $message = "Maaf, terjadi kesalahan saat membuat metode pembayaran";
+              }
+          }else{
+              // Jika gambar gagal diupload, Lakukan :
+              $error = true;
+              $message = "Maaf, Gambar Gagal untuk di Upload";
+            }
+          }else{
+            // Jika ukuran file lebih dari 1MB, lakukan :
+            $error = true;
+            $message = "Maaf, Ukuran Gambar yang diupload tidak boleh lebih dari 1MB";
+          }
+        }else{
+          // Jika tipe file yang diupload bukan JPG / JPEG / PNG, lakukan :
+          $error = true;
+          $message = "Maaf, Tipe gambar yang diupload harus JPG / JPEG / PNG";
+        }
 	};
-	?>
+?>
 
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Tokoku | Kelola Metode Pembayaran</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/img/Favicon/site.webmanifest">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/metisMenu.css">
-    <link rel="stylesheet" href="assets/css/slicknav.min.css">
-	
-	<!-- Start datatable css -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
-	
-    <!-- others css -->
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel="stylesheet" href="assets/css/default-css.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <!-- modernizr css -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tokoku - Kelola Pembayaran</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/favicon/site.webmanifest">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
-<body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- preloader area start -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- preloader area end -->
-    <!-- page container area start -->
-    <div class="page-container">
-        <!-- sidebar menu area start -->
-        <div class="sidebar-menu">
-            <div class="main-menu">
-                <div class="menu-inner">
-                    <nav>
-                        <ul class="metismenu" id="menu">
-							<li><a href="index.php"><span>Home</span></a></li>
-							<li><a href="../"><span>Kembali ke Toko</span></a></li>
-							<li>
-                                <a href="manageorder.php"><i class="ti-dashboard"></i><span>Kelola Pesanan</span></a>
-                            </li>
-							<li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout"></i><span>Kelola Toko
-                                    </span></a>
-                                <ul class="collapse">
-                                    <li><a href="kategori.php">Kategori</a></li>
-                                    <li><a href="produk.php">Produk</a></li>
-									<li class="active"><a href="pembayaran.php">Metode Pembayaran</a></li>
-                                </ul>
-                            </li>
-							<li><a href="customer.php"><span>Kelola Pelanggan</span></a></li>
-							<li><a href="user.php"><span>Kelola Admin</span></a></li>
-                            <li>
-                                <a href="../logout.php"><span>Logout</span></a>
-                                
-                            </li>
-                            
-                        </ul>
-                    </nav>
-                </div>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand" href="./">
+                <div class="sidebar-brand-text mx-3">Tokoku</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="./">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="../">
+                    <i class="fas fa-fw fa-arrow-left"></i>
+                    <span>Kembali ke Toko</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Toko
             </div>
-        </div>
-        <!-- sidebar menu area end -->
-        <!-- main content area start -->
-        <div class="main-content">
-            <!-- header area start -->
-            <div class="header-area">
-                <div class="row align-items-center">
-                    <!-- nav and search button -->
-                    <div class="col-md-6 col-sm-8 clearfix">
-                        <div class="nav-btn pull-left">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="pesanan.php">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Kelola Pesanan</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-store"></i>
+                    <span>Toko</span>
+                </a>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="kategori.php">Kategori</a>
+                        <a class="collapse-item" href="produk.php">Produk</a>
+                        <a class="collapse-item active" href="pembayaran.php">Metode Pembayaran</a>
                     </div>
-                    <!-- profile info & task notification -->
-                    <div class="col-md-6 col-sm-4 clearfix">
-                        <ul class="notification-area pull-right">
-                            <li><h3><div class="date">
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                User
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="pelanggan.php">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Kelola Pelanggan</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Kelola Admin</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item my-auto">
+                        <h5><div class="date mt-2">
 								<script type='text/javascript'>
 						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -131,92 +224,127 @@
 						var year = (yy < 1000) ? yy + 1900 : yy;
 						document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);		
 						//-->
-						</script></b></div></h3>
+						</script></b></div></h5>
+                        </li>
 
-						</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <!-- page title area end -->
-            <div class="main-content-inner">
-               
-                <!-- market value area start -->
-                <div class="row mt-5 mb-5">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-center">
-									<h2>Daftar Metode Pembayaran</h2>
-									<button style="margin-bottom:20px" data-toggle="modal" data-target="#myModal" class="btn btn-info col-md-2">Tambah Metode</button>
-                                </div>
-                                    <div class="data-tables datatable-dark">
-										 <table id="dataTable3" class="display" style="width:100%"><thead class="thead-dark">
-											<tr>
-												<th>No.</th>
-												<th>Nama Metode</th>
-												<th>No.Rek</th>
-												<th>Atas Nama</th>
-												<th>URL Logo</th>
-											</tr></thead><tbody>
-											<?php 
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['username'] ?></span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                            <h6 class="m-0 font-weight-bold text-primary">Daftar Pembayaran</h6>
+                            <button data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm col-md-2 mb-2">Tambah Pembayaran</button>
+                        </div>
+                        <div class="card-body">
+                        <?php 
+                            if(isset($berhasil)) {
+                            ?>
+                            <div class='alert alert-success'>
+                                Berhasil menambahkan Metode Pembayaran baru
+                            </div>
+                            <meta http-equiv='refresh' content='1; url= pembayaran.php'/>  
+                            <?php } else if(isset($error)) {?>
+                            <div class='alert alert-danger'>
+                                <?= $message ?>
+                            </div>
+                            <?php } ?>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+											<th>Nama Metode</th>
+											<th>No.Rek</th>
+											<th>Atas Nama</th>
+											<th>Gambar</th>
+											<th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
 											$brgs=mysqli_query($conn,"SELECT * from pembayaran order by no ASC");
 											$no=1;
 											while($p=mysqli_fetch_array($brgs)){
 												$id = $p['no'];
-
-												?>
-												
-												<tr>
-													<td><?php echo $no++ ?></td>
-													<td><?php echo $p['metode'] ?></td>
-													<td><?php echo $p['norek'] ?></td>
-													<td><?php echo $p['an'] ?></td>
-													
-													<td><?php echo $p['logo'] ?></td>
-													
-												</tr>		
-												
-												<?php 
-											}
-											
-											?>
-										</tbody>
-										</table>
-                                    </div>
-								 </div>
+										?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+											<td><?= $p['metode'] ?></td>
+											<td><?= $p['norek'] ?></td>
+											<td><?= $p['an'] ?></td>								
+											<td class="d-flex justify-content-center align-items-center"><img src="../assets/img/payment/<?= $p['logo'] ?>" width="20%"\></td>
+											<td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="edit-pembayaran.php?id=<?= $p['no'] ?>">
+                                                        <button type="button" class="btn btn-sm btn-primary mx-1">Edit</button>
+                                                    </a>
+                                                    <a href="delete-pembayaran.php?id=<?= $p['no'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus ini?')">
+                                                        <button type="button" class="btn btn-sm btn-danger mx-1">Delete</button>
+                                                    </a>
+                                                </div>
+                                            </td>								
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+
                 </div>
-              
-                
-                <!-- row area start-->
+                <!-- /.container-fluid -->
+
             </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Tokoku 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
         </div>
-        <!-- main content area end -->
-        <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>By Tokoku</p>
-            </div>
-        </footer>
-        <!-- footer area end-->
+        <!-- End of Content Wrapper -->
+
     </div>
-    <!-- page container area end -->
-	
-	<!-- modal input -->
-			<div id="myModal" class="modal fade">
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Tambah Pembayaran Modal-->
+    <div id="myModal" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4 class="modal-title">Tambah Metode</h4>
+							<h4 class="modal-title">Tambah Metode Pembayaran</h4>
 						</div>
 						<div class="modal-body">
-                            <p style="color: red;">Maaf untuk sekarang belum bisa menambahkan Metode Pembayaran, karena gambar yang kami gunakan belum menggunakan database</p> <br>
-							<form method="post">
+							<form method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label>Nama Metode</label>
 									<input name="metode" type="text" class="form-control" required autofocus>
@@ -230,52 +358,37 @@
 									<input name="an" type="text" class="form-control" required>
 								</div>
 								<div class="form-group">
-									<label>URL Logo</label>
-									<input name="logo" type="text" class="form-control" required>
+									<label>Gambar</label>
+									<input name="logo" type="file" class="form-control" required>
 								</div>
 
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-								<input name="addmethod" type="submit" class="btn btn-primary" disabled value="Tambah">
+								<input name="addmethod" type="submit" class="btn btn-primary" value="Tambah">
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
-	
-	<script>
-	$(document).ready(function() {
-    $('#dataTable3').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'print'
-        ]
-    } );
-	} );
-	</script>
-	
-	<!-- jquery latest version -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <!-- bootstrap 4 js -->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/metisMenu.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
-		<!-- Start datatable js -->
-	 <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    
-    <!-- others plugins -->
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/scripts.js"></script>
-	
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
 </body>
+
 </html>

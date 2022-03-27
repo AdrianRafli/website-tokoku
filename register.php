@@ -17,7 +17,9 @@
       global $confirm;
 
       $email = $data["email"];
+      $email = strip_tags($email);
       $username = strtolower(stripslashes($data["username"]));
+      $username = htmlspecialchars($username);
       $alamat = $data["alamat"];
       $password = mysqli_real_escape_string($conn, $data["password"]);
       $verify = mysqli_real_escape_string($conn, $data["verify"]);
@@ -65,11 +67,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/Favicon/site.webmanifest">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />

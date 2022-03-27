@@ -16,7 +16,5 @@ Project ini dikerjakan oleh :
 
 - Adrian Maulana Rafli
 - Catherin Andriani
-- Pranita Vimala Wati
-- Rayhan Kaila Aksam
-- Risky Budi Widyatama
-- Satya Arya Pambudi
+- Ishaq Wildan Nur Robbi
+- Rahmat Rizki Maulana

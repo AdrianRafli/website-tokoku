@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/Favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -75,7 +75,7 @@
       <div class="about container">
           <h2>About Us</h2>
           <p>
-            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. <br> Project ini dikerjakan oleh <strong>Kelompok 1</strong> kelas <strong>XII RPL 1</strong>. 
+            <strong>Tokoku</strong> merupakan sebuah Project Tugas Akhir Sekolah berupa Website E-Commerce yang menjual berbagai jenis Gadget. <br> Project ini dikerjakan oleh <strong>Kelompok 2</strong> kelas <strong>XII RPL 1</strong>. 
           </p>
           <div class="about-icon">
           <ul>
@@ -140,7 +140,7 @@
 
         <div class="footer-bottom row align-items-center">
         <div class="col-sm-12 col-lg-8">
-            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 1, XII RPL 1 </p>
+            <p class="footer_description">&copy; <script>document.write(new Date().getFullYear())</script> Kelompok 2, XII RPL 1 </p>
           </div>
           <div class="col-sm-12 col-lg-4">
             <ul class="d-flex justify-content-center">
