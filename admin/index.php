@@ -45,6 +45,7 @@
     <link rel="manifest" href="../assets/img/favicon/site.webmanifest">
 
     <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -74,7 +75,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="./">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="bi bi-speedometer"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -84,7 +85,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="../">
-                    <i class="fas fa-fw fa-arrow-left"></i>
+                    <i class="bi bi-arrow-left"></i>
                     <span>Kembali ke Toko</span></a>
             </li>
 
@@ -98,7 +99,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="pesanan.php">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-book"></i>
                     <span>Kelola Pesanan</span></a>
             </li>
 
@@ -106,7 +107,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-store"></i>
+                    <i class="bi bi-shop-window"></i>
                     <span>Kelola Toko</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -131,14 +132,14 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="pelanggan.php">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="bi bi-people-fill"></i>
                     <span>Kelola Pelanggan</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="admin.php">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="bi bi-person-fill"></i>
                     <span>Kelola Admin</span></a>
             </li>
 

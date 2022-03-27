@@ -39,6 +39,10 @@
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['role'];
         $_SESSION['login'] = true;
+        
+        if($_SESSION['role'] == 'admin') {
+          $_SESSION['admin'] = true;
+        }
 
         // cek remember me
         if (isset($_POST['remember'])) {
