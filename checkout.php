@@ -44,7 +44,7 @@
     <link href="assets/icon/css/all.css" rel="stylesheet">
 
     <!-- ===== Bootstrap ===== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
     <title>Tokoku | Checkout</title>
   </head>
@@ -204,7 +204,7 @@
               while($p=mysqli_fetch_array($metode)) :
             ?>
             <div class="payment-method col">
-              <img src="<?= $p['logo'] ?>" /><br />
+              <img src="assets/img/payment/<?= $p['logo'] ?>" /><br />
               <h4>
                 <?= $p['metode'] ?> - <?= $p['norek'] ?><br />
                 a/n. <?= $p['an'] ?>
@@ -296,6 +296,6 @@
     </footer>
 
     <!--===== MAIN JS =====-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@
     <link href="assets/icon/css/all.css" rel="stylesheet">
 
     <!-- ===== Bootstrap ===== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
     <title>Tokoku | Belanja Gadget Serba Baru</title>
   </head>
@@ -75,14 +75,26 @@
             <input class="form-control me-2" type="search" name="search" placeholder="Cari Nama Barang" aria-label="Search" />
             <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             <?php 
-              if(!isset($_SESSION['login'])) {
-                echo "<a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>";
+              if(!isset($_SESSION['login'])) { ?>
+                <a   href='login.php' class='btn btn-outline-dark me-2' type='button'>Login</a>
+                <?php
               } else {
-                if($_SESSION['role']=='member') {
-                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
-                } else {
-                  echo "<a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>";
-                  echo "<a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>";
+                if($_SESSION['role']=='member') { ?>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/profile/profile.svg" class="width: 100%;" alt="profile picture">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a></li>
+                    </ul>
+                  </div>
+                <?php
+                } else { ?>
+                  <a href='admin' class='btn btn-outline-dark me-2' type='button'>Admin</a>
+                  <a href='logout.php' class='btn btn-outline-dark me-2' type='button'>Logout</a>
+                  <?php
                 }
               }
             ?>
@@ -358,6 +370,6 @@
 
     <!--===== JavaScript =====-->
     <script src="assets/js/homeHeader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

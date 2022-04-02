@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../dbconnect.php';
 
 if (!isset($_SESSION["login"])) {
@@ -7,7 +8,7 @@ if (!isset($_SESSION["login"])) {
 }
 
 if (!isset($_SESSION["admin"])) {
-    header("Location: ../index.php");
+    header("Location: ../");
     exit;
 }
 ?>

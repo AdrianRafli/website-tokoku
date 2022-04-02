@@ -227,7 +227,7 @@
                                             <h5 class="mb-0 font-weight-bold text-gray-800"><?= $itungcust3 ?></h5>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                                            <i class="bi bi-person-fill fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@
                                             <h5 class="mb-0 font-weight-bold text-gray-800"><?= $itungorder3 ?></h5>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            <i class="bi bi-book fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -263,7 +263,7 @@
                                             <h5 class="mb-0 font-weight-bold text-gray-800"><?= $itungtrans3 ?></h5>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-check fa-2x text-gray-300"></i>
+                                            <i class="bi bi-bag-check-fill fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
